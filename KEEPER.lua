@@ -9974,10 +9974,10 @@ send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n�
 end end
 if text == "حذف قناة الاشتراك" or text == "مسح قناة الاشتراك" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ هذه الامر يخص المطور الاساسي فقط', 1, 'md')
 else
 redis:del(KEEPER.."Kpch1")
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح قناة الاشتراك\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n🎟┊ تم مسح قناة الاشتراك\n ✓ ", 1, 'md')
 end end
 ---------------------cod msgs-------------------------
 if text:match("^رسایلی$") or text:match("^رسايلي$") then
@@ -10001,18 +10001,18 @@ break
 end end end
 local kpmsgsss = [[
 
-⚜️┊ اهلا ⌯ *]]..result.first_name_..[[*
-⚜️┊ لقد قمت بآرســـــال
+🙋🏻‍♂️┊ اهلا ⌯ *]]..result.first_name_..[[*
+👨🏾‍🌾┊ لقد قمت بآرسال
 •- * ⁽ ]]..kptext..[[ ₎*  📝 نص
 •- * ⁽ ]]..pkPhoto..[[ ₎*  📷 صور
 •- * ⁽ ]]..kpVoice..[[ ₎*  🎙 صوت
-•- * ⁽ ]]..kpVideo..[[ ₎*  🎥 فيديــو
+•- * ⁽ ]]..kpVideo..[[ ₎*  🎥 فيديو
 •- * ⁽ ]]..kpcon..[[ ₎*  📲 جهات
 •- * ⁽ ]]..kpsticker..[[ ₎*  🗺 ملصقات
 •- * ⁽ ]]..kpSelfVideo..[[ ₎*  📽 فيديو امامي
-•- * ⁽ ]]..kpGif..[[ ₎*  🖥 صور متحركـه
+•- * ⁽ ]]..kpGif..[[ ₎*  🖥 صور متحركه
 
-⚜️┊العدد الكلي ⌯ *(]]..msgs..[[)* رساله
+👨🏻‍💻┊العدد الكلي ⌯ *(]]..msgs..[[)* رساله
 ‌‏
 ]]
 send(msg.chat_id_, msg.id_, 1, kpmsgsss, 1, 'md')
@@ -10020,7 +10020,7 @@ end
 getUser(msg.sender_user_id_, get_me)
 end end
 --------------------------------------------------------
-if text == ''..(redis:get(KEEPER..'keepernams') or 'كيبر')..' هينه' or text == ''..(redis:get(KEEPER..'keepernams') or 'كيبر')..' رزله' then
+if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' هينه' or text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' رزله' then
 function reep22(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(KEEPER_SUDO) then
 send(msg.chat_id_, msg.id_, 1, 'انجب لك هذا مطوري العشق 😌💋', 1, 'md')
@@ -10036,7 +10036,7 @@ else
 getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),reep22)
 end end
 --------------------------------------------------------------------------------------------
-if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' بوسه' or text == ''..(redis:get(KEEPER..'keepernams') or 'كيبر')..' مصه' then
+if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' بوسه' or text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' مصه' then
 function reep22(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(KEEPER_SUDO) then
 send(msg.chat_id_, msg.id_, 1, 'موووووووووووواح 🌚💋', 1, 'md')
@@ -10062,12 +10062,12 @@ end
 -----------------------------------------
 if text == "بوت" or text == "بوتت" or text == "البوت" then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
-local KEEPER = {'اسمي '..(redis:get(KEEPER..'keepernams') or 'كيبر')..' 😌👌','تره اسمي '..(redis:get(KEEPER..'keepernams') or 'كيبر')..' يالجريذي ☹️😹'  }
+local KEEPER = {'اسمي '..(redis:get(KEEPER..'keepernams') or 'دعبول')..' 😌👌','تره  '..(redis:get(KEEPER..'keepernams') or 'دعبول')..' يالجريذي ☹️😹'  }
 send(msg.chat_id_, msg.id_, 1,''..KEEPER[math.random(#KEEPER)]..'', 1, 'md')
 end
 end
 -----------------------------------------
-if text == ''..(redis:get(KEEPER..'keepernams') or 'كيبر')..'' then
+if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..'' then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local KEEPER = {'اي نعم اني '..(redis:get(KEEPER..'keepernams') or 'كيبر')..' 🍃😐','اهو اجوي الملطلطين 😹😪','كافي تره كرهت اسمي 💔😠'}
 send(msg.chat_id_, msg.id_, 1,''..KEEPER[math.random(#KEEPER)]..'', 1, 'md')
@@ -10290,7 +10290,7 @@ send(msg.chat_id_, msg.id_, 1,''..KEEPER[math.random(#KEEPER)]..'', 1, 'md')
 end
 end
 --------------------------------------
-if text == "ممكن نزوج" or text == "ممكن نرتبط" then
+if text == "ممكن" or text == "ممکن" then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local KEEPER = {"ها ها يمعودين احنه هنا😒😹","اعتقد اكو خاص وخطبو وهنا زفه بسيارتي🚗😂" }
 send(msg.chat_id_, msg.id_, 1,''..KEEPER[math.random(#KEEPER)]..'', 1, 'md')
@@ -10384,7 +10384,7 @@ delete_msg(chat,msgs)
 elseif redis:get(KEEPER..'editmsg'..msg.chat_id_) == 'didam' then
 if redis:get(KEEPER..'bot:editid'..msg.message_id_) then
 local old_text = redis:get(KEEPER..'bot:editid'..msg.message_id_)
-send(msg.chat_id_, msg.message_id_, 1, '🔹 ممنوع التعديل رسالتك المعدله :\n*'..old_text..'*', 1, 'md')
+send(msg.chat_id_, msg.message_id_, 1, '🙋🏻‍♂️ ممنوع التعديل رسالتك المعدله :\n*'..old_text..'*', 1, 'md')
 end end end end
 getMessage(msg.chat_id_, msg.message_id_, get_msg_contact)
 elseif data.ID == "UpdateMessageSendSucceeded" then
@@ -10394,7 +10394,7 @@ local chat = chats[msg.chat_id_]
 local text = msg.content_.text_
 redis:sadd(KEEPER.."groups:users" .. msg.chat_id_, msg.sender_user_id_)
 if text then
-if text:match("✺⇣  راجع مطور البوت  لتفعيله في مجموعتك🏌️🎈") then
+if text:match("✺⇣  اهلا عزيزي راجع مطور البوت  لتفعيله في مجموعتك🏌️🎈") then
 pinmsg(msg.chat_id_, msg.id_, 0)
 end
 end
