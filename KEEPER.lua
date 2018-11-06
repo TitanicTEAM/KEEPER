@@ -9951,7 +9951,7 @@ end
 -------------- start bot-----------------------------
 if text == "وضع كليشه start" or text == "وضع كليشه ستارت" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ هذه الامر يخص المطور الاساسي فقط', 1, 'md')
 else
 send(msg.chat_id_, msg.id_, 1, '🌀┊ ارسال الان الكليشه ليتم حفظها🍃', 1, 'md')
 redis:set(KEEPER.."addstart1"..msg.sender_user_id_, "theaddstarts")
@@ -9960,14 +9960,14 @@ end end
 if text then
 local theaddstart = redis:get(KEEPER.."addstart1"..msg.sender_user_id_)
 if theaddstart == 'theaddstarts' then
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم حفظ الكليشه 🍃", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ تم حفظ الكليشه 🍃", 1, 'md')
 redis:del(KEEPER.."addstart1"..msg.sender_user_id_)
 redis:set(KEEPER.."startbot", text)
 return false
 end end
 if text == "حذف كليشه ستارت" or text == "مسح كليشه ستارت" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ هذه الامر يخص المطور الاساسي فقط', 1\n🚶🏾", 'md')
 else
 redis:del(KEEPER.."startbot")
 send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح كليشه start\n ✓ ", 1, 'md')
