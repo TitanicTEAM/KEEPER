@@ -9980,7 +9980,7 @@ redis:del(KEEPER.."Kpch1")
 send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح قناة الاشتراك\n ✓ ", 1, 'md')
 end end
 ---------------------cod msgs-------------------------
-if text:match("^رسائلي$") or text:match("^رسايلي$") then
+if text:match("^رسایلی$") or text:match("^رسايلي$") then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local get_me = function(extra, result)
 local msgs = (tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_)) or "0" )
