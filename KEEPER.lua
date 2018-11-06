@@ -9967,7 +9967,7 @@ return false
 end end
 if text == "حذف كليشه ستارت" or text == "مسح كليشه ستارت" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ هذه الامر يخص المطور الاساسي فقط\n🚶🏾", 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 redis:del(KEEPER.."startbot")
 send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح كليشه start\n ✓ ", 1, 'md')
