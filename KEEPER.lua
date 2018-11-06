@@ -6651,9 +6651,9 @@ local kp_msgss = tonumber(redis:get(KEEPER.."msgs:"..result.id_..":"..msg.chat_i
 local Kpcontact = (tonumber(redis:get(KEEPER.."kpaddcon"..msg.chat_id_..":"..result.id_) or 0))
 if result.id_ then
 if tonumber(result.id_) == tonumber(Kp_Owner) then
-t = "مطور الاساسـي 🍃"
+t = "مطور الاساسي 👨🏾‍🌾"
 elseif is_sudoid(result.id_) then
-t = "المطور 🍃"
+t = "المطور 👨🏾‍🌾"
 elseif is_admin(result.id_) then
 t = "ادمن في البوت 🍃"
 elseif is_vipmems(result.id_) then
@@ -7936,9 +7936,9 @@ redis:set(KEEPER.."bot:voice:mute" .. msg.chat_id_, true)
 end
 if lockKeeper[2] == "الروابط" then
 if not redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n📡┊ تم قفل الروابط\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ هلا حبيبي  ... "..tmkeeper(msg).."\n👷🏾┊ تم قفل الروابط\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n📡┊ تم قفل الروابط\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ هلا حبيبي  ... "..tmkeeper(msg).."\n👷🏾┊ الروابط مقفول سابقا\n ✓ ", 1, 'md')
 end                 
 redis:set(KEEPER.."bot:links:mute" .. msg.chat_id_, true)
 end
