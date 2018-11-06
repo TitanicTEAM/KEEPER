@@ -192,7 +192,7 @@ bot_id = sudos.Bot_ID ---id bot
 KEEPER = tonumber(_redis.Bot_ID)
 
 function Run()
-print('\27[93m>Developer:\27[39m'..' '..'@keeper_ch')
+print('\27[93m>Developer:\27[39m'..' '..'@ZAMAFBI')
 end
 ------------------------boT ID   BY keePer ----------------------
 print(string.sub(_redis.Bot_ID,1,0))
@@ -999,7 +999,7 @@ end
 function Kp_JoinCh(msg)
 local var = true
 if redis:get(KEEPER.."Kpjoin1") then
-local channel = ''..(redis:get(KEEPER..'Kpch1') or '@keeper_ch')..''
+local channel = ''..(redis:get(KEEPER..'Kpch1') or '@ZAMAFBI')..''
 local url , res = https.request('https://api.telegram.org/bot'..KEEPER_TOKEN..'/getchatmember?chat_id='..channel..'&user_id='..msg.sender_user_id_)
 local data = KPJS:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
@@ -5049,7 +5049,7 @@ if is_owner(msg.sender_user_id_, msg.chat_id_) and not Kp_JoinCh(msg) or is_mons
 return false
 end
 -------------------------------leave groups----------------------------------------------------------------------
-if is_sudo(msg) and idf:match("-100(%d+)") and (text:match('^'..(redis:get(KEEPER..'keepernams') or 'كيبر')..' غادر$')) then
+if is_sudo(msg) and idf:match("-100(%d+)") and (text:match('^'..(redis:get(KEEPER..'keepernams') or 'شلش')..' غادر$')) then
 send(msg.chat_id_, msg.id_, 1, "✺↓ تم مغادره المجموعــه ♩†",  1, "md")
 redis:srem(KEEPER.."bot:groups", msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
@@ -6090,7 +6090,7 @@ if not is_KP(msg) then
 send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
 else
 send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل الاشتراك الاجباري\n ✓ ", 1, 'md')
-send(msg.chat_id_, msg.id_, 1, '™️┊قناة الاشتراك» ['..(redis:get(KEEPER..'Kpch1') or '@keeper_ch')..']\n📌┊ لتغيير قناة الاشتراك ارسل »\n⚠️┊ `تعين قناة الاشتراك `\n➖', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '™️┊قناة الاشتراك» ['..(redis:get(KEEPER..'Kpch1') or '@ZAMAFBI')..']\n📌┊ لتغيير قناة الاشتراك ارسل »\n⚠️┊ `تعين قناة الاشتراك `\n➖', 1, 'md')
 redis:set(KEEPER.."Kpjoin1", true)
 return false 
 end
@@ -6164,7 +6164,7 @@ send(msg.chat_id_, msg.id_, 1, keep, 1, 'md')
 else
 keeper = [[
 
-💠┊مرحبا انا بوت اسمي *(]]..(redis:get(KEEPER..'keepernams') or 'كيبر')..[[)🗼*
+💠┊مرحبا انا بوت اسمي *(]]..(redis:get(KEEPER..'keepernams') or 'شلش')..[[)🗼*
 💢┊اقوم بحماية مجموعتــك  مُـْـْـْـن '
 📜┊الروابط، والتكرار، السبام وغيرها '
 🔰┊قم بأضافة  البوت الى المجموعه ،
@@ -6487,7 +6487,7 @@ owner = user_info
 else
 owner = "لا يوجد "
 end
-send(Kp_Owner,0, 1,"- *تم اضافه مجموعه* »\nﮧ┉┉┉┉┉┉┉┉┉\n‏🔱┊ المدير ≈ [" .. owner .. "]\n🔰┊ الرابط ≈ [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link"..msg.chat_id_) or "https://t.me/keeper_ch") .. ")\n🔅┊* اسم المجموعه* »\n👨🏼┊ﮧ "..title_name(msg.chat_id_).."\n🚫┊ *ايدي المجموعه* »\n📉┊ﮧ "..msg.chat_id_.."\n*«معلومات عن المطور»*\nﮧ┉┉┉┉┉┉┉┉┉\n🌀┊ ايديه ≈ (" .. msg.sender_user_id_ .. ")\n🚫┊ اسمه ≈ " ..result.first_name_.. "\n️⚠️┊ معرفه ≈ [" .. username .. "]\n‏", 1, "md")
+send(Kp_Owner,0, 1,"- *تم اضافه مجموعه* »\nﮧ┉┉┉┉┉┉┉┉┉\n‏🔱┊ المدير ≈ [" .. owner .. "]\n🔰┊ الرابط ≈ [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link"..msg.chat_id_) or "https://t.me/ZAMAFBI") .. ")\n🔅┊* اسم المجموعه* »\n👨🏼┊ﮧ "..title_name(msg.chat_id_).."\n🚫┊ *ايدي المجموعه* »\n📉┊ﮧ "..msg.chat_id_.."\n*«معلومات عن المطور»*\nﮧ┉┉┉┉┉┉┉┉┉\n🌀┊ ايديه ≈ (" .. msg.sender_user_id_ .. ")\n🚫┊ اسمه ≈ " ..result.first_name_.. "\n️⚠️┊ معرفه ≈ [" .. username .. "]\n‏", 1, "md")
 redis:set(KEEPER.."bot:enable:" .. msg.chat_id_, true)
 redis:setex(KEEPER.."bot:charge:" .. msg.chat_id_, 9999 * day, true)
 redis:sadd(KEEPER.."sudo:data:" .. msg.sender_user_id_, msg.chat_id_)
@@ -6557,7 +6557,7 @@ owner = user_info
 else
 owner = "لا يوجد "
 end
-send(Kp_Owner,0, 1,"- *تم اضافه مجموعه* »\nﮧ┉┉┉┉┉┉┉┉┉\n‏🔱┊ المدير ≈ [" .. owner .. "]\n🔰┊ الرابط ≈ [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link"..msg.chat_id_) or "https://t.me/keeper_ch") .. ")\n🔅┊* اسم المجموعه* »\n👨🏼┊ﮧ "..title_name(msg.chat_id_).."\n🚫┊ *ايدي المجموعه* »\n📉┊ﮧ "..msg.chat_id_.."\n*«معلومات عن المطور»*\nﮧ┉┉┉┉┉┉┉┉┉\n🌀┊ ايديه ≈ (" .. msg.sender_user_id_ .. ")\n🚫┊ اسمه ≈ " ..result.first_name_.. "\n️⚠️┊ معرفه ≈ [" .. username .. "]\n‏", 1, "md")
+send(Kp_Owner,0, 1,"- *تم اضافه مجموعه* »\nﮧ┉┉┉┉┉┉┉┉┉\n‏🔱┊ المدير ≈ [" .. owner .. "]\n🔰┊ الرابط ≈ [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link"..msg.chat_id_) or "https://t.me/ZAMAFBI") .. ")\n🔅┊* اسم المجموعه* »\n👨🏼┊ﮧ "..title_name(msg.chat_id_).."\n🚫┊ *ايدي المجموعه* »\n📉┊ﮧ "..msg.chat_id_.."\n*«معلومات عن المطور»*\nﮧ┉┉┉┉┉┉┉┉┉\n🌀┊ ايديه ≈ (" .. msg.sender_user_id_ .. ")\n🚫┊ اسمه ≈ " ..result.first_name_.. "\n️⚠️┊ معرفه ≈ [" .. username .. "]\n‏", 1, "md")
 redis:set(KEEPER.."bot:enable:" .. msg.chat_id_, true)
 redis:setex(KEEPER.."bot:charge:" .. msg.chat_id_, 9999 * day, true)
 redis:sadd(KEEPER.."sudo:data:" .. msg.sender_user_id_, msg.chat_id_)
@@ -6594,7 +6594,7 @@ owner = user_info
 else
 owner = "لا يوجد "
 end
-send(v,0, 1,"- *تم تعطيل مجموعه* »\nﮧ┉┉┉┉┉┉┉┉┉\n‏🔱┊ المدير ≈ " .. owner .. "\n🔰┊ الرابط ≈ [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link"..msg.chat_id_) or "https://t.me/keeper_ch") .. ")\n🔅┊* اسم المجموعه* »\n👨🏼┊ﮧ "..title_name(msg.chat_id_).."\n🚫┊ *ايدي المجموعه* »\n📉┊ﮧ "..msg.chat_id_.."\n*«معلومات عن المطور»*\nﮧ┉┉┉┉┉┉┉┉┉\n🌀┊ ايديه ≈ (" .. msg.sender_user_id_ .. ")\n🚫┊ اسمه ≈ " .. fname .. " " .. lname .. "\n️⚠️┊ معرفه ≈ [" .. username .. "]\n‏", 1, "md")
+send(v,0, 1,"- *تم تعطيل مجموعه* »\nﮧ┉┉┉┉┉┉┉┉┉\n‏🔱┊ المدير ≈ " .. owner .. "\n🔰┊ الرابط ≈ [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link"..msg.chat_id_) or "https://t.me/ZAMAFBI") .. ")\n🔅┊* اسم المجموعه* »\n👨🏼┊ﮧ "..title_name(msg.chat_id_).."\n🚫┊ *ايدي المجموعه* »\n📉┊ﮧ "..msg.chat_id_.."\n*«معلومات عن المطور»*\nﮧ┉┉┉┉┉┉┉┉┉\n🌀┊ ايديه ≈ (" .. msg.sender_user_id_ .. ")\n🚫┊ اسمه ≈ " .. fname .. " " .. lname .. "\n️⚠️┊ معرفه ≈ [" .. username .. "]\n‏", 1, "md")
 end
 getUser(msg.sender_user_id_, send_to_bot_owner)
 end end
@@ -7187,7 +7187,7 @@ end end
 -------------------USERS----------------------------------------------------
 if text == 'المشتركين' or text == 'عدد المشتركين' and is_KP(msg) then
 local users = redis:scard(KEEPER.."bot:userss")
-local botnamess = redis:get(KEEPER.."keepernams") or "كيبر"
+local botnamess = redis:get(KEEPER.."keepernams") or "شلش"
 send(msg.chat_id_, msg.id_, 1, "*- عدد المشتركين في الخاص»* 👇🏾\n👨🏼┊ اسم البوت » *" .. botnamess .. "*\n🚫┊ عدد المشتركين » *("..users..")* مشترك\n‏", 1,"md")
 end
 ----------------------------------------------------------------------------
@@ -7230,14 +7230,14 @@ if text == "فحص" then
 if not is_KP(msg) then
 send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
 else
-local botnamess = redis:get(KEEPER.."keepernams") or "كيبر"
+local botnamess = redis:get(KEEPER.."keepernams") or "شلش"
 local kpSudos1 = redis:scard(KEEPER.."Bot:KpSudos") or "0"
 local kpAdmins = redis:scard(KEEPER.."Bot:Admins") or "0"
 local kpgban = redis:scard(KEEPER.."bot:gban:") or "0"
 local kpvipmems = redis:scard(KEEPER.."bot:vipmems:") or "0"
 local kpgps = redis:scard(KEEPER.."bot:groups") or "0"
 local kpusers = redis:scard(KEEPER.."bot:userss") or "0"
-send(msg.chat_id_, msg.id_, 1, "*- احصائيات البـــــوت ≈*\n*ﮧ -------------------»*\n👨🏼┊اسم البوت ≈ *" .. botnamess .. "*\n🃏┊عدد المطورين ≈ *"..kpSudos1.."*\n🔰┊عدد الادمنيه ≈ *"..kpAdmins.."*\n🔚┊عدد الكروبات ≈ * "..kpgps.."*\n👪┊عدد المشتركين خاص ≈ *" .. kpusers .. "*\n🔔┊عدد المحظورين عام ≈ *"..kpgban.."*\n🔘┊عدد المميزين عام ≈ * "..kpvipmems.."*\n🗯┊قناة السورس ≈ [keeper](t.me/keeper_ch)\n✓", 1,"md")
+send(msg.chat_id_, msg.id_, 1, "*- احصائيات البـــــوت ≈*\n*ﮧ -------------------»*\n👨🏼┊اسم البوت ≈ *" .. botnamess .. "*\n🃏┊عدد المطورين ≈ *"..kpSudos1.."*\n🔰┊عدد الادمنيه ≈ *"..kpAdmins.."*\n🔚┊عدد الكروبات ≈ * "..kpgps.."*\n👪┊عدد المشتركين خاص ≈ *" .. kpusers .. "*\n🔔┊عدد المحظورين عام ≈ *"..kpgban.."*\n🔘┊عدد المميزين عام ≈ * "..kpvipmems.."*\n🗯┊قناة السورس ≈ [ZAMA](t.me/ZAMAFBI)\n✓", 1,"md")
 end
 end
 ------------------GPS AND USERS-------------------------------------------
@@ -7366,7 +7366,7 @@ local text =  [[
 send(msg.chat_id_, msg.id_, 1, text, 1, 'md')
 end end
 ------------------SOURCE KEEPER---------------------------------------------------
-if text:match("^السورس$") or text:match("^مطور السورس$") or text:match("^ياسورس$") or  text:match("^سورس كيبر$") or text:match("^اريد سورس$") then
+if text:match("^87987$") or text:match("^4564$") or text:match("^564654$") or  text:match("^6546544$") or text:match("^654545$") then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local text =  [[
 ‏
@@ -9728,7 +9728,7 @@ sudo = User
 else
 sudo = "لا يوجد"
 end
-send(msg.chat_id_, msg.id_, 1, "‏‏\n👨🏼┊ المدير » [" .. owner .. "]\n🏮┊ المطور » [" .. sudo .. "]\n💠┊ الرابط » [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link" .. chattid) or "https://t.me/keeper_ch") .. ")\n🔱┊ الاسم » 👇🏾\n🔰┊ ("..title_name(chattid)..")\n️⚠️┊ الايدي» 👇🏾\nﮧ `" .. (chattid) .. "`\n‏\n", 1,'md')
+send(msg.chat_id_, msg.id_, 1, "‏‏\n👨🏼┊ المدير » [" .. owner .. "]\n🏮┊ المطور » [" .. sudo .. "]\n💠┊ الرابط » [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link" .. chattid) or "https://t.me/ZAMAFBI") .. ")\n🔱┊ الاسم » 👇🏾\n🔰┊ ("..title_name(chattid)..")\n️⚠️┊ الايدي» 👇🏾\nﮧ `" .. (chattid) .. "`\n‏\n", 1,'md')
 end
 getChannelFull(chattid, gp_keeper_info, nil)
 end end
@@ -10020,7 +10020,7 @@ end
 getUser(msg.sender_user_id_, get_me)
 end end
 --------------------------------------------------------
-if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' هينه' or text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' رزله' then
+if text == ''..(redis:get(KEEPER..'keepernams') or 'شلش')..' هينه' or text == ''..(redis:get(KEEPER..'keepernams') or 'شلش')..' رزله' then
 function reep22(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(KEEPER_SUDO) then
 send(msg.chat_id_, msg.id_, 1, 'انجب لك هذا مطوري العشق 😌💋', 1, 'md')
@@ -10036,7 +10036,7 @@ else
 getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),reep22)
 end end
 --------------------------------------------------------------------------------------------
-if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' بوسه' or text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' مصه' then
+if text == ''..(redis:get(KEEPER..'keepernams') or 'شلش')..' بوسه' or text == ''..(redis:get(KEEPER..'keepernams') or 'شلش')..' مصه' then
 function reep22(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(KEEPER_SUDO) then
 send(msg.chat_id_, msg.id_, 1, 'موووووووووووواح 🌚💋', 1, 'md')
@@ -10062,12 +10062,12 @@ end
 -----------------------------------------
 if text == "بوت" or text == "بوتت" or text == "البوت" then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
-local KEEPER = {'اسمي '..(redis:get(KEEPER..'keepernams') or 'دعبول')..' 😌👌','تره  '..(redis:get(KEEPER..'keepernams') or 'دعبول')..' يالجريذي ☹️😹'  }
+local KEEPER = {'اسمي '..(redis:get(KEEPER..'keepernams') or 'شلش')..' 😌👌','تره  '..(redis:get(KEEPER..'keepernams') or 'شلش')..' يالجريذي ☹️😹'  }
 send(msg.chat_id_, msg.id_, 1,''..KEEPER[math.random(#KEEPER)]..'', 1, 'md')
 end
 end
 -----------------------------------------
-if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..'' then
+if text == ''..(redis:get(KEEPER..'keepernams') or 'شلش')..'' then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local KEEPER = {'اي نعم اني '..(redis:get(KEEPER..'keepernams') or 'كيبر')..' 🍃😐','اهو اجوي الملطلطين 😹😪','كافي تره كرهت اسمي 💔😠'}
 send(msg.chat_id_, msg.id_, 1,''..KEEPER[math.random(#KEEPER)]..'', 1, 'md')
