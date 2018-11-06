@@ -10036,7 +10036,7 @@ else
 getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),reep22)
 end end
 --------------------------------------------------------------------------------------------
-if text == ''..(redis:get(KEEPER..'keepernams') or 'كيبر')..' بوسه' or text == ''..(redis:get(KEEPER..'keepernams') or 'كيبر')..' مصه' then
+if text == ''..(redis:get(KEEPER..'keepernams') or 'دعبول')..' بوسه' or text == ''..(redis:get(KEEPER..'keepernams') or 'كيبر')..' مصه' then
 function reep22(extra, result, success)
 if tonumber(result.sender_user_id_) == tonumber(KEEPER_SUDO) then
 send(msg.chat_id_, msg.id_, 1, 'موووووووووووواح 🌚💋', 1, 'md')
