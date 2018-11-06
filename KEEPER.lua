@@ -7936,10 +7936,10 @@ redis:set(KEEPER.."bot:voice:mute" .. msg.chat_id_, true)
 end
 if lockKeeper[2] == "الروابط" then
 if not redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ تم قفل الروابط \n🎟┊ الأمر بواسطه » "..tmkeeper(msg).."\n ‏ ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n📡┊ تم قفل الروابط\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ الروابط مقفوله سابقا \n🎟┊ الأمر بواسطه » "..tmkeeper(msg).."\n ‏ ", 1, "md")
-end
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n📡┊ تم قفل الروابط\n ✓ ", 1, 'md')
+end                 
 redis:set(KEEPER.."bot:links:mute" .. msg.chat_id_, true)
 end
 if lockKeeper[2] == "المواقع" then
@@ -9977,7 +9977,7 @@ if not is_KP(msg) then
 send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ هذه الامر يخص المطور الاساسي فقط', 1, 'md')
 else
 redis:del(KEEPER.."Kpch1")
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n🎟┊ تم مسح قناة الاشتراك\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n📡┊ تم مسح قناة الاشتراك\n ✓ ", 1, 'md')
 end end
 ---------------------cod msgs-------------------------
 if text:match("^رسایلی$") or text:match("^رسايلي$") then
