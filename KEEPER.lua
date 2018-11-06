@@ -6686,9 +6686,9 @@ local ap = {string.match(text, "^(الرتبه) @(%S+)$") }
 local rtba_by_username = function(extra, result)
 if result.id_ then
 if tonumber(result.id_) == tonumber(Kp_Owner) then
-t = "مطور الاساسـي 🍃"
+t = "مطور الاساسي 👨🏾‍🌾"
 elseif is_sudoid(result.id_) then
-t = "المطور 🍃"
+t = "المطور 👨🏾‍🌾"
 elseif is_admin(result.id_) then
 t = "ادمن في البوت 🍃"
 elseif is_vipmems(result.id_) then
