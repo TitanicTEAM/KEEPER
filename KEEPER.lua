@@ -1015,9 +1015,9 @@ end
 --------------function retba---------------------------------
 local tmkeeper = function(msg)
 if is_KpiD(msg.sender_user_id_) then
-keeper  = "المطور 🌿"
+keeper  = "المطور 👨🏾‍🌾"
 elseif is_sudoid(msg.sender_user_id_) then
-keeper = "المطور 🌿"
+keeper = "المطور 👨🏾‍🌾"
 elseif is_admin(msg.sender_user_id_) then
 keeper = "الادمن 🐾"
 elseif is_vipmems(msg.sender_user_id_) then
