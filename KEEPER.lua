@@ -8833,37 +8833,37 @@ end end
 ---------------------------------------------
 if txts[2] == "الادمنيه" and idf:match("-100(%d+)") then
 if not is_owner(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمــــــدراء فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊  تف  هذه امر  المنشئين  فقط😹\n🚶🏾", 'md')
 else
 local kpmomod = redis:scard(KEEPER.."bot:momod:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد الأدمنيه ≈ *"..kpmomod.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد الأدمنيه ≈ *"..kpmomod.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 redis:del(KEEPER.."bot:momod:" .. msg.chat_id_)
 end end
 -----------------------------------------------
 if txts[2] == "المدراء" and idf:match("-100(%d+)") then
 if not is_monshi(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمنشئيـــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊  اخر العوي/ة هذه امر  المنشئين  فقط😹\n🚶🏾", 'md')
 else
 local kpowners = redis:scard(KEEPER.."bot:owners:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد المدراء ≈ *"..kpowners.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد المدراء ≈ *"..kpowners.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 redis:del(KEEPER.."bot:owners:" .. msg.chat_id_)
 end end
 -----------------------------------------------
 if txts[2] == "المنشئين" and idf:match("-100(%d+)") then
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك ياواطي هذه امر المطورين  فقط😹\n🚶🏾", 'md')
 else
 local kpmonshis = redis:scard(KEEPER.."bot:monshis:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد المنشئين ≈ *"..kpmonshis.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد المنشئين ≈ *"..kpmonshis.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 redis:del(KEEPER.."bot:monshis:" .. msg.chat_id_)
 end end
 --------DEL KEEPER_SUDO-----------------------------------------
 if txts[2] == "المطورين" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 local kpSudos1 = redis:scard(KEEPER.."Bot:KpSudos") or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد المطورين ≈ *"..kpSudos1.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد المطورين ≈ *"..kpSudos1.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 local hash = "Bot:KpSudos"
 local list = redis:smembers(KEEPER..hash)
 for k, v in pairs(list) do
@@ -8876,28 +8876,28 @@ end end
 --------------DEL Admins------------------------------------
 if txts[2] == "ادمنيه البوت" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 local kpAdmins = redis:scard(KEEPER.."Bot:Admins") or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد ادمنيه البوت ≈ *"..kpAdmins.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد ادمنيه البوت ≈ *"..kpAdmins.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 redis:del(KEEPER.."Bot:Admins")
 end end
 -----------DEL vipmem-----------------------------------------------
 if txts[2] == "المميزين" and idf:match("-100(%d+)") then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local kpvipmem = redis:scard(KEEPER.."bot:vipmem:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد المميزين ≈ *"..kpvipmem.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد المميزين ≈ *"..kpvipmem.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 redis:del(KEEPER.."bot:vipmem:" .. msg.chat_id_)
 end  end
 ---------------keeed del --------------------------------------------
 if txts[2] == "المقيدين" and idf:match("-100(%d+)") then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local kpkeed = redis:scard(KEEPER.."bot:keed:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد المقيدين ≈ *"..kpkeed.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد المقيدين ≈ *"..kpkeed.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 local hash = "bot:keed:" .. msg.chat_id_
 local list = redis:smembers(KEEPER..hash)
 for k, v in pairs(list) do
@@ -8907,29 +8907,29 @@ end end end
 ------------DEL vipmems-------------------------------------------
 if txts[2] == "المميزين عام" and idf:match("-100(%d+)") then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 local kpvipmems = redis:scard(KEEPER.."bot:vipmems:") or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد المميزين عام ≈ *"..kpvipmems.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد المميزين عام ≈ *"..kpvipmems.."*\n🙋🏻‍♂️┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 redis:del(KEEPER.."bot:vipmems:")
 end end
 ------------DEL filters-----------------------------------------
 if txts[2] == "قائمه المنع" and idf:match("-100(%d+)") then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')')
 else
 local hash = "bot:filters:" .. msg.chat_id_
 redis:del(KEEPER..hash)
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم ✔ مسح قائمة المنع ✞", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم ✔ مسح قائمة المنع ✞", 1, "md")
 end end
 -------------DEL MUTE----------------------------------------
 if txts[2] == "المكتومين" and idf:match("-100(%d+)") then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local kpmuted = redis:scard(KEEPER.."bot:muted:" .. msg.chat_id_) or "0"
 redis:del(KEEPER.."bot:muted:" .. msg.chat_id_)
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد المكتومين ≈ *"..kpmuted.."*\n🌀┊ تـم مسحهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📉┊عدد المكتومين ≈ *"..kpmuted.."*\n👷🏾┊ تـم مسحهم بنجاح ✓\n‏", 1, "md")
 end end end
 -------------------kickedlist--------------------------------------------
 local kickedlist = function(extra, result)
@@ -8953,9 +8953,9 @@ getChannelMembers(msg.chat_id_, d, "Kicked", 200, kickedlist)
 d = d + 200
 end
 if redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم  مسح الاعظاء المحضورين في المجموعه 🎋🎈", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم  مسح الاعظاء المحضورين في المجموعة ✋🏿", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم  مسح الاعظاء المحضورين في المجموعه 🎋🎈", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم  مسح الاعظاء المحضورين في المجموعة ✋🏿", 1, "md")
 end
 elseif text:match("^2$") then
 redis:del(KEEPER.."CleanBlockList" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
@@ -8964,15 +8964,15 @@ getChannelMembers(msg.chat_id_, d, "Kicked", 200, kickedlist2)
 d = d + 200
 end
 if redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم  اضافه المحظورين الى المجموعه📍", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم  اضافه المحظورين الى المجموعه📡 ", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم  اضافه المحظورين الى المجموعه📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم  اضافه المحظورين الى المجموعه📡 ", 1, "md")
 end end end end
 ------------------------kick member not action---------------
 if text:match("^طرد الحسابات المتروكه$") then
 local txt = {string.match(text, "^(طرد الحسابات المتروكه)$")}
 if not is_monshi(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمنشئيـــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ خاب ولي هذه امر  المنشئين  فقط😹\n🚶🏾", 'md')
 else
 local function getChatId(chat_id)
 local chat = {}
@@ -8995,7 +8995,7 @@ changeChatMemberStatus(msg.chat_id_, data.id_, "Kicked")
 end end end
 getUser(v.user_id_, clean_cb)
 end
-send(msg.chat_id_, msg.id_, 1, '🚫┊تم طرد الحسابات غير متفاعله✓\n🔰┊التي*اخر ظهور  منذ زمن طويل*\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊تم طرد الحسابات غير متفاعله✓\n🖐🏿┊التي*اخر ظهور  منذ زمن طويل*\n', 1, 'md')
 end
 tdcli_function ({ID = "GetChannelMembers",channel_id_ = getChatId(msg.chat_id_).ID,offset_ = 0,limit_ = 5000}, check_deactive, nil)
 end end
