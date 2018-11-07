@@ -9224,11 +9224,11 @@ end
 -----------------------------------------------------------------
 if text == "تحديث السورس" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 os.execute('rm -rf KEEPER.lua') 
 os.execute('wget https://raw.githubusercontent.com/TitanicTEAM/KEEPER/master/KEEPER.lua') 
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تحديث السورس \n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا حبيبي » "..tmkeeper(msg).."\n👷🏾┊ تم تحديث السورس بنجاح الان قم بتجربته \n ✓ ", 1, 'md')
 dofile('KEEPER.lua')  
 io.popen("rm -rf ~/.telegram-cli/data/audio/*") 
 io.popen("rm -rf ~/.telegram-cli/data/document/*") 
@@ -9245,19 +9245,19 @@ if is_sudo(msg) and (text:match("^تنشيط$")) then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 load_config()
 setnumbergp()
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تــــم تنشيط البوت 🎈", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷┊ تم تنشيط البوت 🎈", 1, "md")
 end end
 ----------SET rules-------------------------------------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") then
 if (text:match("^ضع قوانين$"))  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 redis:setex(KEEPER.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true)
-send(msg.chat_id_, msg.id_, 1, "🌀┊  ارســـل القوانين الان 📤", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊    حسننا عزيزي الان قم بارسال القوانين 📤", 1, "md")
 end end
 ----------DEL rules -----------------------------------------------------------------------------
 if (text:match("^مسح القوانين$"))  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح القوانين\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا حبيبي » "..tmkeeper(msg).."\n👷🏾┊ تم مسح القوانين بنجاح\n ✓ ", 1, 'md')
 end
 redis:del(KEEPER.."bot:rules" .. msg.chat_id_)
 end end
@@ -9268,22 +9268,22 @@ local rules = redis:get(KEEPER.."bot:rules" .. msg.chat_id_)
 if rules then
 send(msg.chat_id_, msg.id_, 1, rules, 1, nil)
 elseif redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "🌀┊ لم يتم وضع قوانين 📍", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ عزيزي للاسف لم يتم وضع قوانين 🚶🏾", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊ لا توجــــد قوانين 📍",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ للاسف لا توجد قوانين في المجموعه  ✋🏿",  1, "md")
 end end end
 ------------------------------------------------------------------------------------
 if text:match("^ضع صوره") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 redis:set(KEEPER..'bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_,true)
-send(msg.chat_id_, msg.id_, 1, '🌀┊ قم بارسال صوره الان 📤', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🌄┊ حسننا عزيزي الان قم بارسال الصوره 📤', 1, 'md')
 end end
 -----------------SET NAME MSG---------------------------------------------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^ضع اسم (.*)$")  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local txt = {string.match(text, "^(ضع اسم) (.*)$")}
 changetitle(msg.chat_id_, txt[2])
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تغييــر اسم المجموعــه\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا حبيبي » "..tmkeeper(msg).."\n👷🏾┊ تم تغير اسم المجموعه بنجاح\n ✓ ", 1, 'md')
 
 end end
 ----------------LEAVE GP------------------------------------------------------------------------------
@@ -9291,7 +9291,7 @@ if text:match("^غادر (-%d+)$")  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local txt = { string.match(text, "^(غادر) (-%d+)$")}
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ نجب هذه امر المطورين  فقط😹\n🚶🏾", 'md')
 else
 local OwnerKP_ = redis:get(KEEPER.."Bot:KpOwnerBot")
 local user_info_ = redis:get(KEEPER.."user:Name" .. OwnerKP_)
@@ -9299,16 +9299,15 @@ local UserKeeper = user_info_
 if user_info_ then
 local leavegp = function(extra, result)
 if result.id_ then
-send(msg.chat_id_, msg.id_, 1, "🚺  المجموعــۿ : \n- " .. result.title_ .. "\n📛 تم اخراج البوت منها💯", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🖐🏿  المجموعه : \n- " .. result.title_ .. "\n📛 تم اخراج البوت منها💯", 1, "md")
 if redis:get(KEEPER.."lang:gp:" .. result.id_) then
-send(result.id_, 0, 1, "🌀┊  تم اخراج البوت 🎐\n🔱┊ راسل المطور للتفعيل 📮\n🔰┊ *المطور* : [" .. UserKeeper .. "]\n‏", 1, "md")
-else
-send(result.id_, 0, 1, "🌀┊  تم اخراج البوت 🎐\n🔱┊ راسل المطور للتفعيل 📮\n🔰┊ *المطور* : [" .. UserKeeper .. "]\n‏", 1, "md")
+send(result.id_, 0, 1, "👮🏻┊  تم اخراج البوت ✋🏿\n🙋🏻‍♂️┊ راسل المطور للتفعيل 🚶🏾\n👨🏾‍🌾┊ *المطور* : [" .. UserKeeper .. "]\n‏", 1, "md")else
+send(result.id_, 0, 1, "👮🏻┊  تم اخراج البوت ✋🏿\n🙋🏻‍♂️┊ راسل المطور للتفعيل 🚶🏾\n👨🏾‍🌾┊ *المطور* : [" .. UserKeeper .. "]\n‏", 1, "md")
 end
 chat_leave(result.id_, bot_id)
 redis:srem(KEEPER.."bot:groups", result.id_)
 else
-send(msg.chat_id_, msg.id_, 1, "🔹 لا توجد مجموعه مفعله ❗️", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️ لا توجد مجموعه مفعله 🖐🏿", 1, "md")
 end  end
 getChat(txt[2], leavegp)
 end end end end
@@ -9316,7 +9315,7 @@ end end end end
 if text:match("^معلومات المطور (%d+)") then
 local txt = {string.match(text, "^(معلومات المطور) (%d+)$")}
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 local get_data = function(extra, result)
 if result.id_ then
@@ -9332,30 +9331,30 @@ break
 end
 end end
 local susername = "@" .. result.username_ or ""
-local text = "*« معلومات المطور »*\n-----------------------\n🚫┊ معرفه : [" .. susername .. "]\n🔰┊ ايديه : "..result.id_.."\n🔱┊ اسمه : "..result.first_name_.."\n-----------------------\n✔️┊ *المجموعات التي ضافها *:\n"
+local text = "*« معلومات المطور »*\n-----------------------\n🎟┊ معرفه : [" .. susername .. "]\n🎫┊ ايديه : "..result.id_.."\n📝┊ اسمه : "..result.first_name_.."\n-----------------------\n👮🏻┊ *المجموعات التي ضافها *:\n"
 for k, v in pairs(list) do
 text = text .. k .. " » `(" .. v .. ")`\n"
 end
 if #list == 0 then
-text = "*« معلومات المطور »*\n\n🚫┊ معرفه : [" .. susername .. "]\n🔰┊ ايديه : "..result.id_.."\n🔱┊ اسمه : "..result.first_name_.."\n※ لا توجد مجموعات مضافه⚜️ "
+text = "*« معلومات المطور »*\n\n🎟┊ معرفه : [" .. susername .. "]\n🎫┊ ايديه : "..result.id_.."\n📝┊ اسمه : "..result.first_name_.."\n👮🏻 لا توجد مجموعات مضافه⚜️ "
 end
 send_large_msg(msg.chat_id_, msg.id_, 1, text, 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "🔎┊ العضو ليس من المطورين📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  للاسف العضو ليس من المطورين🚶🏾 ", 1, "md")
 end
 else
-send(msg.chat_id_, msg.id_, 1, "🔎┊ العضو ليس من المطورين📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  للاسف العضو ليس من المطورين🚶🏾 ", 1, "md")
 end
 end
 if redis:get(KEEPER.."bot:reloadingtime") then
-send(msg.chat_id_, msg.id_, 1, "🌀┊  تم تحديث البوت 🎐 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  تم تحديث البوت ✓ ", 1, "md")
 else
 getUser(txt[2], get_data)
 end end end
 ----------INFO KEEPER_SUDO BY REPLY----------------------------------------------------------------------------------------------------
 if text:match("^معلوماتي$")  and msg.reply_to_message_id_ == 0 then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local get_data = function(extra, result)
@@ -9369,24 +9368,24 @@ result.first_name_ = kkkkk
 break
 end end end
 local susername = "@" .. result.username_ or ""
-local text = "*« معلوماتك هيـــه »*\n-----------------------\n🚫┊ معرفك : [" .. susername .. "]\n🔰┊ ايديك : "..msg.sender_user_id_.."\n🔱┊ اسمك : "..result.first_name_.."\n-----------------------\n✔️┊ *المجموعات التي ضافها *:\n"
+local text = "*« معلوماتك هيـــه »*\n-----------------------\n🎫┊ معرفك : [" .. susername .. "]\n🎟┊ ايديك : "..msg.sender_user_id_.."\n📝┊ اسمك : "..result.first_name_.."\n-----------------------\n✔️┊ *المجموعات التي ضافها *:\n"
 for k, v in pairs(list) do
 text = text .. k .. " » `(" .. v .. ")`\n"
 end
 if #list == 0 then
-local text = "*« معلوماتك هيـــه »*\n-----------------------\n🚫┊ معرفك : [" .. susername .. "]\n🔰┊ ايديك : "..msg.sender_user_id_.."\n🔱┊ اسمك : "..result.first_name_.."\n-----------------------\n✔️┊ *لا توجد مجموعات مضافه *"
+local text = "*« معلوماتك هيه »*\n-----------------------\n🎫┊ معرفك : [" .. susername .. "]\n🎟┊ ايديك : "..msg.sender_user_id_.."\n📝┊ اسمك : "..result.first_name_.."\n-----------------------\n✔️┊ *لا توجد مجموعات مضافه *"
 end
 send_large_msg(msg.chat_id_, msg.id_, 1, text, 1, "md")
 end
 if redis:get(KEEPER.."bot:reloadingtime") then
-send(msg.chat_id_, msg.id_, 1, "🌀┊  تم تحديث البوت 🎐 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  تم تحديث البوت ✓ ", 1, "md")
 else
 getUser(msg.sender_user_id_, get_data)
 end end end end
 --------- INFO KEEPER_SUDO---------------------------------------------------------------------------------------------------------
 if text:match("^معلومات المطور$")  and msg.reply_to_message_id_ ~= 0 then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 do
 local data_by_reply = function(extra, result)
@@ -9402,16 +9401,16 @@ result.first_name_ = kkkkk
 break
 end end end
 local susername = "@" .. result.username_ or ""
-local text = "*« معلومات المطور »*\n-----------------------\n🚫┊ معرفه : [" .. susername .. "]\n🔰┊ ايديه : "..result.id_.."\n🔱┊ اسمه : "..result.first_name_.."\n-----------------------\n✔️┊ *المجموعات التي ضافها *:\n"
+local text = "*« معلومات المطور »*\n-----------------------\n🎟┊ معرفه : [" .. susername .. "]\n🎫┊ ايديه : "..result.id_.."\n📝┊ اسمه : "..result.first_name_.."\n-----------------------\n👮🏻┊ *المجموعات التي ضافها *:\n"
 for k, v in pairs(list) do
 text = text .. k .. " » `(" .. v .. ")`\n"
 end
 if #list == 0 then
-text = "*« معلومات المطور »*\n\n🚫┊ معرفه : [" .. susername .. "]\n🔰┊ ايديه : "..result.id_.."\n🔱┊ اسمه : "..result.first_name_.."\n※ لا توجد مجموعات مضافه⚜️ "
+text = "*« معلومات المطور »*\n\n🎟┊ معرفه : [" .. susername .. "]\n🎫┊ ايديه : "..result.id_.."\n📝┊ اسمه : "..result.first_name_.."\n👮🏻 لا توجد مجموعات مضافه⚜️ "
 end
 send_large_msg(msg.chat_id_, msg.id_, 1, text, 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊ العضو ليس من المطورين📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  للاسف العضو ليس من المطورين🚶🏾 ", 1, "md")
 end end
 local start_get_data = function(extra, result)
 getUser(result.sender_user_id_, data_by_reply)
@@ -9425,7 +9424,7 @@ if text:match("^معلومات المطور @(%S+)$") then
 do
 local aps = {string.match(text, "^(معلومات المطور) @(%S+)$")}
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 local data_by_username = function(extra, result)
 if is_admin(result.id_) then
@@ -9440,26 +9439,26 @@ result.first_name_ = kkkkk
 break
 end end end
 local susername = "@" .. result.username_ or ""
-local text = "*« معلومات المطور »*\n-----------------------\n🚫┊ معرفه : [" .. susername .. "]\n🔰┊ ايديه : "..result.id_.."\n🔱┊ اسمه : "..result.first_name_.."\n-----------------------\n✔️┊ *المجموعات التي ضافها *:\n"
+local text = "*« معلومات المطور »*\n-----------------------\n🎟┊ معرفه : [" .. susername .. "]\n🎫┊ ايديه : "..result.id_.."\n📝┊ اسمه : "..result.first_name_.."\n-----------------------\n👮🏻┊ *المجموعات التي ضافها *:\n"
 for k, v in pairs(list) do
 text = text .. k .. " » `(" .. v .. ")`\n"
 end
 if #list == 0 then
-text = "*« معلومات المطور »*\n\n🚫┊ معرفه : [" .. susername .. "]\n🔰┊ ايديه : "..result.id_.."\n🔱┊ اسمه : "..result.first_name_.."\n※ لا توجد مجموعات مضافه⚜️ "
+text = "*« معلومات المطور »*\n\n🎟┊ معرفه : [" .. susername .. "]\n🎫┊ ايديه : "..result.id_.."\n📝┊ اسمه : "..result.first_name_.."\n👮🏻 لا توجد مجموعات مضافه⚜️ "
 end
 send_large_msg(msg.chat_id_, msg.id_, 1, text, 1, "md")
-else
-send(msg.chat_id_, msg.id_, 1, "🌀┊  العضو ليس من المطورين📍 ", 1, "md")
+elsesend(msg.chat_id_, msg.id_, 1, "🎟┊  
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  للاسف العضو ليس من المطورين🚶🏾 ", 1, "md")
 end end
 local data_start_username = function(extra, result)
 if result.id_ then
 getUser(result.id_, data_by_username)
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊  العضو ليس من المطورين📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  للاسف العضو ليس من المطورين🚶🏾 ", 1, "md")
 end
 end
 if redis:get(KEEPER.."bot:reloadingtime") then
-send(msg.chat_id_, msg.id_, 1, "🌀┊  تم تحديث البوت 🎐 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  تم تحديث البوت ✓ ", 1, "md")
 else
 resolve_username(aps[2], data_start_username)
 end
