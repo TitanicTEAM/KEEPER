@@ -9473,7 +9473,7 @@ send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر �
 else
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local tmkeep =  text:match("^اذاعه خاص (.*)")
-local tmkeep2 = "🙋🏻‍♂️┊ تم ارسال الاذاعه الى:\n( * GP * ) من الاعضاء\n ✓‏"
+local tmkeep2 = "🙋🏻‍♂️┊ تم ارسال الاذاعه الى:\n( * GP * ) من الاعضاء\n ✓"
 local gp = tonumber(redis:scard(KEEPER.."bot:userss"))
 gps = redis:smembers(KEEPER.."bot:userss")
 text = tmkeep2:gsub('GP',gp)
@@ -9494,7 +9494,7 @@ redis:sadd(KEEPER.."bot:owners:"..msg.chat_id_,owner_id)
 end
 end
 local kpmomod = redis:scard(KEEPER.."bot:momod:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "📡┊عدد الأدمنيه ≈ *"..kpmomod.."*\n🙋🏻‍♂️┊ تـم رفعـهم بنجاح \n ✓‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📡┊عدد الأدمنيه ≈ *"..kpmomod.."*\n🙋🏻‍♂️┊ تـم رفعـهم بنجاح \n ✓", 1, "md")
 end
 getChannelMembers(msg.chat_id_, 0, 'Administrators', 200, promote_admin)
 end
