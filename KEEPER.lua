@@ -8066,9 +8066,9 @@ end
 end
 if UNkeeper[2] == "الاوامر" then
 if redis:get(KEEPER.."bot:cmds" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "👮🏽┊ هلا سيدي  ... "..tmkeeper(msg).."\n📡┊ تم فتح الاوامر\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👮🏽┊ اهلا سيدي  ... "..tmkeeper(msg).."\n📡┊ تم فتح الاوامر\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "👮🏽┊ هلا سيدي  ... "..tmkeeper(msg).."\n📡┊ الاوامر مفتوح سابقا\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👮🏽┊ اهلا سيدي  ... "..tmkeeper(msg).."\n📡┊ الاوامر مفتوح سابقا\n ✓ ", 1, 'md')
 end
 redis:del(KEEPER.."bot:cmds" .. msg.chat_id_)
 end
