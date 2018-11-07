@@ -9661,12 +9661,12 @@ end
 --------------------------------------------------------------------------
 if msg.content_.text_ == 'اضف رد للكل' and is_sudo(msg)  then
 redis:set(KEEPER.."add:repallt"..msg.sender_user_id_,'set_rep')
-send(msg.chat_id_, msg.id_, 1, "📌┊ ارسل لي كلمه الرد ❗️\n",1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ حسننا عزيزي ارسل لي كلمه الرد\n ✋🏿",1, "md")
 return false    end
 if msg.content_.text_ then
 local content_keep = redis:get(KEEPER.."add:repallt"..msg.sender_user_id_)
 if content_keep == 'set_rep' then
-send(msg.chat_id_, msg.id_, 1, "📌┊ ارسل جواب الرد قد يكون\n🗯┊ {نص-ملصق-بصمه...} ❗️\n" ,  1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ شكرا سيدي الان ارسل جواب الرد قد يكون\n ✋🏿┊ {نص-ملصق-بصمه...} 🚶🏾\n" ,  1, "md")
 redis:set(KEEPER.."add:repallt"..msg.sender_user_id_,'save_rep')
 redis:set(KEEPER.."addreply2:"..msg.sender_user_id_, msg.content_.text_)
 redis:sadd(KEEPER.."rep_sudo",msg.content_.text_)
@@ -9676,10 +9676,10 @@ end    end
 if  msg.content_.text_ == "ردود المطور" and is_sudo(msg) then
 local redod = redis:smembers(KEEPER.."rep_sudo")
 if #redod == 0 then
-send(msg.chat_id_, msg.id_, 1,"📌┊ لا توجد ردود مضافه للمطور ❗️\n" ,1, "md")
+send(msg.chat_id_, msg.id_, 1,"👨🏾‍🌾┊ لا توجد ردود مضافه للمطور\n ✓" ,1, "md")
 else
 local i = 1
-msg_rep = "📌┊ ردود المطــــور »\n"
+msg_rep = "👨🏾‍🌾┊ ردود المطور »\n"
 for k,v in pairs(redod) do
 msg_rep = msg_rep ..k.." ═ *⁽ "..v.." ₎* \n"
 end
@@ -9691,7 +9691,7 @@ end
 if msg.content_.text_ == "مسح ردود المطور" and is_sudo(msg) then
 local redod = redis:smembers(KEEPER.."rep_sudo")
 if #redod == 0 then
-send(msg.chat_id_, msg.id_, 1,"📌┊ لا توجد ردود مضافه للمطور ❗️\n" ,1, "md")
+send(msg.chat_id_, msg.id_, 1,"👨🏾‍🌾┊ لا توجد ردود مضافه للمطور\n ✓" ,1, "md")
 else
 for k,v in pairs(redod) do
 redis:del(KEEPER.."add:repallt"..v)
@@ -9702,7 +9702,7 @@ redis:del(KEEPER.."video_repall"..v)
 redis:del(KEEPER.."text_repall"..v)
 redis:del(KEEPER.."rep_sudo",msg.content_.text_)
 end
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح ردود المطور\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👮🏽┊ اهلا سيدي » "..tmkeeper(msg).."\n🎟┊ تم مسح ردود المطور\n ✓ ", 1, 'md')
 return false
 end
 end
@@ -9710,7 +9710,7 @@ end
 if text:match('^كشف (-%d+)') then
 local chattid = text:match('كشف (-%d+)')
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ نجب هذه امر المطورين  فقط😹\n🚶🏾", 'md')
 else
 function gp_keeper_info(arg,data)
 local list = redis:smembers(KEEPER.."bot:owners:" .. chattid)
@@ -9728,7 +9728,7 @@ sudo = User
 else
 sudo = "لا يوجد"
 end
-send(msg.chat_id_, msg.id_, 1, "‏‏\n👨🏼┊ المدير » [" .. owner .. "]\n🏮┊ المطور » [" .. sudo .. "]\n💠┊ الرابط » [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link" .. chattid) or "https://t.me/ZAMAFBI") .. ")\n🔱┊ الاسم » 👇🏾\n🔰┊ ("..title_name(chattid)..")\n️⚠️┊ الايدي» 👇🏾\nﮧ `" .. (chattid) .. "`\n‏\n", 1,'md')
+send(msg.chat_id_, msg.id_, 1, "‏‏\n👮🏻┊ المدير » [" .. owner .. "]\n👨🏻‍💻┊ المطور » [" .. sudo .. "]\n🖐🏿┊ الرابط » [اضغـط هنـا](" .. (redis:get(KEEPER.."bot:group:link" .. chattid) or "https://t.me/ZAMAFBI") .. ")\n🔱┊ الاسم » 👇🏾\n💭┊ ("..title_name(chattid)..")\n️🎟┊ الايدي» 👇🏾\nﮧ `" .. (chattid) .. "`\n‏\n", 1,'md')
 end
 getChannelFull(chattid, gp_keeper_info, nil)
 end end
@@ -9736,21 +9736,21 @@ end end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^الغاء تثبيت$"))  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 unpinmsg(msg.chat_id_)
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم الغاء تثبيــت الرسالــۿ\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي ... "..tmkeeper(msg).."\n🎟┊ تم الغاء تثبيت الرسالة\n ✓ ", 1, 'md')
 end   end
 ------------SEND FILE------------------------------------------
 if text == 'ارسال نسخه' then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 tdcli.sendDocument(KEEPER_SUDO, 0, 0, 1, nil, './KEEPER.lua', dl_cb, nil)
-send(msg.chat_id_, msg.id_, 1, '🌀┊ تم ارسال نسخه الى خاص البوت ✔️🍃', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👮🏽┊ تم ارسال نسخه الى خاص البوت ✔️🍃', 1, 'md')
 end end end
 -----------REE FILS----------------------------------------------------
 if text == 'تحديث' then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 dofile('KEEPER.lua')
@@ -9763,41 +9763,41 @@ io.popen("rm -rf ~/.telegram-cli/data/thumb/*")
 io.popen("rm -rf ~/.telegram-cli/data/video/*") 
 io.popen("rm -rf ~/.telegram-cli/data/voice/*") 
 io.popen("rm -rf ~/.telegram-cli/data/profile_photo/*")
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تحديث ملفات البوت\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n🎟┊ تم تحديث ملفات البوت\n ✓ ", 1, 'md')
 end end end
 -------------CHAT NAME--------------------------------------------------------------
 if text == 'اسم المجموعه' then
-send(msg.chat_id_, msg.id_, 1, "🔱┊ الاسم : 👇🏾\n🏮┊ ("..title_name(msg.chat_id_)..")", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  اسم المجموعه هوة : 👇🏾\n🌃┊ ("..title_name(msg.chat_id_)..")", 1, 'md')
 end
 ------------REE PIN----------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^اعادة تثبيت$"))  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local pin_id = redis:get(KEEPER.."pinnedmsg" .. msg.chat_id_)
 if pin_id then
-send(msg.chat_id_, msg.id_, 1, "🌀┊  تم √ اعاده تثبــيت الرسالــۿ 🎐", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  تم √ اعاده تثبيت الرسالة ✋🏿", 1, "md")
 end
 pinmsg(msg.chat_id_, pin_id, 0)
 elseif redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "🌀┊  لا ✘ توجد رسالۿ مثبته 📬", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  لا ✘ توجد رساله مثبته 🗂", 1, "md")
 end
 end
 ----------------------sleep bot -----------------------
 if text:match("^ايقاف دقيقه$") then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🔰┊ جاري ايقاف البوت...\n🔚┊ لمده دقيقه 🍃', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🕵┊ جاري ايقاف البوت...\n👮┊ لمده دقيقه 🚶🏾', 1, 'html')
 sleep(60)
-send(msg.chat_id_, msg.id_, 1, '🔚┊ انتهت مده ايقاف البوت\n🔰┊ تم اعاده تشغيل البوت 🍃', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🕵🏽┊ انتهت مده ايقاف البوت\n👮🏻┊ تم اعاده تشغيل البوت 📡', 1, 'html')
 end end
 ----------------------------------------------
 if text:match("^ايقاف 30 دقيقه$") then
 if not is_KP(msg) then
 send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🔰┊ جاري ايقاف البوت...\n🔚┊ لمده *30 دقيقه* سيتم 🍃\n🎈┊ التشغيل بعد انتهاء المده', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🕵┊ جاري ايقاف البوت...\n👮┊ لمده *30 دقيقه* سيتم 📡\n🚶🏾┊ التشغيل بعد انتهاء المده', 1, 'html')
 sleep(1800)
-send(msg.chat_id_, msg.id_, 1, '🔚┊ انتهت مده ايقاف البوت\n🔰┊ تم اعاده تشغيل البوت 🍃', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🕵🏽┊ انتهت مده ايقاف البوت\n👮🏻┊ تم اعاده تشغيل البوت 📡', 1, 'html')
 end end
 ---------------------------------------------
 if text:match("^ايقاف ساعه$") then
@@ -9806,7 +9806,7 @@ send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر �
 else
 send(msg.chat_id_, msg.id_, 1, '🔰┊ جاري ايقاف البوت...\n🔚┊ لمده *ساعه واحده* سيتم 🍃\n🎈┊ التشغيل بعد انتهاء المده', 1, 'html')
 sleep(3600)
-send(msg.chat_id_, msg.id_, 1, '🔚┊ انتهت مده ايقاف البوت\n🔰┊ تم اعاده تشغيل البوت 🍃', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🕵🏽┊ انتهت مده ايقاف البوت\n👮🏻┊ تم اعاده تشغيل البوت 📡', 1, 'html')            
 end end
 ------------ME-----------------------------------------------------------------------------
 if text:match("^موقعي$")  then
