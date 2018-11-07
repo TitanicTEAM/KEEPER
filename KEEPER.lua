@@ -9224,11 +9224,11 @@ end
 -----------------------------------------------------------------
 if text == "تحديث السورس" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
+send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
 else
 os.execute('rm -rf KEEPER.lua') 
-os.execute('wget https://raw.githubusercontent.com/TitanicTEAM/KEEPER/master/KEEPER.lua') 
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا حبيبي » "..tmkeeper(msg).."\n👷🏾┊ تم تحديث السورس بنجاح الان قم بتجربته \n ✓ ", 1, 'md')
+os.execute('wget https://raw.githubusercontent.com/alqaser/KEEPER/master/KEEPER.lua') 
+send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تحديث السورس \n ✓ ", 1, 'md')
 dofile('KEEPER.lua')  
 io.popen("rm -rf ~/.telegram-cli/data/audio/*") 
 io.popen("rm -rf ~/.telegram-cli/data/document/*") 
