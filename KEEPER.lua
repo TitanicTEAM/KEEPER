@@ -6867,12 +6867,12 @@ end end
 if text:match("^تفاعلي$") or text:match("^شنو تفاعلي$")  then
 local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "🚫┊ تفاعلك : ( *"..KP_TM_NM(msgs).."* ) 🍁", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تفاعلك : ( *"..KP_TM_NM(msgs).."* ) 🍁", 1, 'md')
 end
 end
 --------------------Kp concat add----------------------------------------
 if text == 'جهاتي' then
-send(msg.chat_id_, msg.id_, 1, '🔰┊ عدد جهاتك ≈ * '..(tonumber(redis:get(KEEPER..'kpaddcon'..msg.chat_id_..':'..msg.sender_user_id_) or 0))..' *',1,'md')
+send(msg.chat_id_, msg.id_, 1, '👷🏾┊ عدد جهاتك ≈ * '..(tonumber(redis:get(KEEPER..'kpaddcon'..msg.chat_id_..':'..msg.sender_user_id_) or 0))..' *',1,'md')
 end
 --------------------ID BY REPLY------------------------------------------
 if text:match("^ايدي$") and msg.reply_to_message_id_ then
@@ -6881,23 +6881,23 @@ local Kpmsgss = (tonumber(redis:get(KEEPER.."msgs:"..result.sender_user_id_..":"
 local Kpcontact = (tonumber(redis:get(KEEPER.."kpaddcon"..msg.chat_id_..":"..result.sender_user_id_) or 0))
 if result.id_ then
 if tonumber(result.sender_user_id_) == tonumber(Kp_Owner) then
-keeper3 = "مطور الاساسـي 🌿"
+keeper3 = "المطور الاساسي 👨🏻‍💻"
 elseif is_sudoid(result.sender_user_id_) then
-keeper3 = "المطور 🐾"
+keeper3 = "المطور 👨🏾‍🌾"
 elseif is_admin(result.sender_user_id_) then
-keeper3 = "ادمن في البوت"
+keeper3 = "ادمن في البوت 👮🏽"
 elseif is_vipmems(result.sender_user_id_) then
 keeper3 = "مميز عام 🌿"
 elseif is_monshi(result.sender_user_id_, msg.chat_id_) then
 keeper3 = "منشىء الكروب 🐾"
 elseif is_owner(result.sender_user_id_, msg.chat_id_) then
-keeper3 = "المدير 🌿"
+keeper3 = "المدير 👮🏻"
 elseif is_momod(result.sender_user_id_, msg.chat_id_) then
-keeper3 = "ادمن المجموعه🐾"
+keeper3 = "ادمن في المجموعه 👮🏽"
 elseif is_vipmem(result.sender_user_id_, msg.chat_id_) then
 keeper3 = "عضو مميز 🌿"
 else
-keeper3 = "عـضـو 🐾"
+keeper3 = "عضو 👷🏾"
 end
 end
 send(msg.chat_id_, result.id_, 1, "‏‏📩╏ ⌍ رسائله⌌• *" ..Kpmsgss.. "*\n🗯╏ ⌏ جهاتـه⌎• *"..Kpcontact.."*\n⚙️╏ ⌍ تفاعله⌌• " ..KP_TM_NM(Kpmsgss).. "\n⚠️╏ ⌍ ايديــه⌌• `" ..result.sender_user_id_.. "`\n📌╏ ⌏ موقعه⌎• " ..keeper3.. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍", 1, "md")
@@ -6907,45 +6907,45 @@ end
 -----------------SET BOT Name--------------------------------------------
 if text == "وضع اسم البوت" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 redis:setex(KEEPER..'botts:namess'..msg.sender_user_id_,300,true)
-send(msg.chat_id_, msg.id_, 1, "🌀┊ ارسل الاسم الان عزيزي 😇",1, 'html')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾 ┊ حسننا ارسل الاسم الان عزيزي 😇",1, 'html')
 end end
 ----------------------------Showprofilestatus----------------------------
 if is_sudo(msg) and idf:match("-100(%d+)") and text:match("^تفعيل (.*)$")  then
 local status = {string.match(text, "^(تفعيل) (.*)$")}
 if status[2] == "active" or status[2] == "جلب الصور" then
 if redis:get(KEEPER.."getpro:" .. msg.chat_id_) == "Active" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل جلب الصور\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل جلب الصور\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل جلب الصور\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل جلب الصور\n ✓ ", 1, 'md')
 redis:set(KEEPER.."getpro:" .. msg.chat_id_, "Active")
 end end end
 if is_sudo(msg) and idf:match("-100(%d+)") and text:match("^تعطيل (.*)$")  then
 local status = {string.match(text, "^(تعطيل) (.*)$")}
 if status[2] == "جلب الصور" then
 if redis:get(KEEPER.."getpro:" .. msg.chat_id_) == "Deactive" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل جلب الصور\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل جلب الصور\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل جلب الصور\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل جلب الصور\n ✓ ", 1, 'md')
 redis:set(KEEPER.."getpro:" .. msg.chat_id_, "Deactive")
 end end end
 ---------------------------------------------------------------------
 if text:match("^مسح الصوره") and is_momod(msg.sender_user_id_, msg.chat_id_)  then
 https.request('https://api.telegram.org/bot'..KEEPER_TOKEN..'/deleteChatPhoto?chat_id='..msg.chat_id_)
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح صوره المجموعه\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم مسح صوره المجموعه\n ✓ ", 1, 'md')
 end
 if text:match("^ضع وصف (.*)$") and is_momod(msg.sender_user_id_, msg.chat_id_)  then
 local text = {string.match(text, "^(ضع وصف) (.*)$")}
 changeChannelAbout(msg.chat_id_,text[2])
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع وصف للمجموعه\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع وصف للمجموعه\n ✓ ", 1, 'md')
 end 
 ---------------------Getpro------------------------------------------------------------------------------
 if text:match("^صوره (%d+)$") then
 local pronumb = {string.match(text, "^(صوره) (%d+)$")}
 if not is_momod(msg.sender_user_id_, msg.chat_id_) and redis:get(KEEPER.."getpro:" .. msg.chat_id_) == "Deactive" then
-send(msg.chat_id_, msg.id_, 1, "📛┊ اهلا عزيزي....\n📬┊ جلب الصور معطل\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي....\n🌄┊ جلب الصور معطل\n‏", 1, "md")
 return false
 end
 local Photos = pronumb[2] - 1
@@ -6953,7 +6953,7 @@ local function gproen(extra, result, success)
 if result.photos_[Photos] then
 sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[Photos].sizes_[1].photo_.persistent_id_)
 else
-send(msg.chat_id_, msg.id_, 1, "📛┊ لا توجد صوره في حسابك‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ لا توجد صوره في حسابك‏", 1, "md")
 end
 end
 tdcli_function ({
@@ -6967,27 +6967,27 @@ end
 if text:match("^ضع تكرار (%d+)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 local floodt = {string.match(text, "^(ضع تكرار) (%d+)$")}
 if tonumber(floodt[2]) < 1 then
-send(msg.chat_id_, msg.id_, 1, '🌀┊ ضع عدد م [1] الى [200] ', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👷🏾┊ ضع عدد م [1] الى [200] ', 1, 'md')
 else
 redis:set(KEEPER..'flood:time:'..msg.chat_id_,floodt[2])
-send(msg.chat_id_, msg.id_, 1, '🌀┊ تــم وضـع  التكرار : '..floodt[2]..'', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👷🏾┊ تــم وضـع  التكرار : '..floodt[2]..'', 1, 'md')
 end end
 ----------------------floodstatus----------------------------------------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^ضع تكرار (.*)$")  then
 local status = { string.match(text, "^(ضع تكرار) (.*)$") }
 if status[2] == "بالطرد" then
 if redis:get(KEEPER.."floodstatus" .. msg.chat_id_) == "Kicked" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التكرار بالطرد\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلاسيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التكرار بالطرد\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التكرار بالطرد\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التكرار بالطرد\n ✓ ", 1, 'md')
 redis:set(KEEPER.."floodstatus" .. msg.chat_id_, "Kicked")
 end
 end
 if status[2] == "بالمسح" then
 if redis:get(KEEPER.."floodstatus" .. msg.chat_id_) == "DelMsg" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التكرار بالمسح\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التكرار بالمسح\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التكرار بالمسح\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التكرار بالمسح\n ✓ ", 1, 'md')
 redis:set(KEEPER.."floodstatus" .. msg.chat_id_, "DelMsg")
 end
 end
@@ -6996,9 +6996,9 @@ end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^ضع تحذير (%d+)$")  then
 local warnmax = { string.match(text, "^(ضع تحذير) (%d+)$")}
 if 2 > tonumber(warnmax[2]) or tonumber(warnmax[2]) > 30 then
-send(msg.chat_id_, msg.id_, 1, "🌀┊ يمكنك وضع تحذير من (2-30) 🔱", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ يمكنك وضع تحذير من (2-30) 🔱", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم وضع التحذير : " .. warnmax[2] .. " ⚜️ ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم وضع التحذير : " .. warnmax[2] .. " ⚜️ ", 1, "md")
 redis:set(KEEPER.."warn:max:" .. msg.chat_id_, warnmax[2])
 end
 end
@@ -7007,16 +7007,16 @@ if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and te
 local status = { string.match(text, "^(ضع تحذير) (.*)$") }
 if status[2] == "بالكتم" then
 if redis:get(KEEPER.."warnstatus" .. msg.chat_id_) == "Muteuser" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التحذير بالكتم\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التحذير بالكتم\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التحذير بالكتم\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التحذير بالكتم\n ✓ ", 1, 'md')
 redis:set(KEEPER.."warnstatus" .. msg.chat_id_, "Muteuser")
 end   end
 if status[2] == "بالطرد" then
 if redis:get(KEEPER.."warnstatus" .. msg.chat_id_) == "Remove" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التحذير بالطرد\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التحذير بالطرد\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع التحذير بالطرد\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع التحذير بالطرد\n ✓ ", 1, 'md')
 redis:set(KEEPER.."warnstatus" .. msg.chat_id_, "Remove")
 end end end
 -----------------------getidstatus-----------------------------------------------------------------
@@ -7024,18 +7024,18 @@ if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and te
 local status = { string.match(text, "^(تفعيل) (.*)$")}
 if status[2] == "الايدي" then
 if redis:get(KEEPER.."getidstatus" .. msg.chat_id_) == "Photo" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل الايدي بالصوره\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل الايدي بالصوره\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل الايدي بالصوره\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل الايدي بالصوره\n ✓ ", 1, 'md')
 redis:set(KEEPER.."getidstatus" .. msg.chat_id_, "Photo")
 end end  end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^تعطيل (.*)$")  then
 local status = {string.match(text, "^(تعطيل) (.*)$")}
 if status[2] == "الايدي" then
 if redis:get(KEEPER.."getidstatus" .. msg.chat_id_) == "Simple" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل الايدي بالصوره\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل الايدي بالصوره\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل الايدي بالصوره\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل الايدي بالصوره\n ✓ ", 1, 'md')
 redis:set(KEEPER.."getidstatus" .. msg.chat_id_, "Simple")
 end end end
 -------------------autoleave-----------------------------------------------------------------------
@@ -7043,35 +7043,35 @@ if is_sudo(msg) and text:match("^تفعيل (.*)$") then
 local status = {string.match(text, "^(تفعيل) (.*)$")}
 if status[2] == "الخروج التلقائي" then
 if redis:get(KEEPER.."autoleave") == "On" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل الخروج التلقائي\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل الخروج التلقائي\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل الخروج التلقائي\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل الخروج التلقائي\n ✓ ", 1, 'md')
 redis:set(KEEPER.."autoleave", "On")
 end end end
 if is_sudo(msg) and text:match("^تعطيل (.*)$") then
 local status = { string.match(text, "^(تعطيل) (.*)$")}
 if status[2] == "الخروج التلقائي" then
 if redis:get(KEEPER.."autoleave") == "Off" then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل الخروج التلقائي\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل الخروج التلقائي\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل الخروج التلقائي\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل الخروج التلقائي\n ✓ ", 1, 'md')
 redis:set(KEEPER.."autoleave", "Off")
 end   end  end
 -----------------------------------------------------------
 if text == 'تنظيف الكروبات' or text == 'تنظيف المجموعات' then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🌀┊ تم تنظيف المجموعات الغير \nمفعله في البوت بنجاح ✔', 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾 ┊ تم تنظيف المجموعات الغير \nمفعله في البوت بنجاح ✔', 'md')
 redis:del("bot:groups")
 end end
 ------------------SET KEEPER_SUDO-----------------------------------------
 
 if text:match("^ضع كليشه المطور$") then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊ ارســل لــي كليــشه المطــور الان 🎗", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ حسننا عزيزي لي الكليشه المطور الان 📡", 1, "md")
 redis:setex(KEEPER.."bot:keeper_dev" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 370, true)
 end end
 
@@ -7113,27 +7113,27 @@ end
 -----------------------------------------
 if text == 'حذف كليشه المطور' then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 redis:del(KEEPER.."keeper_dev")
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم حذف كليشه المطور\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم حذف كليشه المطور\n ✓ ", 1, 'md')
 end
 end
 -------------------------SET LINK---------------------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^ضع رابط$"))  then
-send(msg.chat_id_, msg.id_, 1, "🌀┊ ارســــل لي الرابط الان 🎐", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ ارسل لي الرابط الان 👷🏾", 1, "md")
 redis:setex(KEEPER.."bot:group:link" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 120, true)
 end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^حذف الرابط$"))  then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم حذف الرابط بنجاح\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي ... "..tmkeeper(msg).."\n👷🏾┊ تم حذف الرابط بنجاح\n ✓ ", 1, 'md')
 redis:del(KEEPER.."bot:group:link" .. msg.chat_id_)
 end
 if text:match("^الرابط$") then
 local link = redis:get(KEEPER.."bot:group:link" .. msg.chat_id_)
 if link then
-send(msg.chat_id_, msg.id_, 1, "📬¦ رابـــط المجموعــه :\n" .. link .. "", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️¦ رابط المجموعه :\n" .. link .. "", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "📬¦ لم يتم وضع الرابط \n ارسل ضع رابط الان♩",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️¦ لم يتم وضع الرابط \n ارسل ضع رابط الان♩",  1, "md")
 end end
 -----------------GET LINK BY ID GP-----------------------------------------------------------
 if is_admin(msg.sender_user_id_) then
@@ -7164,14 +7164,14 @@ local name = string.sub(filterss[2], 1, 50)
 local hash = "bot:filters:" .. msg.chat_id_
 if filter_ok(name) then
 redis:hset(KEEPER..hash, name, "newword")
-send(msg.chat_id_, msg.id_, 1, "🌀┊  الكلمه〖  " .. name .. "  〗\n👥┊ تم  منعها📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  الكلمه〖  " .. name .. "  〗\n👥┊ تم  منعها📍 ", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "🌀┊  الكلمه [ " .. name .. " ] \n لا استطيع منعها❌", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  الكلمه [ " .. name .. " ] \n لا استطيع منعها❌", 1, "md")
 end
 end
 ---------------------filters------------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^منع$")  then
-send(msg.chat_id_, msg.id_, 1, "🌀┊  ارسل لي الكلمات التي \nتريد منعها بشكل فردي🎈 \n لٱلغاء الامر ارسل الغاء 🎐", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  ارسل لي الكلمات التي \nتريد منعها بشكل فردي✋🏿 \n لٱلغاء الامر ارسل الغاء 🚶🏾", 1, "md")
 redis:setex(KEEPER.."Filtering:" .. msg.sender_user_id_, 80, msg.chat_id_)
 end
 ----------------------------------------------------------------------------------
@@ -7181,19 +7181,19 @@ local name = string.sub(rwss[2], 1, 50)
 local cti = msg.chat_id_
 local hash = "bot:filters:" .. msg.chat_id_
 if not redis:hget(KEEPER..hash, name) then
-send(msg.chat_id_, msg.id_, 1, "🌀┊  الكلمه〖  " .. name .. "  〗\n👥┊  تم الغاء منعها📍", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  الكلمه〖  " .. name .. "  〗\n👥┊  تم الغاء منعها📍", 1, "md")
 redis:hdel(KEEPER..hash, name)
 end end
 -------------------USERS----------------------------------------------------
 if text == 'المشتركين' or text == 'عدد المشتركين' and is_KP(msg) then
 local users = redis:scard(KEEPER.."bot:userss")
 local botnamess = redis:get(KEEPER.."keepernams") or "شلش"
-send(msg.chat_id_, msg.id_, 1, "*- عدد المشتركين في الخاص»* 👇🏾\n👨🏼┊ اسم البوت » *" .. botnamess .. "*\n🚫┊ عدد المشتركين » *("..users..")* مشترك\n‏", 1,"md")
+send(msg.chat_id_, msg.id_, 1, "*- عدد المشتركين في الخاص»* 👇🏾\n📡┊ اسم البوت » *" .. botnamess .. "*\n👨🏿‍🎓┊ عدد المشتركين » *("..users..")* مشترك\n‏", 1,"md")
 end
 ----------------------------------------------------------------------------
 if text == 'روابط الكروبات' or text == 'روابط المجموعات' then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 local get_me = function(extra, result)
 local num = (redis:scard(KEEPER.."bot:groups"))
@@ -7218,7 +7218,7 @@ file:close()
 local token_files = 'https://api.telegram.org/bot' .. KEEPER_TOKEN .. '/sendDocument'
 local token_filess = 'curl "' .. token_files .. '" -F "chat_id=' .. msg.chat_id_ .. '" -F "document=@' .. 'Groups_Bot.txt' .. '"'
 io.popen(token_filess)
-send(msg.chat_id_, msg.id_, 1, '🔚┊ اهلا » *'..result.first_name_..'*\n🔰┊ جاري ارسال نسخه للمجموعات \n🌀┊ تحتوي على *('..num..')* مجموعه\n‏〰', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا » *'..result.first_name_..'*\n📡┊ جاري ارسال نسخه للمجموعات \n👷🏾┊ تحتوي على *('..num..')* مجموعه\n‏〰', 1, 'md')
 sleep(1.5)
 send(msg.chat_id_, msg.id_, 1, token_filess, 1, 'md')
 end
@@ -7228,7 +7228,7 @@ end
 -----------------------------------------------------------------------------------
 if text == "فحص" then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 local botnamess = redis:get(KEEPER.."keepernams") or "شلش"
 local kpSudos1 = redis:scard(KEEPER.."Bot:KpSudos") or "0"
@@ -7237,19 +7237,19 @@ local kpgban = redis:scard(KEEPER.."bot:gban:") or "0"
 local kpvipmems = redis:scard(KEEPER.."bot:vipmems:") or "0"
 local kpgps = redis:scard(KEEPER.."bot:groups") or "0"
 local kpusers = redis:scard(KEEPER.."bot:userss") or "0"
-send(msg.chat_id_, msg.id_, 1, "*- احصائيات البـــــوت ≈*\n*ﮧ -------------------»*\n👨🏼┊اسم البوت ≈ *" .. botnamess .. "*\n🃏┊عدد المطورين ≈ *"..kpSudos1.."*\n🔰┊عدد الادمنيه ≈ *"..kpAdmins.."*\n🔚┊عدد الكروبات ≈ * "..kpgps.."*\n👪┊عدد المشتركين خاص ≈ *" .. kpusers .. "*\n🔔┊عدد المحظورين عام ≈ *"..kpgban.."*\n🔘┊عدد المميزين عام ≈ * "..kpvipmems.."*\n🗯┊قناة السورس ≈ [ZAMA](t.me/ZAMAFBI)\n✓", 1,"md")
+send(msg.chat_id_, msg.id_, 1, "*- احصائيات البوت ≈*\n*ﮧ -------------------»*\n👨🏼┊اسم البوت ≈ *" .. botnamess .. "*\n🃏┊عدد المطورين ≈ *"..kpSudos1.."*\n🔰┊عدد الادمنيه ≈ *"..kpAdmins.."*\n🔚┊عدد الكروبات ≈ * "..kpgps.."*\n👪┊عدد المشتركين خاص ≈ *" .. kpusers .. "*\n🔔┊عدد المحظورين عام ≈ *"..kpgban.."*\n🔘┊عدد المميزين عام ≈ * "..kpvipmems.."*\n🗯┊قناة السورس ≈ [ZAMA](t.me/ZAMAFBI)\n✓", 1,"md")
 end
 end
 ------------------GPS AND USERS-------------------------------------------
 if text:match("^المجموعات$") or text:match("^الكروبات$") and is_admin(msg.sender_user_id_, msg.chat_id_) then
 local gps = redis:scard(KEEPER.."bot:groups")
 local users = redis:scard(KEEPER.."bot:userss")
-send(msg.chat_id_, msg.id_, 1, "🚫┊ عدد الكروبات المفعله» *"..gps.."*\n🔰┊ عدد المشتركين » *"..users.."* مشترك\n✓‏", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ عدد الكروبات المفعله» *"..gps.."*\n📡┊ عدد المشتركين » *"..users.."* مشترك\n✓‏", 1, 'md')
 end
 -----------------------bc--------------------------------------------------------
 if text == 'اذاعه بالرد' and tonumber(msg.reply_to_message_id_) > 0 then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 function cb(a,b,c)
 local text = b.content_.text_
@@ -7261,7 +7261,7 @@ local msgs = {
 for i = 1, #gpss do
 send(gpss[i], 0, 1, text, 1, "md")
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم نشر رسالتك  في\n` " .. gps .. "` مجموعــه🎈  ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم نشر رسالتك  في\n` " .. gps .. "` مجموعه🎈  ", 1, "md")
 end
 getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
 end
@@ -7269,7 +7269,7 @@ end
 ------------------------fwd --------------------------------------------------------
 if text == 'توجيه بالرد' and tonumber(msg.reply_to_message_id_) > 0 then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 function cb(a,b,c)
 local gps = redis:scard(KEEPER.."bot:groups") or 0
@@ -7277,7 +7277,7 @@ local gpss = redis:smembers(KEEPER.."bot:groups") or 0
 for k,v in pairs(gpss) do
 forwardMessages(v, msg.chat_id_, {[0] = b.id_}, 1)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم نشر رسالتك  في\n` " .. gps .. "` مجموعــه🎈  ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم نشر رسالتك  في\n` " .. gps .. "` مجموعــه🎈  ", 1, "md")
 end
 getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
 end
@@ -7285,7 +7285,7 @@ end
 -----------------------bc user-------------------------------------------------------
 if text == 'اذاعه خاص' and tonumber(msg.reply_to_message_id_) > 0 then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 function cb(a,b,c)
 local text = b.content_.text_
@@ -7297,7 +7297,7 @@ local msgs = {
 for i = 1, #userss do
 send(userss[i], 0, 1, text, 1, "md")
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم ارسال الرساله الى\n*(" .. users .. ")* مشترك 🎈  ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم ارسال الرساله الى\n*(" .. users .. ")* مشترك 🎈  ", 1, "md")
 end
 getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
 end
@@ -7305,7 +7305,7 @@ end
 ------------------------fwd  user--------------------------------------------------------
 if text == 'توجيه خاص' and tonumber(msg.reply_to_message_id_) > 0 then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 function cb(a,b,c)
 local users = redis:scard(KEEPER.."bot:userss") or 0
@@ -7313,13 +7313,13 @@ local userss = redis:smembers(KEEPER.."bot:userss") or 0
 for k,v in pairs(userss) do
 forwardMessages(v, msg.chat_id_, {[0] = b.id_}, 1)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه الرساله الى\n*(" .. users .. ")* مشترك 🎈  ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم توجيه الرساله الى\n*(" .. users .. ")* مشترك 🎈  ", 1, "md")
 end
 getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),cb)
 end
 end
 ----------------LOCK FOSHN--------------------------------------------------
-if text:match("كس") or text:match("طيز") or text:match("ديس") or text:match("زب") or text:match("انيجمك") or text:match("انيج") or text:match("نيج") or text:match("ديوس") or text:match("عير") or text:match("كسختك") or text:match("كسمك") or text:match("كسربك") or text:match("بلاع") or text:match("ابو العيوره") or text:match("منيوج") or text:match("كحبه") or text:match("اخ الكحبه") or text:match("اخو الكحبه") or text:match("الكحبه") or text:match("كسك") or text:match("طيزك") or text:match("عير بطيزك") or text:match("كس امك") or text:match("امك الكحبه") or text:match("عيرك") or text:match("عير بيك") or text:match("صرمك") and is_owner(msg.sender_user_id_, msg.chat_id_) then
+if text:match("كس") or text:match("کس") or text:match("ديس") or text:match("دي") or text:match("اخو الگحبا") or text:match("منیوچ") or text:match("گحبا") or text:match("عیر") or text:match("عير") or text:match("كسختك") or text:match("كسمك") or text:match("کس اختک") or text:match("بلاع") or text:match("ابو العيوره") or text:match("منيوج") or text:match("كحبه") or text:match("اخ الكحبه") or text:match("اخو الكحبه") or text:match("الكحبه") or text:match("كسك") or text:match("طيزك") or text:match("عير بطيزك") or text:match("كس امك") or text:match("امك الكحبه") or text:match("عيرك") or text:match("عير بيك") or text:match("صرمك") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 if redis:get(KEEPER.."ffosh"..msg.chat_id_) and not is_owner(msg.sender_user_id_, msg.chat_id_) then
 local id = msg.id_
 local msgs = { [0] = id}
@@ -7331,7 +7331,7 @@ if text == "الرتبه" and msg.reply_to_message_id_ ~= 0 then
 function id_by_reply(extra, result, success)
 if result.id_ then
 if tonumber(result.sender_user_id_) == tonumber(Kp_Owner) then
-keeper3 = "مطور الاساسـي"
+keeper3 = "مطور الاساسي"
 elseif is_sudoid(result.sender_user_id_) then
 keeper3 = "المطور"
 elseif is_admin(result.sender_user_id_) then
@@ -7347,10 +7347,10 @@ keeper3 = "ادمن المجموعه"
 elseif is_vipmem(result.sender_user_id_, msg.chat_id_) then
 keeper3 = "عضو مميز"
 else
-keeper3 = "عـضـو"
+keeper3 = "عضو"
 end
 end
-send(msg.chat_id_, msg.id_, 1, "🚫┊ الرتبه » (*"..keeper3.."*) 🍃\n‏" , 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ الرتبه » (*"..keeper3.."*) 🍃\n‏" , 1, "md")
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,id_by_reply)
 end
@@ -7695,7 +7695,7 @@ if not is_KP(msg) then
 send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 redis:setex(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true)
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ ارسل لي الرساله الان📲\n🚫┊ للخروج ارسل لي الغاء 📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ ارسل لي الرساله الان📲\n📡┊ للخروج ارسل لي الغاء✓", 1, "md")
 end end end
 if text:match("^اذاعه$") then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
@@ -7703,7 +7703,7 @@ if not is_KP(msg) then
 send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 redis:setex(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true)
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  ارسل لي الرساله الان📲\n🚫┊ للخروج ارسل لي الغاء 📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  ارسل لي الرساله الان📲\n📡┊ للخروج ارسل لي الغاء✓", 1, "md")
 end end end
 ----------------- info bot --------------------------------------------------------------
 if is_sudo(msg) and (text:match("^اعدادات البوت$") or text:match("^معلومات البوت$")) then
