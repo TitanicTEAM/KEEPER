@@ -8478,18 +8478,18 @@ redis:set(KEEPER.."keed_fwd" .. msg.chat_id_, true)
 end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and text == "قفل البوتات بالتقييد" then
 if not redis:get(KEEPER.."keed_bots" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "👮🏽┊ هلا حبيبي  ... "..tmkeeper(msg).."\n📡┊ تم قفل البوتات بالتقييد\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👮🏽┊ اهلا حبيبي  ... "..tmkeeper(msg).."\n📡┊ تم قفل البوتات بالتقييد\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "👮🏽┊ هلا حبيبي  ... "..tmkeeper(msg).."\n📡┊ البوتات بالتقييد مقفول سابقا\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👮🏽┊ اهلا حبيبي  ... "..tmkeeper(msg).."\n📡┊ البوتات بالتقييد مقفول سابقا\n ✓ ", 1, 'md')
 end
 redis:set(KEEPER.."keed_bots" .. msg.chat_id_, true)
 end
 ----------------------------------------------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and text == "فتح الدردشه بالتقييد" then
 if redis:get(KEEPER.."keed_text" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "👮🏽┊ هلا سيدي  ... "..tmkeeper(msg).."\n📡┊ تم فتح الدردشه بالتقييد\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👮🏽┊ اهلا سيدي  ... "..tmkeeper(msg).."\n📡┊ تم فتح الدردشه بالتقييد\n ✓ ", 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, "👮🏽┊ هلا سيدي  ... "..tmkeeper(msg).."\n📡┊ الدردشه بالتقييد مفتوح سابقا\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👮🏽┊ اهلا سيدي  ... "..tmkeeper(msg).."\n📡┊ الدردشه بالتقييد مفتوح سابقا\n ✓ ", 1, 'md')
 end
 redis:del(KEEPER.."keed_text" .. msg.chat_id_)
 end
@@ -9503,7 +9503,7 @@ if text:match('^تنظيف (%d+)$') or text:match('^مسح (%d+)$') and is_momod
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local matches = {string.match(text, "^(تنظيف) (%d+)$")}
 local matches = {string.match(text, "^(مسح) (%d+)$")}
-if msg.chat_id_:match("^-100") then
+if msg.chat_id_:match("^-1000") then
 if not redis:get(KEEPER.."dellmssg"..msg.chat_id_) and not is_owner(msg.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ خاصيه المسح معطله ', 1, 'md')
 return false
@@ -9518,7 +9518,7 @@ chat_id_ = msg.chat_id_,
 from_message_id_ = 0,
 offset_ = 0,
 limit_ = tonumber(matches[2])}, delmsg, nil)
-pm ='🌀┊ تم مسح ('..matches[2]..') رسالۿ'
+pm ='🌀┊ تم مسح ('..matches[2]..') رسالة'
 send(msg.chat_id_, msg.id_, 1, pm, 1, 'md')
 end
 else pm ='🌀┊ عذرا لا استطيع مسح الرسائل'
@@ -9528,14 +9528,14 @@ end end end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and msg.reply_to_message_id_ ~= 0 and (text:match("^تثبيت$"))  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not redis:get(KEEPER.."lock_pinn"..msg.chat_id_) and not is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "🌀┊ التثبيت مقفول من قبل المدير 🍃", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ التثبيت مقفول من قبل المدير 🍃", 1, "md")
 return false
 end
 local id = msg.id_
 local msgs = { [0] = id }
 pinmsg(msg.chat_id_, msg.reply_to_message_id_, 0)
 redis:set(KEEPER.."pinnedmsg" .. msg.chat_id_, msg.reply_to_message_id_)
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم  تثبيــت الرسالــۿ\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🗣┊ بواسطه » "..tmkeeper(msg).."\n👮🏾‍♀️┊ تم  تثبيت الرسالة\n ✓ ", 1, 'md')
 end end
 ----------info gp --------------------------------------------------
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match('احصائيات المجموعه')  then
@@ -9564,7 +9564,7 @@ local kpmuted = redis:scard(KEEPER.."bot:muted:" .. msg.chat_id_) or "0"
 local kpkeed = redis:scard(KEEPER.."bot:keed:" .. msg.chat_id_) or "0"
 local kpmomod = redis:scard(KEEPER.."bot:momod:" .. msg.chat_id_) or "0"
 local kpvipmem = redis:scard(KEEPER.."bot:vipmem:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "*- احصائيات في المجموعه »*\n📌┊ المدير » [" .. owner .. "]\n🌋┊ عدد الاعضاء » `"..data.member_count_.."`\n🌋┊عدد الادمنيه » `"..data.administrator_count_.."`\n🌋┊عدد المحضورين » `"..data.kicked_count_.."`\n📌┊ المطور » [" .. sudo .. "]\n\n*- احصائيات في البــــوت » *\n📌┊ عدد المنشئين » *"..kpmonshis.."*\n🗯┊ عدد المحضورين » *"..kpbanned.."*\n🗯┊ عدد المــدراء » * "..kpowners.."*\n🗯┊ عدد المكتومين » * "..kpmuted.."*\n🗯┊ عدد المقيدين » *"..kpkeed.."*\n🗯┊ عدد الادمنيه » * "..kpmomod.."*\n📌┊ عدد المميزين » *"..kpvipmem.."*\n📌┊ اسم البوت » *"..(redis:get(KEEPER.."keepernams") or "كيبر").."*\n💠┊ الايدي » (`"..bot_id.."`)\n💠┊ ايدي المجموعه » 👇🏾\n💠┊ﮧ (`" .. msg.chat_id_ .. "`)\n💠┊ اسم المجموعه » 👇🏾\n📌┊ ﮧ ("..title_name(msg.chat_id_)..")\n‏\n", 1,"md")
+send(msg.chat_id_, msg.id_, 1, "*- احصائيات في المجموعه »*\n👮🏻┊ المدير » [" .. owner .. "]\n🌋┊ عدد الاعضاء » `"..data.member_count_.."`\n👨🏿‍🎓┊عدد الادمنيه » `"..data.administrator_count_.."`\n🖐🏿┊عدد المحضورين » `"..data.kicked_count_.."`\n👨🏻‍💻┊ المطور » [" .. sudo .. "]\n\n*- احصائيات في البوت » *\n👮🏻┊ عدد المنشئين » *"..kpmonshis.."*\n🗯┊ عدد المحضورين » *"..kpbanned.."*\n🙋🏻‍♂️┊ عدد المــدراء » * "..kpowners.."*\n👷🏾┊ عدد المكتومين » * "..kpmuted.."*\n📩┊ عدد المقيدين » *"..kpkeed.."*\n👮🏽┊ عدد الادمنيه » * "..kpmomod.."*\n📌┊ عدد المميزين » *"..kpvipmem.."*\n👲🏾┊ اسم البوت » *"..(redis:get(KEEPER.."keepernams") or "شلش").."*\n🎫┊ الايدي » (`"..bot_id.."`)\n🎟┊ ايدي المجموعه » 👇🏾\n💠┊ﮧ (`" .. msg.chat_id_ .. "`)\n📡┊ اسم المجموعه » 👇🏾\n📌┊ ﮧ ("..title_name(msg.chat_id_)..")\n‏\n", 1,"md")
 end
 getChannelFull(msg.chat_id_, gp_keeper_info, nil)
 end
@@ -9572,7 +9572,7 @@ end
 text = msg.content_.text_
 if msg.content_.text_ == 'مسح رد' and  is_owner(msg.sender_user_id_, msg.chat_id_) then
 redis:set(KEEPER..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'','del_repgp1')
-send(msg.chat_id_, msg.id_, 1, '📌┊ ارسل لي كلمه الرد لمسحها ❗️\n',1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ حسننا عزيزي ارسل لي كلمه الرد لمسحها\n ✋🏿",1, "md")
 return false
 end
 if msg.content_.text_ then
@@ -9592,12 +9592,12 @@ end
 --------------------------------------------------------------------------
 if msg.content_.text_ == 'اضف رد' and is_owner(msg.sender_user_id_, msg.chat_id_)  then
 redis:set(KEEPER..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'','set_repgp')
-send(msg.chat_id_, msg.id_, 1, '📌┊ ارسل لي كلمه الرد الان ❗️\n',1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ حسننا عزيزي ارسل لي كلمه الرد\n ✋🏿",1, "md")
 return false    end
 if msg.content_.text_ then
 local content_keep = redis:get(KEEPER..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'')
 if content_keep == 'set_repgp' then
-send(msg.chat_id_, msg.id_, 1, '📌┊ ارسل جواب الرد قد يكون\n🗯┊ {نص-ملصق-بصمه...} ❗️\n' ,  1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ شكرا سيدي الان ارسل جواب الرد قد يكون\n ✋🏿┊ {نص-ملصق-بصمه...} 🚶🏾\n" ,  1, "md")
 redis:set(KEEPER..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'','save_repgp')
 redis:set(KEEPER..'addreplaygp:'..msg.sender_user_id_..''..msg.chat_id_..'',msg.content_.text_)
 redis:sadd(KEEPER..'rep_owner'..msg.chat_id_..'',msg.content_.text_)
@@ -9608,9 +9608,9 @@ end
 if  msg.content_.text_ == 'الردود' and is_owner(msg.sender_user_id_, msg.chat_id_) then
 local redod = redis:smembers(KEEPER..'rep_owner'..msg.chat_id_..'')
 if #redod == 0 then
-send(msg.chat_id_, msg.id_, 1,'📌┊ لا توجد ردود في المجموعه ❗️\n' ,1, 'md')
+send(msg.chat_id_, msg.id_, 1,'🙋🏻‍♂️┊ لا توجد ردود في المجموعه \n ✋🏿' ,1, 'md')
 else
-msg_rep = '📌┊ ردود المجموعـــه »\n'
+msg_rep = '🙋🏻‍♂️┊ ردود المجموعة »\n'
 for k,v in pairs(redod) do
 msg_rep = msg_rep ..k..' - *⁽ '..v..' ₎* \n'
 end
@@ -9622,7 +9622,7 @@ end
 if msg.content_.text_ == 'مسح الردود' and is_owner(msg.sender_user_id_, msg.chat_id_) then
 local redod = redis:smembers(KEEPER..'rep_owner'..msg.chat_id_..'')
 if #redod == 0 then
-send(msg.chat_id_, msg.id_, 1,'📌┊ لا توجد ردود في المجموعه ❗️\n' ,1, 'md')
+send(msg.chat_id_, msg.id_, 1,'🙋🏻‍♂️┊ لا توجد ردود في المجموعه \n ✋🏿' ,1, 'md')
 else
 for k,v in pairs(redod) do
 redis:del(KEEPER..'add:repgp'..msg.sender_user_id_..''..msg.chat_id_..'')
@@ -9633,7 +9633,7 @@ redis:del(KEEPER..'video_repgp'..v..msg.chat_id_)
 redis:del(KEEPER..'text_repgp'..v..msg.chat_id_)
 redis:del(KEEPER..'rep_owner'..msg.chat_id_..'',msg.content_.text_)
 end
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح جميع الردود\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم مسح جميع الردود\n ✓ ", 1, 'md')
 return false
 end
 end
@@ -9641,13 +9641,13 @@ end
 text = msg.content_.text_
 if msg.content_.text_ == 'مسح رد للكل' and  is_sudo(msg) then
 redis:set(KEEPER.."add:repallt"..msg.sender_user_id_,'del_rep1')
-send(msg.chat_id_, msg.id_, 1, "📌┊ ارسل لي كلمه الرد لمسحها ❗️\n",1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊حسننا عزيزي ارسل لي كلمه الرد لمسحها \n ✋🏿",1, "md")
 return false
 end
 if msg.content_.text_ then
 local content_text = redis:get(KEEPER.."add:repallt"..msg.sender_user_id_)
 if content_text == 'del_rep1' then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم مسح الرد للكل\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🕵🏽┊ اهلا حبيبي » "..tmkeeper(msg).."\n📡┊ تم مسح الرد للكل\n ✓ ", 1, 'md')
 redis:del(KEEPER.."add:repallt"..msg.sender_user_id_)
 redis:del(KEEPER.."gif_repall"..msg.content_.text_)
 redis:del(KEEPER.."voice_repall"..msg.content_.text_)
