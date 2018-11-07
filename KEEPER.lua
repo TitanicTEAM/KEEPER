@@ -9448,7 +9448,7 @@ if #list == 0 then
 text = "*« معلومات المطور »*\n\n🎟┊ معرفه : [" .. susername .. "]\n🎫┊ ايديه : "..result.id_.."\n📝┊ اسمه : "..result.first_name_.."\n👮🏻 لا توجد مجموعات مضافه⚜️ "
 end
 send_large_msg(msg.chat_id_, msg.id_, 1, text, 1, "md")
-elsesend(msg.chat_id_, msg.id_, 1, "🎟┊  
+else                 
 send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  للاسف العضو ليس من المطورين🚶🏾 ", 1, "md")
 end end
 local data_start_username = function(extra, result)
