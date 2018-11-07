@@ -9003,42 +9003,42 @@ end end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^الاعدادات"))  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if redis:get(KEEPER.."bot:muteall" .. msg.chat_id_) then
-mute_all = "✅"
+mute_all = "✓"
 else
 mute_all = "✖️"
 end
 if redis:get(KEEPER.."bot:text:mute" .. msg.chat_id_) then
-mute_text = "✅"
+mute_text = "✓"
 else
 mute_text = "✖️"
 end
 if redis:get(KEEPER.."bot:photo:mute" .. msg.chat_id_) then
-mute_photo = "✅"
+mute_photo = "✓"
 else
 mute_photo = "✖️"
 end
 if redis:get(KEEPER.."bot:video:mute" .. msg.chat_id_) then
-mute_video = "✅"
+mute_video = "✓"
 else
 mute_video = "✖️"
 end
 if redis:get(KEEPER.."bot:selfvideo:mute" .. msg.chat_id_) then
-mute_selfvideo = "✅"
+mute_selfvideo = "✓"
 else
 mute_selfvideo = "✖️"
 end
 if redis:get(KEEPER.."bot:gifs:mute" .. msg.chat_id_) then
-mute_gifs = "✅"
+mute_gifs = "✓"
 else
 mute_gifs = "✖️"
 end
 if redis:get(KEEPER.."anti-flood:" .. msg.chat_id_) then
-mute_flood = "✅"
+mute_flood = "✓"
 else
 mute_flood = "✖️"
 end
 if redis:get(KEEPER.."bot:muteall:Time" .. msg.chat_id_) then
-auto_lock = "✅"
+auto_lock = "✓"
 else
 auto_lock = "✖️"
 end
@@ -9072,137 +9072,137 @@ elseif not redis:get(KEEPER.."warnstatus" .. msg.chat_id_) then
 warnstatus = "الكتم"
 end
 if redis:get(KEEPER.."bot:music:mute" .. msg.chat_id_) then
-mute_music = "✅"
+mute_music = "✓"
 else
 mute_music = "✖️"
 end
 if redis:get(KEEPER.."bot:bots:mute" .. msg.chat_id_) then
-mute_bots = "✅"
+mute_bots = "✓"
 else
 mute_bots = "✖️"
 end
 if redis:get(KEEPER.."bot:duplipost:mute" .. msg.chat_id_) then
-duplipost = "✅"
+duplipost = "✓"
 else
 duplipost = "✖️"
 end
 if redis:get(KEEPER.."bot:member:lock" .. msg.chat_id_) then
-member = "✅"
+member = "✓"
 else
 member = "✖️"
 end
 if redis:get(KEEPER.."bot:inline:mute" .. msg.chat_id_) then
-mute_in = "✅"
+mute_in = "✓"
 else
 mute_in = "✖️"
 end
 if redis:get(KEEPER.."bot:cmds" .. msg.chat_id_) then
-mute_cmd = "✅"
+mute_cmd = "✓"
 else
 mute_cmd = "✖️"
 end
 if redis:get(KEEPER.."bot:voice:mute" .. msg.chat_id_) then
-mute_voice = "✅"
+mute_voice = "✓"
 else
 mute_voice = "✖️"
 end
 if redis:get(KEEPER.."editmsg" .. msg.chat_id_) then
-mute_edit = "✅"
+mute_edit = "✓"
 else
 mute_edit = "✖️"
 end
 if redis:get(KEEPER.."bot:links:mute" .. msg.chat_id_) then
-mute_links = "✅"
+mute_links = "✓"
 else
 mute_links = "✖️"
 end
 if redis:get(KEEPER.."bot:pin:mute" .. msg.chat_id_) then
-lock_pin = "✅"
+lock_pin = "✓"
 else
 lock_pin = "✖️"
 end
 if redis:get(KEEPER.."bot:sticker:mute" .. msg.chat_id_) then
-lock_sticker = "✅"
+lock_sticker = "✓"
 else
 lock_sticker = "✖️"
 end
 if redis:get(KEEPER.."bot:tgservice:mute" .. msg.chat_id_) then
-lock_tgservice = "✅"
+lock_tgservice = "✓"
 else
 lock_tgservice = "✖️"
 end
 if redis:get(KEEPER.."bot:webpage:mute" .. msg.chat_id_) then
-lock_wp = "✅"
+lock_wp = "✓"
 else
 lock_wp = "✖️"
 end
 if redis:get(KEEPER.."bot:strict" .. msg.chat_id_) then
-strict = "✅"
+strict = "✓"
 else
 strict = "✖️"
 end
 if redis:get(KEEPER.."bot:hashtag:mute" .. msg.chat_id_) then
-lock_htag = "✅"
+lock_htag = "✓"
 else
 lock_htag = "✖️"
 end
 if redis:get(KEEPER.."tags:lock" .. msg.chat_id_) then
-lock_tag = "✅"
+lock_tag = "✓"
 else
 lock_tag = "✖️"
 end
 if redis:get(KEEPER.."bot:location:mute" .. msg.chat_id_) then
-lock_location = "✅"
+lock_location = "✓"
 else
 lock_location = "✖️"
 end
 if redis:get(KEEPER.."bot:contact:mute" .. msg.chat_id_) then
-lock_contact = "✅"
+lock_contact = "✓"
 else
 lock_contact = "✖️"
 end
 if redis:get(KEEPER.."bot:english:mute" .. msg.chat_id_) then
-lock_english = "✅"
+lock_english = "✓"
 else
 lock_english = "✖️"
 end
 if redis:get(KEEPER.."bot:arabic:mute" .. msg.chat_id_) then
-lock_arabic = "✅"
+lock_arabic = "✓"
 else
 lock_arabic = "✖️"
 end
 if redis:get(KEEPER.."bot:forward:mute" .. msg.chat_id_) then
-lock_forward = "✅"
+lock_forward = "✓"
 else
 lock_forward = "✖️"
 end
 if redis:get(KEEPER.."bot:document:mute" .. msg.chat_id_) then
-lock_file = "✅"
+lock_file = "✓"
 else
 lock_file = "✖️"
 end
 if redis:get(KEEPER.."markdown:lock" .. msg.chat_id_) then
-markdown = "✅"
+markdown = "✓"
 else
 markdown = "✖️"
 end
 if redis:get(KEEPER.."Game:lock" .. msg.chat_id_) then
-game = "✅"
+game = "✓"
 else
 game = "✖️"
 end
 if redis:get(KEEPER.."bot:spam:mute" .. msg.chat_id_) then
-lock_spam = "✅"
+lock_spam = "✓"
 else
 lock_spam = "✖️"
 end
 if redis:get(KEEPER.."post:lock" .. msg.chat_id_) then
-post = "✅"
+post = "✓"
 else
 post = "✖️"
 end
 if redis:get(KEEPER.."bot:welcome" .. msg.chat_id_) then
-send_welcome = "✅"
+send_welcome = "✓"
 else
 send_welcome = "✖️"
 end
