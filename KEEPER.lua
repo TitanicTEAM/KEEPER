@@ -9469,11 +9469,11 @@ end
 --------------SEND ALL GP----------------------------------------------------------------
 if text:match("^اذاعه خاص (.*)") then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local tmkeep =  text:match("^اذاعه خاص (.*)")
-local tmkeep2 = "🌀┊ تم ارسال الاذاعه الى:\n( * GP * ) من الاعضاء\n‏"
+local tmkeep2 = "🙋🏻‍♂️┊ تم ارسال الاذاعه الى:\n( * GP * ) من الاعضاء\n ✓‏"
 local gp = tonumber(redis:scard(KEEPER.."bot:userss"))
 gps = redis:smembers(KEEPER.."bot:userss")
 text = tmkeep2:gsub('GP',gp)
@@ -9494,7 +9494,7 @@ redis:sadd(KEEPER.."bot:owners:"..msg.chat_id_,owner_id)
 end
 end
 local kpmomod = redis:scard(KEEPER.."bot:momod:" .. msg.chat_id_) or "0"
-send(msg.chat_id_, msg.id_, 1, "📉┊عدد الأدمنيه ≈ *"..kpmomod.."*\n🌀┊ تـم رفعـهم بنجـــــــــــاح ✓\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📡┊عدد الأدمنيه ≈ *"..kpmomod.."*\n🙋🏻‍♂️┊ تـم رفعـهم بنجاح \n ✓‏", 1, "md")
 end
 getChannelMembers(msg.chat_id_, 0, 'Administrators', 200, promote_admin)
 end
@@ -9503,13 +9503,13 @@ if text:match('^تنظيف (%d+)$') or text:match('^مسح (%d+)$') and is_momod
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local matches = {string.match(text, "^(تنظيف) (%d+)$")}
 local matches = {string.match(text, "^(مسح) (%d+)$")}
-if msg.chat_id_:match("^-1000") then
+if msg.chat_id_:match("^-100") then
 if not redis:get(KEEPER.."dellmssg"..msg.chat_id_) and not is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, '🌀┊ خاصيه المسح معطله ', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ خاصيه المسح معطله ', 1, 'md')
 return false
 end
 if tonumber(matches[2]) > 100 or tonumber(matches[2]) < 1 then
-pm = '🌀┊ لا استطيع مسح اكثر من (100) رساله'
+pm = '🙋🏻‍♂️┊ لا استطيع مسح اكثر من (100) رساله'
 send(msg.chat_id_, msg.id_, 1, pm, 1, 'md')
 else
 tdcli_function ({
@@ -9518,10 +9518,10 @@ chat_id_ = msg.chat_id_,
 from_message_id_ = 0,
 offset_ = 0,
 limit_ = tonumber(matches[2])}, delmsg, nil)
-pm ='🌀┊ تم مسح ('..matches[2]..') رسالة'
+pm ='🙋🏻‍♂️┊ تم مسح ('..matches[2]..') رسالة'
 send(msg.chat_id_, msg.id_, 1, pm, 1, 'md')
 end
-else pm ='🌀┊ عذرا لا استطيع مسح الرسائل'
+else pm ='🙋🏻‍♂️┊ عذرا لا استطيع مسح الرسائل'
 send(msg.chat_id_, msg.id_, 1, pm, 1, 'md')
 end end end
 --------------PIN----------------------------------------------------------------------------
