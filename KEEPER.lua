@@ -8916,7 +8916,7 @@ end end
 ------------DEL filters-----------------------------------------
 if txts[2] == "قائمه المنع" and idf:match("-100(%d+)") then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local hash = "bot:filters:" .. msg.chat_id_
 redis:del(KEEPER..hash)
@@ -8925,7 +8925,7 @@ end end
 -------------DEL MUTE----------------------------------------
 if txts[2] == "المكتومين" and idf:match("-100(%d+)") then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md'
 else
 local kpmuted = redis:scard(KEEPER.."bot:muted:" .. msg.chat_id_) or "0"
 redis:del(KEEPER.."bot:muted:" .. msg.chat_id_)
