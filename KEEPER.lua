@@ -9228,7 +9228,7 @@ send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر �
 else
 os.execute('rm -rf KEEPER.lua') 
 os.execute('wget https://raw.githubusercontent.com/TitanicTEAM/KEEPER/master/KEEPER.lua') 
-send(msg.chat_id_, msg.id_, 1, "💬┊ اهلا حبيبي » "..tmkeeper(msg).."\n🎟┊ تم تحديث السورس \n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تحديث السورس \n ✓ ", 1, 'md')
 dofile('KEEPER.lua')  
 io.popen("rm -rf ~/.telegram-cli/data/audio/*") 
 io.popen("rm -rf ~/.telegram-cli/data/document/*") 
@@ -9301,7 +9301,8 @@ local leavegp = function(extra, result)
 if result.id_ then
 send(msg.chat_id_, msg.id_, 1, "🖐🏿  المجموعه : \n- " .. result.title_ .. "\n📛 تم اخراج البوت منها💯", 1, "md")
 if redis:get(KEEPER.."lang:gp:" .. result.id_) then
-send(result.id_, 0, 1, "👮🏻┊  تم اخراج البوت ✋🏿\n🙋🏻‍♂️┊ راسل المطور للتفعيل 🚶🏾\n👨🏾‍🌾┊ *المطور* : [" .. UserKeeper .. "]\n‏", 1, "md")else
+send(result.id_, 0, 1, "👮🏻┊  تم اخراج البوت ✋🏿\n🙋🏻‍♂️┊ راسل المطور للتفعيل 🚶🏾\n👨🏾‍🌾┊ *المطور* : [" .. UserKeeper .. "]\n‏", 1, "md")
+else
 send(result.id_, 0, 1, "👮🏻┊  تم اخراج البوت ✋🏿\n🙋🏻‍♂️┊ راسل المطور للتفعيل 🚶🏾\n👨🏾‍🌾┊ *المطور* : [" .. UserKeeper .. "]\n‏", 1, "md")
 end
 chat_leave(result.id_, bot_id)
