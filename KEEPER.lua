@@ -6254,11 +6254,11 @@ end
 ---------------------list vipmems---------------------------------------------------------------------------------------------------
 if text:match("^قائمه المميزين العام$") then
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  للمطورين  فقط😹\n🚶🏾", 'md')
 else
 local hash = "bot:vipmems:"
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊  قائمه مميزين العام :\n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "🙋🏻‍♂️┊  قائمه مميزين العام :\n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 local user_info = redis:get(KEEPER.."user:Name" .. v)
 if user_info then
@@ -6276,7 +6276,7 @@ end end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^المكتومين$"))  then
 local hash = "bot:muted:" .. msg.chat_id_
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊  قائمه المكتومين : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "🙋🏻‍♂️┊  قائمه المكتومين : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 local user_info = redis:get(KEEPER.."user:Name" .. v)
 if user_info then
@@ -6294,7 +6294,7 @@ end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^المدراء$"))  then
 local hash = "bot:owners:" .. msg.chat_id_
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊ قائمة المدراء : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "🙋🏻‍♂️┊ قائمة المدراء : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 local user_info = redis:get(KEEPER.."user:Name" .. v)
 if user_info then
@@ -6312,7 +6312,7 @@ end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^المحظورين$"))  then
 local hash = "bot:banned:" .. msg.chat_id_
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊  قائمه المحظورين : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "🙋🏻‍♂️┊  قائمه المحظورين : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 local user_info = redis:get(KEEPER.."user:Name" .. v)
 if user_info then
@@ -6329,11 +6329,11 @@ end
 -----------------list GBAN----------------------------------------------------------------------
 if text:match("^قائمه العام$") then
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  للمطورين  فقط😹\n🚶🏾", 'md')
 else
 local hash = "bot:gban:"
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊  المحضورين عام : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "🙋🏻‍♂️┊  المحضورين عام : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 local user_info = redis:get(KEEPER.."user:Name" .. v)
 if user_info then
@@ -6351,7 +6351,7 @@ end end
 if is_momod(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and (text:match("^المنشئين$"))  then
 local hash = "bot:monshis:" .. msg.chat_id_
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊ قائمة المشئين : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "🙋🏻‍♂️┊ قائمة المشئين : \n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 local user_info = redis:get(KEEPER.."user:Name" .. v)
 if user_info then
@@ -6368,11 +6368,11 @@ end
 ------------------list Admins BOT--------------------------------------------------------------------------
 if text:match("^ادمنيه البوت$") then
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  للمطورين  فقط😹\n🚶🏾", 'md')
 else
 local hash = "Bot:Admins"
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊  ادمنيه البوت :\n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "🙋🏻‍♂️┊  ادمنيه البوت :\n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 if redis:get(KEEPER.."SudoNumberGp" .. v) then
 gps = tonumber(redis:get(KEEPER.."SudoNumberGp" .. v))
@@ -6394,11 +6394,11 @@ end end
 ------------list KEEPER_SUDO-----------------------------------------------------------------
 if text:match("^المطورين$") then
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  للمطورين  فقط😹\n🚶🏾", 'md')
 else
 local hash = "Bot:KpSudos"
 local list = redis:smembers(KEEPER..hash)
-text = "🌀┊  مطورين البوت :\n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
+text = "👨🏾‍🌾┊  مطورين البوت :\n*≖≖≖≖≖≖≖≖≖≖≖≖*\n"
 for k, v in pairs(list) do
 if redis:get(KEEPER.."SudoNumberGp" .. v) then
 gps = tonumber(redis:get(KEEPER.."SudoNumberGp" .. v))
@@ -6420,7 +6420,7 @@ end end
 ------------------charge-----------------------------------------------------
 if text:match("^الشحن (%d+)$") and is_admin(msg.sender_user_id_, msg.chat_id_) then
 local a = {string.match(text, "^(الشحن) (%d+)$")}
-send(msg.chat_id_, msg.id_, 1, '🚫┊ تم شحن المجموعه *( '..a[2]..')* يوم', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ تم شحن المجموعه *( '..a[2]..')* يوم', 1, 'md')
 local time = a[2] * day
 redis:setex(KEEPER.."bot:charge:"..msg.chat_id_,time,true)
 redis:set(KEEPER.."bot:enable:"..msg.chat_id_,true)
@@ -6429,10 +6429,10 @@ end
 if text:match("^فحص الشحن") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local ex = redis:ttl(KEEPER.."bot:charge:"..msg.chat_id_)
 if ex == -1 then
-send(msg.chat_id_, msg.id_, 1, '🚫┊ المده غير محدوده', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ المده غير محدوده', 1, 'md')
 else
 local d = math.floor(ex / day ) + 1
-send(msg.chat_id_, msg.id_, 1, "🚫┊ المجموعه لديها *"..d.."* يوم  ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ المجموعه لديها *"..d.."* يوم  ", 1, 'md')
 end
 end
 ----------------charge-------------------------------------------------------------------------------
@@ -6440,10 +6440,10 @@ if text:match("^فحص الشحن (%d+)") and is_admin(msg.sender_user_id_, msg.
 local txt = {string.match(text, "^(فحص الشحن) (%d+)$")}
 local ex = redis:ttl(KEEPER.."bot:charge:"..txt[2])
 if ex == -1 then
-send(msg.chat_id_, msg.id_, 1, '🚫┊ المجموعه بلا حدود', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ المجموعه بلا حدود', 1, 'md')
 else
 local d = math.floor(ex / day ) + 1
-send(msg.chat_id_, msg.id_, 1, "🚫┊ المجموعه لديها *"..d.."* يوم", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ المجموعه لديها *"..d.."* يوم", 1, 'md')
 end
 end
 -----------------ADD FREE BOT IN GP----------------------------------------        ----------
@@ -6451,7 +6451,7 @@ if idf:match("-100(%d+)") and text:match("^تفعيل$") and not is_sudo(msg)  t
 local adding = function(extra, result)
 local txt = { string.match(text, "^(تفعيل)$")}
 if not redis:get(KEEPER.."bot:free") and not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '🚫┊* للمطوريـــن فقـــط* ❗️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر المطورين  فقط😹\n🚶🏾", 'md')
 return false end
 local function promote_admin(extra, result, success)
 local admins = result.members_
@@ -6466,9 +6466,9 @@ end
 getChannelMembers(msg.chat_id_, 0, 'Administrators', 200, promote_admin)
 redis:set(KEEPER.."test:group"..msg.chat_id_,'krar')
 if redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, '🚫┊ المجموعه  مفعله سابقـــــا ❗️\n‏\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ المجموعه  مفعله سابقا ❗️\n‏\n', 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🚫┊ تم تفعيل المجموعه\n🔱┊ وتم رفع الادمنيه والمدير ❗️\n‏\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊  اهلا عزيزي تم تفعيل المجموعه بنجاح \n✋🏿┊ وتم رفع الادمنيه والمدير 📡\n‏\n', 1, 'md')
 end
 if result.first_name_ then
 if #result.first_name_ < 25 then
@@ -6500,7 +6500,7 @@ if text:match('^شحن 30 (-%d+)') and is_admin(msg.sender_user_id_, msg.chat_id
 local txt = {string.match(text, "^(شحن 30) (-%d+)$")}
 local timeplan1 = 2592000
 redis:setex(KEEPER.."bot:charge:"..txt[2],timeplan1,true)
-send(msg.chat_id_, msg.id_, 1, '🚫┊ المجموعه `'..txt[2]..'`\nتم شحنها 30 يوم', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ المجموعه `'..txt[2]..'`\nتم شحنها 30 يوم', 1, 'md')
 redis:set(KEEPER.."bot:enable:"..txt[2],true)
 end
 ------------------charge-----------------------------------------------------------------------------
@@ -6508,14 +6508,14 @@ if text:match('^شحن 90 (-%d+)') and is_admin(msg.sender_user_id_, msg.chat_id
 local txt = {string.match(text, "^(شحن 90) (-%d+)$")}
 local timeplan2 = 7776000
 redis:setex(KEEPER.."bot:charge:"..txt[2],timeplan2,true)
-send(msg.chat_id_, msg.id_, 1, '🚫┊ المجموعه `'..txt[2]..'`\nتم شحنها 90 يوم', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ المجموعه `'..txt[2]..'`\nتم شحنها 90 يوم', 1, 'md')
 redis:set(KEEPER.."bot:enable:"..txt[2],true)
 end
 ------------------------charge-----------------------------------------------------------------------
 if text:match('^شحن مفتوح (-%d+)') and is_admin(msg.sender_user_id_, msg.chat_id_) then
 local txt = {string.match(text, "^(شحن مفتوح) (-%d+)$")}
 redis:set(KEEPER.."bot:charge:"..txt[2],true)
-send(msg.chat_id_, msg.id_, 1, '🚫┊المجموعه `'..txt[2]..'`\n تم شحنها بلا حدود', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊المجموعه `'..txt[2]..'`\n تم شحنها بلا حدود', 1, 'md')
 redis:set(KEEPER.."bot:enable:"..txt[2],true)
 end
 --------------------ADD GP---------------------------------------------------------------------------
@@ -6536,9 +6536,9 @@ end
 getChannelMembers(msg.chat_id_, 0, 'Administrators', 200, promote_admin)
 redis:set(KEEPER.."test:group"..msg.chat_id_,'krar')
 if redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, '🚫┊ المجموعه  مفعله سابقـــــا ❗️\n‏\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ المجموعه  مفعله سابقا ❗️\n‏\n', 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🚫┊ تم تفعيل المجموعه\n🔱┊ وتم رفع الادمنيه والمدير ❗️\n‏\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ اهلا عزيزي تم تفعيل المجموعه\n📡┊ وتم رفع الادمنيه والمدير ✋🏿\n‏\n', 1, 'md')
 end
 if result.first_name_ then
 if #result.first_name_ < 25 then
@@ -6568,13 +6568,13 @@ end
 if text:match("^تعطيل$") then
 local txt = { string.match(text, "^(تعطيل)$") }
 if not is_sudo(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريـــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر المطورين  فقط😹\n🚶🏾", 'md')
 else
 redis:set(KEEPER..'lock:add'..msg.chat_id_,true)
 if not redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, '🌀┊ *تم تعطيل المجموعه* ❗️\n‏🚫┊ *الايدي*('.. msg.sender_user_id_ ..')\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ *تم تعطيل المجموعه* ❗️\n‏✋🏿┊ *الايدي*('.. msg.sender_user_id_ ..')\n', 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🌀┊ *تم تعطيل المجموعه* ❗️\n‏🚫┊ *الايدي*('.. msg.sender_user_id_ ..')\n', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ *تم تعطيل المجموعه* ❗️\n‏✋🏿┊ *الايدي*('.. msg.sender_user_id_ ..')\n', 1, 'md')
 end
 redis:del(KEEPER.."bot:enable:" .. msg.chat_id_)
 redis:srem(KEEPER.."bot:groups", msg.chat_id_)
@@ -6603,7 +6603,7 @@ if text:match('^تفعيل (%d+) (-%d+)') and is_sudo(msg) then
 local txt = {string.match(text, "^(تفعيل) (%d+) (-%d+)$")}
 local sudo = txt[2]
 local gp = txt[3]
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم تفعيل المجموعه \n(*"..txt[2].."*) يوم 🍃", 1, 'html')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ تم تفعيل المجموعه \n(*"..txt[2].."*) يوم 🍃", 1, 'html')
 redis:sadd(KEEPER..'sudo:data:'..sudo, gp)
 end
 -------------------REEM----------------------------------------------------------------------------
@@ -6611,7 +6611,7 @@ if text:match('^تعطيل (%d+) (-%d+)') and is_sudo(msg) then
 local txt = {string.match(text, "^(تعطيل) (%d+) (-%d+)$")}
 local hash = 'sudo:data:'..txt[2]
 local gp = txt[3]
-send(msg.chat_id_, msg.id_, 1, "🌀┊ سيتم تعطيل المجموعه بعد \n(*"..txt[2].."*) يوم 🍃", 1, 'html')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ سيتم تعطيل المجموعه بعد \n(*"..txt[2].."*) يوم 🍃", 1, 'html')
 redis:srem(KEEPER..hash, gp)
 end
 end
@@ -6627,7 +6627,7 @@ local fname = result.first_name_ or ""
 local lname = result.last_name_ or ""
 local username = "@" .. result.username_ or ""
 send(msg.chat_id_, msg.id_, 1, "�⇣ المجموعه " .. gp[2] .. "\nتم تعطيلها 🎐", 1, "md")
-send(v, 0, 1, "🌀┊ تم ازالة المجموعه✞\n💲┊ الاسم : " .. fname .. "\n💲┊ المعرف : [" .. username .. "]\n🎗┊ ايدي المجموعه : " .. gp[2] .. "", 1, "md")
+send(v, 0, 1, "👨🏾‍🌾┊ تم ازالة المجموعه✞\n🗣┊ الاسم : " .. fname .. "\n💲┊ المعرف : [" .. username .. "]\n🎫┊ ايدي المجموعه : " .. gp[2] .. "", 1, "md")
 redis:srem(KEEPER.."sudo:data:" .. msg.sender_user_id_, gp[2])
 redis:srem(KEEPER.."bot:groups", gp[2])
 end
