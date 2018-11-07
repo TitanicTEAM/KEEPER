@@ -7403,15 +7403,15 @@ local UserKeeper = user_info_
 if user_info_ then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local text = [[
-⚜️┇ *⁽م1₎»* اوامر الحمايــــــــــــه
-🗯┇ *⁽م2₎»* اوامر المـــــــــــــدراء
-🗯┇ *⁽م3₎»* اوامر الادمنيــــــــــــه
-🗯┇ *⁽م4‏₎»* اوامر المطــــــــــــــور
-🗯┇ *⁽م5₎»* اوامر ثانويــــــــــــــــه
-⚜️┇ *⁽م6₎»* اوامر المطور الاساسي
+👮🏻┇ *⁽م1₎»* اوامر الحمايه
+👷🏾┇ *⁽م2₎»* اوامر المدرا
+👮🏾‍♀️┇ *⁽م3₎»* اوامر الادمنيه
+👨🏾‍🌾┇ *⁽م4‏₎»* اوامر المطور
+🙋🏻‍♂️┇ *⁽م5₎»* اوامر الاخري
+👨🏻‍💻┇ *⁽م6₎»* اوامر المطور الاساسي
 ‏┄┄┄┄┄┄┄┄┄┄┄┄
 🔱 » *المطور* : []] .. UserKeeper .. [[]
 ‌]]
@@ -7425,7 +7425,7 @@ local UserKeeper = user_info_
 if user_info_ then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local text = [[
 - *استخدم ⁽قفل₎ + الامر* ✓
@@ -7468,7 +7468,7 @@ local UserKeeper = user_info_
 if user_info_ then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local text = [[
 - *اوامر المدراء والمنشئين* »
@@ -7514,7 +7514,7 @@ local UserKeeper = user_info_
 if user_info_ then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local text = [[
 *- اوامر ⁽ادمنيه₎ المجموعه»*
@@ -7563,7 +7563,7 @@ local UserKeeper = user_info_
 if user_info_ then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_sudo(msg)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطوريــــــــن فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر المطورين  فقط😹\n🚶🏾", 'md')
 else
 local text = [[
 ⚜️┇ تفعيل
@@ -7599,7 +7599,7 @@ local UserKeeper = user_info_
 if user_info_ then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_momod(msg.sender_user_id_, msg.chat_id_)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للأدمنيـــــــه فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  الادمينيه  فقط😹\n🚶🏾", 'md')
 else
 local text = [[
 - *اوامر ⁽الاعضاء₎* »
@@ -7634,7 +7634,7 @@ local UserKeeper = user_info_
 if user_info_ then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_KP(msg)then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 local text = [[
 ⚜️┇ رفع  مطور'
@@ -7678,7 +7678,7 @@ end end end end
 if text:match('^وضع ترحيب (.*)') and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local welcome = text:match('^وضع ترحيب (.*)')
 redis:set(KEEPER..'welcome:'..msg.chat_id_,welcome)
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم وضع الترحيب\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم وضع الترحيب\n ✓ ", 1, 'md')
 end
 -----------------welcome------------------------------------------
 if text:match("^الترحيب$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
@@ -7686,24 +7686,24 @@ local wel = redis:get(KEEPER..'welcome:'..msg.chat_id_)
 if wel then
 send(msg.chat_id_, msg.id_, 1, wel, 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🚫┊ لم يتم وضع الترحيب ❗️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ لم يتم وضع الترحيب ❗️', 1, 'md')
 end end
 -----------------broadcast1 or broadcast2------------------------------------------------------------------------------------------
 if text:match("^توجيه$") then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 redis:setex(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true)
-send(msg.chat_id_, msg.id_, 1, "🌀┊ ارسل لي الرساله الان📲\n🚫┊ للخروج ارسل لي الغاء 📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ ارسل لي الرساله الان📲\n🚫┊ للخروج ارسل لي الغاء 📍 ", 1, "md")
 end end end
 if text:match("^اذاعه$") then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 if not is_KP(msg) then
-send(msg.chat_id_, msg.id_, 1, '💲┊ للمطور الاساسي فقــــــــط', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ لك انجب هذه امر  المطور الاساسي  فقط😹\n🚶🏾", 'md')
 else
 redis:setex(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 60, true)
-send(msg.chat_id_, msg.id_, 1, "🌀┊  ارسل لي الرساله الان📲\n🚫┊ للخروج ارسل لي الغاء 📍 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊  ارسل لي الرساله الان📲\n🚫┊ للخروج ارسل لي الغاء 📍 ", 1, "md")
 end end end
 ----------------- info bot --------------------------------------------------------------
 if is_sudo(msg) and (text:match("^اعدادات البوت$") or text:match("^معلومات البوت$")) then
@@ -7738,7 +7738,7 @@ Uptime_ = osTime - tonumber(Uptime_1)
 Uptime = getTimeUptime(Uptime_, lang)
 usersv = io.popen("whoami"):read("*all")
 usersv = usersv:match("%S+")
-send(msg.chat_id_, msg.id_, 1, "*- معلومات حول البوت »*\n⚙️┊ المجموعات » *" .. gps .. "*\n📧┊ رسائل البوت  » *" .. allmgs .. "*\n🔑┊ عدد المشتركين » *"..users.."*\n🚭┊ الخروج التلقائي » " .. autoleaveAR .. "\n📊┊  الانظمام عبر الرابط » " .. joinbylinkAR .. "\n*☜معلومات السيرفر☞ »*\n🚫┊ اليوزر » *" .. usersv .. "*\n🔰┊ وقت التشغيل » 👇🏻\n»»» *" .. ResultUptimeServer .. "* ❗️\n‏\n" , 1, "md")
+send(msg.chat_id_, msg.id_, 1, "*- معلومات حول البوت »*\n⚙️┊ المجموعات » *" .. gps .. "*\n📧┊ رسائل البوت  » *" .. allmgs .. "*\n🔑┊ عدد المشتركين » *"..users.."*\n🚭┊ الخروج التلقائي » " .. autoleaveAR .. "\n📊┊  الانظمام عبر الرابط » " .. joinbylinkAR .. "\n*☜معلومات السيرفر☞ »*\n🚫┊ اليوزر » *" .. usersv .. "*\n🔰┊ وقت التشغيل » 👇🏻\n *" .. ResultUptimeServer .. "* ❗️\n‏\n" , 1, "md")
 end end
 --------------------------------------------------------------------------------------------------------------
 if text == 'وقت تشغيل البوت' and is_KP(msg) then
