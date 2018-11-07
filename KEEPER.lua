@@ -5260,7 +5260,7 @@ end
 resolve_username(ap[2],promote_by_username)
 end
 ------------------------------SET VIP BY ID-----------------------------------------------------------------
-if text:match("^رفع مميز (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
+if text:match("^رفع مميز (%d+)$") and is_momod(msg.username, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع مميز) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, 'md')
 redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, ap[2])
