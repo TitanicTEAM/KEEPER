@@ -5237,10 +5237,10 @@ if text:match("^رفع مميز$") and is_momod(msg.sender_user_id_, msg.chat_id
 function promote_by_reply(extra, result, success)
 local hash = 'bot:vipmem:'..msg.chat_id_
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🔍┊ معرفك *("..result.username..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, "👷‍║ العضو @" .. te .. "\n🔍║ الايدي ("..result.id_..")\n🌀║ تم رفعه عضو مميز ✔️\n‏", 32, string.len(result.id_), result.id_)
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,"🔍┊ معرفك *("..result.username..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
+sendmen(msg.chat_id_, msg.id_, "👷‍║ العضو @" .. te .. "\n🔍║ الايدي ("..result.id_..")\n🌀║ تم رفعه عضو مميز ✔️\n‏", 32, string.len(result.id_), result.id_)
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
@@ -5250,7 +5250,7 @@ if text:match("^رفع مميز @(.*)$") and is_momod(msg.sender_user_id_, msg.c
 local ap = {string.match(text, "^(رفع مميز) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
-texts = "🔍┊ معرفك *("..result.username..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏"
+sendmen(msg.chat_id_, msg.id_, "👷‍║ العضو @" .. te .. "\n🔍║ الايدي ("..result.id_..")\n🌀║ تم رفعه عضو مميز ✔️\n‏", 32, string.len(result.id_), result.id_)
 redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, result.id_)
 else
 texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
@@ -5260,7 +5260,7 @@ end
 resolve_username(ap[2],promote_by_username)
 end
 ------------------------------SET VIP BY ID-----------------------------------------------------------------
-if text:match("^رفع مميز (%d+)$") and is_momod(msg.username, msg.chat_id_) then
+if text:match("^رفع مميز (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع مميز) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, 'md')
 redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, ap[2])
