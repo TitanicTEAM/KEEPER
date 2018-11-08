@@ -6072,12 +6072,25 @@ return false end end end
 if text then
 local kkkkk = redis:get(KEEPER..'kk111'..msg.chat_id_..'')
 if kkkkk == 'kkkk' then
-if text == 'مطي' then
-if text == 'طمي' then         
-send(msg.chat_id_, msg.id_, 1, '• اجابتك غير صحيحه يا اثول 😹',1, 'md')              
+if text == 'مطي' then                     
 send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
 redis:del(KEEPER..'kk111'..msg.chat_id_..'')
 sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ب، ا ، ش )',1, 'md')
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ش ب، ا )',1, 'md')        
+redis:set(KEEPER..'kk111'..msg.chat_id_..'','kkkk')   
+redis:set(KEEPER..'kk111'..msg.chat_id_..'','kkkk1')              
+return false end end end
+if text then
+local kkkkk = redis:get(KEEPER..'kk111'..msg.chat_id_..'')
+if kkkkk == 'kkkk' then         
+if text == 'باش' then  
+if kkkkk == 'kkkk1' then 
+if text == 'ابش' then  
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')                
+send(msg.chat_id_, msg.id_, 1, '• اجابتك غير صحيحه يا اثول 😹',1, 'md')              
+redis:del(KEEPER..'kk111'..msg.chat_id_..'')
+sleep(1.5)            
 send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ن ، س ، ف )',1, 'md')
 redis:set(KEEPER..'kk1111'..msg.chat_id_..'','kkkkk')
 return false end end end
