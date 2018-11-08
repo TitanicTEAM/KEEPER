@@ -5873,7 +5873,7 @@ function kick_reply(extra, result, success)
 if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..result.sender_user_id_..')*\n👷🏾┊ تم طره من المجموعه ✔️', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..result.sender_user_id_..')*\n👷🏾┊ تم طرد من المجموعه ✔️', 1, 'html')
 chat_kick(result.chat_id_, result.sender_user_id_)
 end
 end
@@ -6981,23 +6981,23 @@ local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.c
 local Kpcontact = (tonumber(redis:get(KEEPER.."kpaddcon"..msg.chat_id_..":"..msg.sender_user_id_) or 0))
 local getnameEN = function(extra, result)
 if is_KpiD(result.id_) then
-tar = "مطور اساسي 🍃"
+tar = "مطور اساسي 🙋🏻‍♂️"
 elseif is_sudoid(result.id_) then
-tar = "مطور 🐯"
+tar = "مطور 👨🏾‍🌾"
 elseif is_vipmems(result.id_) then
 tar = "مميز عام 🍃"
 elseif is_admin(result.id_) then
-tar = "ادمن في البوت 🍃"
+tar = "ادمن في البوت 👷🏾"
 elseif is_monshi(result.id_, msg.chat_id_) then
-tar = "منشىء 🍃"
+tar = "منشىء 🕵🏽"
 elseif is_owner(result.id_, msg.chat_id_) then
-tar = "المدير 🍃"
+tar = "المدير 👮🏻"
 elseif is_momod(result.id_, msg.chat_id_) then
-tar = "ادمن المجموعه 🍃"
+tar = "ادمن المجموعه 👷🏾"
 elseif is_vipmem(result.id_, msg.chat_id_) then
 tar = "عضو مميز 🍃"
 else
-tar = "عـضـو 🍃"
+tar = "عضو 👨🏿‍🎓"
 end
 if result.username_ then
 username = "@" .. result.username_
