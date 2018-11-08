@@ -3653,7 +3653,7 @@ local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
-delete_msg(chat, msgs
+delete_msg(chat, msgs)
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
 redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
