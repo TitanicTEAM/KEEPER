@@ -5171,9 +5171,9 @@ if text:match("^رفع ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id
 function promote_by_reply(extra, result, success)
 local hash = 'bot:momod:'..msg.chat_id_
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... ("....UserKeeper....")\n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..UserKeeper..")\n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... ("....UserKeeper....")\n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..UserKeeper..")\n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 redis:sadd(KEEPER..hash, result.sender_user_id_)
 end
 end
@@ -5184,7 +5184,7 @@ if text:match("^رفع ادمن @(.*)$") and is_owner(msg.sender_user_id_, msg.c
 local ap = {string.match(text, "^(رفع ادمن) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
-texts = "🙋🏻‍♂️┊ اهلا سيدي... ("....UserKeeper....")\n👷🏾┊ تم رفعه ادمن \n‏✓"
+texts = "🙋🏻‍♂️┊ اهلا حبيبي... ("..UserKeeper..")\n👷🏾┊ تم رفعه ادمن \n‏✓"
 redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, result.id_)
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
