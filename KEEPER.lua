@@ -5163,7 +5163,7 @@ end
 if text:match("^تنزيل مميز عام (%d+)$") and is_KP(msg) then
 local ap = {string.match(text, "^(تنزيل مميز عام) (%d+)$")}
 local hash = 'bot:vipmems:'
-send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ العضو *("..ap[2]..")*\n👷🏾┊ تم حذفه من مميزين العام ✔️\n‏", 1, 'md')
 redis:srem(KEEPER..hash, ap[2])
 end
 -----------------------------promote_by_reply-------------------------------------------------------
@@ -5216,7 +5216,7 @@ local hash = 'bot:momod:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل ادمن) @(.*)$")}
 function demote_by_username(extra, result, success)
 if result.id_ then
-texts = "🙋🏻‍♂️┊ العضو ("..result.id_..")\n🌀┊ تم تنزيله من الادمنيه ✔️\n‏"
+texts = "🙋🏻‍♂️┊ اهلا سيدي... ("..result.id_..")\n👷🏾┊ تم تنزيله من الادمنيه ✔️\n‏"
 redis:srem(KEEPER..hash, result.id_)
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
@@ -5229,7 +5229,7 @@ end
 if text:match("^تنزيل ادمن (%d+)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 local hash = 'bot:momod:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل ادمن) (%d+)$")}
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ العضو ("..ap[2]..")\n🌀┊ تم تنزيله من الادمنيه ✔️\n‏", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي... ("..ap[2]..")\n👷🏾┊ تم تنزيله من الادمنيه ✔️\n‏", 1, 'md')
 redis:srem(KEEPER..hash, ap[2])
 end
 ------------------------set vip BY REBLY-------------------------------------------------------------------------
@@ -5237,10 +5237,10 @@ if text:match("^رفع مميز$") and is_momod(msg.sender_user_id_, msg.chat_id
 function promote_by_reply(extra, result, success)
 local hash = 'bot:vipmem:'..msg.chat_id_
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... *("..result.sender_user_id_..")*\n👷🏾┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... *("..result.sender_user_id_..")*\n👷🏾┊ تم رفعه عضو مميز ✔️\n‏", 1, "md")
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
@@ -5250,7 +5250,7 @@ if text:match("^رفع مميز @(.*)$") and is_momod(msg.sender_user_id_, msg.c
 local ap = {string.match(text, "^(رفع مميز) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
-texts = "🙋🏻‍♂️┊ العضو *("..result.id_..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏"
+texts = "🙋🏻‍♂️┊ اهلا سيدي *("..result.id_..")*\n👷🏾┊ تم رفعه عضو مميز ✔️\n‏"
 redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, result.id_)
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
@@ -5262,7 +5262,7 @@ end
 ------------------------------SET VIP BY ID-----------------------------------------------------------------
 if text:match("^رفع مميز (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع مميز) (%d+)$")}
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ العضو *("..ap[2]..")*\n🌀┊ تم رفعه عضو مميز ✔️\n‏", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي... *("..ap[2]..")*\n👷🏾┊ تم رفعه عضو مميز ✔️\n‏", 1, 'md')
 redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, ap[2])
 end
 -----------------------------delvipmem_by_reply------------------------------------------------------------------
@@ -5270,10 +5270,10 @@ if text:match("^تنزيل مميز$") and is_momod(msg.sender_user_id_, msg.cha
 function delvipmem_by_reply(extra, result, success)
 local hash = 'bot:vipmem:'..msg.chat_id_
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... *("..result.sender_user_id_..")*\n👷🏾┊ تم تنزيله من المميزين ✔️\n‏", 1, "md")
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... *("..result.sender_user_id_..")*\n👷🏾┊ تم تنزيله من المميزين ✔️\n‏", 1, "md")
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,delvipmem_by_reply)
@@ -5284,7 +5284,7 @@ local hash = 'bot:vipmem:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل مميز) @(.*)$")}
 function delvipmem_by_username(extra, result, success)
 if result.id_ then
-texts = "🙋🏻‍♂️┊ العضو *("..result.id_..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏"
+texts = "🙋🏻‍♂️┊ اهلا سيدي... *("..result.id_..")*\n👷🏾┊ تم تنزيله من المميزين ✔️\n‏"
 redis:srem(KEEPER..hash, result.id_)
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃 '
@@ -5297,7 +5297,7 @@ end
 if text:match("^تنزيل مميز (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local hash = 'bot:vipmem:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل مميز) (%d+)$")}
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ العضو *("..ap[2]..")*\n🌀┊ تم تنزيله من المميزين ✔️\n‏", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي... *("..ap[2]..")*\n👷🏾┊ تم تنزيله من المميزين ✔️\n‏", 1, 'md')
 redis:srem(KEEPER..hash, ap[2])
 end
 --------------------------ban_by_reply-------------------------------------------------------------
@@ -5308,11 +5308,11 @@ if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم حظره بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم حظره بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 end
 end
@@ -5328,7 +5328,7 @@ if is_momod(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
 redis:sadd(KEEPER..'bot:banned:'..msg.chat_id_, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم حظره بنجاح ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾 ┊ تم حظره بنجاح ✔️'
 chat_kick(msg.chat_id_, result.id_)
 end
 else
@@ -5346,7 +5346,7 @@ send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطي�
 else
 redis:sadd(KEEPER..'bot:banned:'..msg.chat_id_, ap[2])
 chat_kick(msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم حظره بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم حظره بنجاح ✔️', 1, 'md')
 end
 end
 --------------------------gban_by_reply---------------------------------------------------------------------
@@ -5357,11 +5357,11 @@ if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🌀┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره عام بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم حظره عام بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حظره عام بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم حظره عام بنجاح ✔️', 1, 'md')
 chat_kick(result.chat_id_, result.sender_user_id_)
 end
 end
@@ -5378,7 +5378,7 @@ if is_momod(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
 redis:sadd(KEEPER..hash, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم حظره عام بنجاح ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم حظره عام بنجاح ✔️'
 chat_kick(msg.chat_id_, result.id_)
 end
 else
@@ -5397,7 +5397,7 @@ send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطي�
 else
 redis:sadd(KEEPER..hash, ap[2])
 chat_kick(msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم حظره عام بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم حظره عام بنجاح ✔️', 1, 'md')
 end
 end
 -----------------------ungban_by_reply------------------------------------------------------------------------
@@ -5405,10 +5405,10 @@ if text:match("^الغاء العام$") and is_sudo(msg) and msg.reply_to_messa
 function ungban_by_reply(extra, result, success)
 local hash = "bot:gban:"
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره العام ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم الغاء حظره العام ✔️', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره العام ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم الغاء حظره العام ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,ungban_by_reply)
@@ -5420,7 +5420,7 @@ function ungban_by_username(extra, result, success)
 local hash = "bot:gban:"
 if result.id_ then
 redis:srem(KEEPER..hash, result.id_)
-text = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم الغاء حظره العام ✔️'
+text = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم الغاء حظره العام ✔️'
 else
 text = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5433,7 +5433,7 @@ if text:match("^الغاء العام (%d+)$") and is_sudo(msg) then
 local ap = {string.match(text, "^(الغاء العام) (%d+)$")}
 local hash = "bot:gban:"
 redis:srem(KEEPER..hash, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم الغاء حظره العام ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم الغاء حظره العام ✔️', 1, 'md')
 end
 ----------------------delall_by_reply------------------------------------------------------------------------------
 if text:match("^مسح الكل$") and is_owner(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ then
@@ -5441,7 +5441,7 @@ function delall_by_reply(extra, result, success)
 if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ لا استطيع مسح رسائل المدراء والادمنيه❗️', 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم مسح جميع رسائله ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم مسح جميع رسائله ✔️', 1, 'md')
 del_all_msgs(result.chat_id_, result.sender_user_id_)
 end
 end
@@ -5454,7 +5454,7 @@ if is_momod(ass[2], msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ لا استطيع مسح رسائل المدراء والادمنيه❗️', 1, 'md')
 else
 del_all_msgs(msg.chat_id_, ass[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ass[2]..')*\n🔰┊ تم مسح جميع رسائله ✔️', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ass[2]..')*\n👷🏾┊ تم مسح جميع رسائله ✔️', 1, 'html')
 end
 end
 -----------------------delall_by_username------------------------------------------------------------------------
@@ -5467,7 +5467,7 @@ send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ لا استطيع مسح ر
 return false
 end
 del_all_msgs(msg.chat_id_, result.id_)
-text = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم مسح جميع رسائله ✔️'
+text = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم مسح جميع رسائله ✔️'
 else
 text = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5480,10 +5480,10 @@ if text:match("^الغاء حظر$") and is_momod(msg.sender_user_id_, msg.chat_
 function unban_by_reply(extra, result, success)
 local hash = 'bot:banned:'..msg.chat_id_
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,unban_by_reply)
@@ -5494,7 +5494,7 @@ local ap = {string.match(text, "^(الغاء حظر) @(.*)$")}
 function unban_by_username(extra, result, success)
 if result.id_ then
 redis:srem(KEEPER..'bot:banned:'..msg.chat_id_, result.id_)
-text = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم الغاء حظره بنجاح ✔️'
+text = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم الغاء حظره بنجاح ✔️'
 else
 text = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5506,7 +5506,7 @@ end
 if text:match("^الغاء حظر (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(الغاء حظر) (%d+)$")}
 redis:srem(KEEPER..'bot:banned:'..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..ap[2]..')*\n👷🏾┊ تم الغاء حظره بنجاح ✔️', 1, 'md')
 end
 -----------------------mute_by_reply---------------------------------------------------------------------
 if text:match("^كتم$") and is_momod(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ then
@@ -5516,10 +5516,10 @@ if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم كتمه بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n👷🏾┊ تم كتمه بنجاح ✔️', 1, 'md')
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم كتمه بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم كتمه بنجاح ✔️', 1, 'md')
 end
 end
 end
@@ -5534,7 +5534,7 @@ if is_momod(result.id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
 redis:sadd(KEEPER..'bot:muted:'..msg.chat_id_, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم كتمه بنجاح ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم كتمه بنجاح ✔️'
 chat_kick(msg.chat_id_, result.id_)
 end
 else
@@ -5551,7 +5551,7 @@ if is_momod(ap[2], msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
 redis:sadd(KEEPER..'bot:muted:'..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم كتمه بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم كتمه بنجاح ✔️', 1, 'md')
 end
 end
 ---------------------------keed_by_reply--------------------------------------------------------------
@@ -5563,7 +5563,7 @@ send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطي�
 else
 HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.sender_user_id_.."")
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تقييده بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم تقييده بنجاح ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,keed_by_reply)
@@ -5578,7 +5578,7 @@ send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطي�
 else
 HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.id_.."")
 redis:sadd(KEEPER.."bot:keed:"..msg.chat_id_, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم تقييده بنجاح ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊تم تقييده بنجاح ✔️'
 end
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
@@ -5595,7 +5595,7 @@ send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطي�
 else
 HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..ap[2].."")
 redis:sadd(KEEPER.."bot:keed:"..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم تقييده بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم تقييده بنجاح ✔️', 1, 'md')
 end
 end
 ----------------------unkeed_by_reply-----------------------------------------------------------------------------
@@ -5604,7 +5604,7 @@ function unkeed_by_reply(extra, result, success)
 local hash = "bot:keed:"..msg.chat_id_
 HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.sender_user_id_.."&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم الغاء تقييده بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم الغاء تقييده بنجاح ✔️', 1, 'md')
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,unkeed_by_reply)
 end
@@ -5615,7 +5615,7 @@ function unkeed_by_username(extra, result, success)
 if result.id_ then
 HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..result.id_.."&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 redis:srem(KEEPER.."bot:keed:"..msg.chat_id_, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم الغاء تقييده بنجاح ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي *('..result.id_..')*\n👷🏾┊ تم الغاء تقييده بنجاح ✔️'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5628,17 +5628,17 @@ if text:match("^فك التقييد (%d+)$") and is_momod(msg.sender_user_id_, m
 local ap = {string.match(text, "^(فك التقييد) (%d+)$")}
 HTTPS.request("https://api.telegram.org/bot"..KEEPER_TOKEN.."/restrictChatMember?chat_id=" ..msg.chat_id_.. "&user_id=" ..ap[2].."&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 redis:sadd(KEEPER.."bot:keed:"..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم الغاء تقييده بنجاح ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم الغاء تقييده بنجاح ✔️', 1, 'md')
 end
 --------------------------unmute_by_reply-----------------------------------------------------------
 if text:match("^الغاء كتم$") and is_momod(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ then
 function unmute_by_reply(extra, result, success)
 local hash = 'bot:muted:'..msg.chat_id_
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفع الكتم عنه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفع الكتم عنه ✔️', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفع الكتم عنه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفع الكتم عنه ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,unmute_by_reply)
@@ -5649,7 +5649,7 @@ local ap = {string.match(text, "^(الغاء كتم) @(.*)$")}
 function unmute_by_username(extra, result, success)
 if result.id_ then
 redis:srem(KEEPER..'bot:muted:'..msg.chat_id_, result.id_)
-text = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم رفع الكتم عنه ✔️'
+text = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم رفع الكتم عنه ✔️'
 else
 text = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5661,17 +5661,17 @@ end
 if text:match("^الغاء كتم (%d+)$") and is_momod(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(الغاء كتم) (%d+)$")}
 redis:srem(KEEPER..'bot:muted:'..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم رفع الكتم عنه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم رفع الكتم عنه ✔️', 1, 'md')
 end
 ---------------------------setowner_by_reply----------------------------------------------------------------
 if text:match("^رفع مدير$") and is_monshi(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ then
 function setowner_by_reply(extra, result, success)
 local hash = 'bot:owners:'..msg.chat_id_
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفعه مدير المجموعه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفعه مدير المجموعه ✔️', 1, 'md')
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفعه مدير ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفعه مدير ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,setowner_by_reply)
@@ -5682,7 +5682,7 @@ local ap = {string.match(text, "^(رفع مدير) @(.*)$")}
 function setowner_by_username(extra, result, success)
 if result.id_ then
 redis:sadd(KEEPER..'bot:owners:'..msg.chat_id_, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم رفعه مدير المجموعه ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم رفعه مدير المجموعه ✔️'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5694,17 +5694,17 @@ end
 if text:match("^رفع مدير (%d+)$") and is_monshi(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع مدير) (%d+)$")}
 redis:sadd(KEEPER..'bot:owners:'..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم رفعه مدير المجموعه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم رفعه مدير المجموعه ✔️', 1, 'md')
 end
 ------------------------deowner_by_reply-----------------------------------------------------------------------
 if text:match("^تنزيل مدير$") and is_monshi(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ then
 function deowner_by_reply(extra, result, success)
 local hash = 'bot:owners:'..msg.chat_id_
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تنزيله من الاداره ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم تنزيله من الاداره ✔️', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تنزيله من الاداره ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم تنزيله من الاداره ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,deowner_by_reply)
@@ -5716,7 +5716,7 @@ local ap = {string.match(text, "^(تنزيل مدير) @(.*)$")}
 function remowner_by_username(extra, result, success)
 if result.id_ then
 redis:srem(KEEPER..hash, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم تنزيله من الاداره ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم تنزيله من الاداره ✔️'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5729,17 +5729,17 @@ if text:match("^تنزيل مدير (%d+)$") and is_monshi(msg.sender_user_id_, 
 local hash = 'bot:owners:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل مدير) (%d+)$")}
 redis:srem(KEEPER..hash, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم تنزيله من الاداره ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم تنزيله من الاداره ✔️', 1, 'md')
 end
 ----------------------setmonshi_by_reply-------------------------------------------------------------------------
 if text:match("^رفع منشى$") and is_sudo(msg) and msg.reply_to_message_id_ then
 function setmonshi_by_reply(extra, result, success)
 local hash = 'bot:monshis:'..msg.chat_id_
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفعه منشى المجموعه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفعه منشى المجموعه ✔️', 1, 'md')
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفعه منشى المجموعه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفعه منشى المجموعه ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,setmonshi_by_reply)
@@ -5750,7 +5750,7 @@ local ap = {string.match(text, "^(رفع منشى) @(.*)$")}
 function setmonshi_by_username(extra, result, success)
 if result.id_ then
 redis:sadd(KEEPER..'bot:monshis:'..msg.chat_id_, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم رفعه منشى المجموعه ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم رفعه منشى المجموعه ✔️'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5762,17 +5762,17 @@ end
 if text:match("^رفع منشى (%d+)$") and is_sudo(msg) then
 local ap = {string.match(text, "^(رفع منشى) (%d+)$")}
 redis:sadd(KEEPER..'bot:monshis:'..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم رفعه منشى المجموعه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..ap[2]..')*\n👷🏾┊ تم رفعه منشى المجموعه ✔️', 1, 'md')
 end
 -------------demonshi_by_reply----------------------------------------------------------------------------------
 if text:match("^تنزيل منشى$") and is_sudo(msg) and msg.reply_to_message_id_ then
 function demonshi_by_reply(extra, result, success)
 local hash = 'bot:monshis:'..msg.chat_id_
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تنزيله من المنشئين ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم تنزيله من المنشئين ✔️', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تنزيله من المنشئين ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلاسيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم تنزيله من المنشئين ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,demonshi_by_reply)
@@ -5784,7 +5784,7 @@ local ap = {string.match(text, "^(تنزيل منشى) @(.*)$")}
 function demonshi_by_username(extra, result, success)
 if result.id_ then
 redis:srem(KEEPER..hash, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم تنزيله من المنشئين ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم تنزيله من المنشئين ✔️'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5797,17 +5797,17 @@ if text:match("^تنزيل منشى (%d+)$") and is_sudo(msg) then
 local hash = 'bot:monshis:'..msg.chat_id_
 local ap = {string.match(text, "^(تنزيل منشى) (%d+)$")}
 redis:srem(KEEPER..hash, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم تنزيله من المنشئين ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم تنزيله من المنشئين ✔️', 1, 'md')
 end
 -------------ADD ADMIN FROM BOT----------------------------------------------------------------------------------
 if text:match("^اضف ادمن$") and is_sudo(msg) and msg.reply_to_message_id_ then
 function addadmin_by_reply(extra, result, success)
 local hash = 'bot:admins:'
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم اضافه ادمن في البوت ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم اضافه ادمن في البوت ✔️', 1, 'md')
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم اضافه ادمن في البوت ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم اضافه ادمن في البوت ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,addadmin_by_reply)
@@ -5818,7 +5818,7 @@ local ap = {string.match(text, "^(اضف ادمن) @(.*)$")}
 function addadmin_by_username(extra, result, success)
 if result.id_ then
 redis:sadd(KEEPER..'bot:admins:', result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم اضافه ادمن في البوت ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم اضافه ادمن في البوت ✔️'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5830,17 +5830,17 @@ end
 if text:match("^اضف ادمن (%d+)$") and is_sudo(msg) then
 local ap = {string.match(text, "^(اضف ادمن) (%d+)$")}
 redis:sadd(KEEPER..'bot:admins:', ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم اضافه ادمن في البوت ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم اضافه ادمن في البوت ✔️', 1, 'md')
 end
 -------------DEL ADMIN FROM BOT----------------------------------------------------------------------------------
 if text:match("^حذف ادمن$") and is_sudo(msg) and msg.reply_to_message_id_ then
 function deadmin_by_reply(extra, result, success)
 local hash = 'bot:admins:'
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حذفه من ادمنيه البوت ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..result.sender_user_id_..')*\n👷🏾┊ تم حذفه من ادمنيه البوت ✔️', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حذفه من ادمنيه البوت ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..result.sender_user_id_..')*\n👷🏾┊ تم حذفه من ادمنيه البوت ✔️', 1, 'md')
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,deadmin_by_reply)
@@ -5852,7 +5852,7 @@ local ap = {string.match(text, "^(حذف ادمن) @(.*)$")}
 function remadmin_by_username(extra, result, success)
 if result.id_ then
 redis:srem(KEEPER..hash, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم حذفه من ادمنيه البوت ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي *('..result.id_..')*\n👷🏾┊ تم حذفه من ادمنيه البوت ✔️'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5865,7 +5865,7 @@ if text:match("^حذف ادمن (%d+)$") and is_sudo(msg) then
 local hash = 'bot:admins:'
 local ap = {string.match(text, "^(حذف ادمن) (%d+)$")}
 redis:srem(KEEPER..hash, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم حذفه من ادمنيه البوت ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..ap[2]..')*\n👷🏾┊ تم حذفه من ادمنيه البوت ✔️', 1, 'md')
 end
 -------------kick_reply----------------------------------------------------------------------------------
 if text:match("^طرد$") and msg.reply_to_message_id_ and is_momod(msg.sender_user_id_, msg.chat_id_) then
@@ -5873,7 +5873,7 @@ function kick_reply(extra, result, success)
 if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم طره من المجموعه ✔️', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي *('..result.sender_user_id_..')*\n👷🏾┊ تم طره من المجموعه ✔️', 1, 'html')
 chat_kick(result.chat_id_, result.sender_user_id_)
 end
 end
@@ -5889,10 +5889,10 @@ if is_KP(msg) and text:match("^رفع مطور$") and msg.reply_to_message_id_ t
 function promoteSudo_by_reply(extra, result, success)
 local hash = "Bot:KpSudos"
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفعه مطور في البوت ✔️\n‏', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلاسيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفعه مطور في البوت ✔️\n‏', 1, 'md')
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم رفعه مطور في البوت ✔️\n‏', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم رفعه مطور في البوت ✔️\n‏', 1, 'md')
 table.insert(_config.Sudo_Users, tonumber(result.sender_user_id_))
 save_on_config()
 load_config()
@@ -5907,7 +5907,7 @@ function promoteSudo_by_username(extra, result, success)
 local hash = "Bot:KpSudos"
 if result.id_ then
 redis:sadd(KEEPER..hash, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم رفعه مطور في البوت ✔️\n‏'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم رفعه مطور في البوت ✔️\n‏'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5923,7 +5923,7 @@ if text:match("^رفع مطور (%d+)$") and is_KP(msg) then
 local ap = {string.match(text, "^(رفع مطور) (%d+)$")}
 local hash = "Bot:KpSudos"
 redis:sadd(KEEPER..hash, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم رفعه مطور في البوت ✔️\n‏', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم رفعه مطور في البوت ✔️\n‏', 1, 'md')
 table.insert(_config.Sudo_Users, tonumber(ap[2]))
 save_on_config()
 load_config()
@@ -5933,10 +5933,10 @@ if is_KP(msg) and text:match("^تنزيل مطور$") and msg.reply_to_message_i
 function demoteSudo_by_reply(extra, result, success)
 local hash = "Bot:KpSudos"
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تنزيله من المطورين ✔️\n‏', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم تنزيله من المطورين ✔️\n‏', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم تنزيله من المطورين ✔️\n‏', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم تنزيله من المطورين ✔️\n‏', 1, 'md')
 table.remove(_config.Sudo_Users, getindex(_config.Sudo_Users, tonumber(result.sender_user_id_)))
 save_on_config()
 load_config()
@@ -5951,7 +5951,7 @@ function demoteSudo_by_username(extra, result, success)
 local hash = "Bot:KpSudos"
 if result.id_ then
 redis:srem(KEEPER..hash, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم تنزيله من المطورين ✔️\n‏'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم تنزيله من المطورين \n ✓'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5968,7 +5968,7 @@ local ap = {string.match(text, "^(تنزيل مطور) (%d+)$")}
 local hash = "Bot:KpSudos"
 local k = tonumber(ap[2])
 redis:srem(KEEPER..hash, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..ap[2]..')*\n🔰┊ تم تنزيله من المطورين ✔️\n‏', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم تنزيله من المطورين \n ✓', 1, 'md')
 table.remove(_config.Sudo_Users, getindex(_config.Sudo_Users, k))
 save_on_config()
 load_config()
@@ -5979,7 +5979,7 @@ function delallrtb(extra, result, success)
 redis:srem(KEEPER..'bot:owners:'..msg.chat_id_, result.sender_user_id_)
 redis:srem(KEEPER..'bot:momod:'..msg.chat_id_, result.sender_user_id_)
 redis:srem(KEEPER..'bot:vipmem:'..msg.chat_id_, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ العضو *('..result.sender_user_id_..')*\n🔰┊ تم حذف كل الرتب عنه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..result.sender_user_id_..')*\n👷🏾┊ تم حذف كل الرتب عنه ✓', 1, 'md')
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,delallrtb)
 end
@@ -5991,7 +5991,7 @@ if result.id_ then
 redis:srem(KEEPER..'bot:owners:'..msg.chat_id_, result.id_)
 redis:srem(KEEPER..'bot:momod:'..msg.chat_id_, result.id_)
 redis:srem(KEEPER..'bot:vipmem:'..msg.chat_id_, result.id_)
-texts = '🙋🏻‍♂️┊ العضو *('..result.id_..')*\n🔰┊ تم حذف كل الرتب عنه ✔️'
+texts = '🙋🏻‍♂️┊ اهلا سيدي... *('..result.id_..')*\n👷🏾┊ تم حذف كل الرتب عنه ✓'
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -6005,7 +6005,7 @@ local ap = {string.match(text, "^(حذف كل الرتب) (%d+)$")}
 redis:srem(KEEPER..'bot:owners:'..msg.chat_id_, ap[2])
 redis:srem(KEEPER..'bot:momod:'..msg.chat_id_, ap[2])
 redis:srem(KEEPER..'bot:vipmem:'..msg.chat_id_, ap[2])
-send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n🔰┊ تم حذف كل الرتب عنه ✔️', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🙋🏻‍♂️┊ اهلا سيدي... *('..ap[2]..')*\n👷🏾┊ تم حذف كل الرتب عنه ✓', 1, 'md')
 end
 ----------------id gP-----------------------------------------
 if text:match("^ايدي المجموعه$") and idf:match("-100(%d+)") then
