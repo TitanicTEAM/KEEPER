@@ -6085,21 +6085,6 @@ if kkkkkk == 'kkkkk' then
 if text == 'سفن' then
 send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
 redis:del(KEEPER..'kk1111'..msg.chat_id_..'')
-sleep(1.5)
-send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ب، ا ، ش )',1, 'md')
-send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ش ب، ا )',1, 'md')        
-redis:set(KEEPER..'kk11111'..msg.chat_id_..'','kkkkkk')   
-redis:set(KEEPER..'kk11111'..msg.chat_id_..'','kkkkkk1')              
-return false end end end
-if text then
-local kkkkk = redis:get(KEEPER..'kk11111'..msg.chat_id_..'')
-if kkkkk == 'kkkkkk' then         
-if text == 'باش' then  
-if kkkkk == 'kkkkkk1' then 
-if text == 'ابش' then  
-send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')                
-send(msg.chat_id_, msg.id_, 1, '• اجابتك غير صحيحه يا اثول 😹',1, 'md')              
-redis:del(KEEPER..'kk111'..msg.chat_id_..'')
 sleep(1.5)                        
 send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ط ، ش، ر ،ي )',1, 'md')
 redis:set(KEEPER..'w1'..msg.chat_id_..'','q1')
@@ -6231,6 +6216,15 @@ if text == 'كتاب' then
 send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
 redis:del(KEEPER..'a3'..msg.chat_id_..'')
 sleep(2)
+redis:set(KEEPER..'a3'..msg.chat_id_..'','s3')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'a3'..msg.chat_id_..'')
+if kkkkkk == 's3' then
+if text == 'كتبا' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك غير صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'a3'..msg.chat_id_..'')
+sleep(2)            
 send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ انتهت اللعبه شكرا لتفاعلكم',1, 'md')
 return false end end end
 -------------------------------------------------------------------------------------
