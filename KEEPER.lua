@@ -286,7 +286,7 @@ end
 local hash2 = "Bot:Admins"
 local list2 = redis:smembers(KEEPER..hash2)
 if #list2 ~= 0 then
-text = text .. "\n⇦ الادمنيــه :\n"
+text = text .. "\n⇦ الادمنيه :\n"
 else
 end
 for k, v in pairs(list2) do
@@ -1004,7 +1004,7 @@ local url , res = https.request('https://api.telegram.org/bot'..KEEPER_TOKEN..'/
 local data = KPJS:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
 var = false
-send(msg.chat_id_,msg.id_, 1, "🔱» اشترك حتى تستطيع \n⭕️» استخدام البوت: ["..channel.."]🍃\n", 1 , "md")
+send(msg.chat_id_,msg.id_, 1, "🔱» اشترك حياتي حتى تستطيع \n⭕️» استخدام البوت: ["..channel.."]🍃\n", 1 , "md")
 elseif data.ok then
 return var
 end
@@ -1019,15 +1019,15 @@ keeper  = "المطور 👨🏾‍🌾"
 elseif is_sudoid(msg.sender_user_id_) then
 keeper = "المطور 👨🏾‍🌾"
 elseif is_admin(msg.sender_user_id_) then
-keeper = "الادمن 🐾"
+keeper = "الادمن 👷🏾"
 elseif is_vipmems(msg.sender_user_id_) then
 keeper = "مميز عام 🐾"
 elseif is_monshi(msg.sender_user_id_, msg.chat_id_) then
-keeper = "المنشىء 🌿"
+keeper = "المنشىء 🕵🏽"
 elseif is_owner(msg.sender_user_id_, msg.chat_id_) then
-keeper = "المدير 🌿"
+keeper = "المدير 👮🏻"
 elseif is_momod(msg.sender_user_id_, msg.chat_id_) then
-keeper = "الادمن 🐾"
+keeper = "الادمن 👷🏾"
 elseif is_vipmem(msg.sender_user_id_, msg.chat_id_) then
 keeper = "عضو مميز 🌿 "
 else
@@ -1037,7 +1037,7 @@ return keeper
 end
 ----------------KP_TM_NM----BY KEEPER-----------------------------------
 local KP_TM_NM = function(msgs)
-if msgs < 100 then KP_TM = 'ضعيف جدا 🌿'
+if msgs < 100 then KP_TM = 'ضعيف جدا 👲🏾'
 elseif msgs < 200 then KP_TM = 'ضعيف' elseif msgs < 555 then KP_TM = 'متفاعل 🔥'
 elseif msgs < 1000 then KP_TM = 'متفاعل ✨' elseif msgs < 2000 then KP_TM = 'استمر بالتفاعل⚡️'
 elseif msgs < 7000 then KP_TM = 'متفاعل 🌙'elseif msgs < 20000 then KP_TM = 'روعه 💪'
@@ -1266,9 +1266,9 @@ local getGroupLink = function(msg, chat_id)
 local chat = tostring(chat_id)
 link = redis:get(KEEPER.."bot:group:link" .. chat)
 if link then
-send(msg.chat_id_, msg.id_, 1, "📬¦ رابط المجموعه :\n" .. link, 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾¦ رابط المجموعه :\n" .. link, 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1, "📬¦ لا يوجد رابط †", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾¦ لا يوجد رابط †", 1, "md")
 end
 end
 local getChannelMembers = function(channel_id, offset, filter, limit, cb)
@@ -2019,7 +2019,7 @@ sudo = User
 else
 sudo = "لا يوجد  "
 end
-send(v, 0, 1, "💲┊ سوف تنتهي صلاحيه المجموعه\n🔅┊الرابط : " .. (redis:get(KEEPER.."bot:group:link" .. msg.chat_id_) or "لا يوجد ") .. "\n🚫┊ الايدي » " .. msg.chat_id_ .. "", 1, "html")
+send(v, 0, 1, "👨🏾‍🌾┊ سوف تنتهي صلاحيه المجموعه\n🔅┊الرابط : " .. (redis:get(KEEPER.."bot:group:link" .. msg.chat_id_) or "لا يوجد ") .. "\n🎫┊ الايدي » " .. msg.chat_id_ .. "", 1, "html")
 redis:setex(KEEPER.."bot:expirepannel:" .. msg.chat_id_, 43200, true)
 end
 end
@@ -2041,7 +2041,7 @@ redis:del(KEEPER.."lefting" .. msg.chat_id_)
 redis:del(KEEPER.."bot:autoleave:" .. msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
 local v = tonumber(Kp_Owner)
-send(v, 0, 1, "💲┊ تم مغادره المجموعــه\n🔱┊ الاسم » 👇🏾\n🏮┊ ("..title_name(msg.chat_id_)..")\n🚫┊ الايدي » " .. msg.chat_id_, 1, "html")
+send(v, 0, 1, "👨🏾‍🌾┊ تم مغادره المجموعه\n👷🏾┊ الاسم » 👇🏾\n🏮┊ ("..title_name(msg.chat_id_)..")\n🎫┊ الايدي » " .. msg.chat_id_, 1, "html")
 redis:srem(KEEPER.."bot:groups", msg.chat_id_)
 elseif redis:get(KEEPER.."bot:enable:" .. msg.chat_id_) then
 redis:del(KEEPER.."lefting" .. msg.chat_id_)
@@ -2049,7 +2049,7 @@ end
 end
 elseif redis:get(KEEPER.."bot:charge:" .. msg.chat_id_) == "Trial" and 500 > redis:ttl(KEEPER.."bot:charge:" .. msg.chat_id_) then
 local v = tonumber(Kp_Owner)
-send(v, 0, 1, "💲┊ تم مغادره المجموعــه\n🔱┊ الاسم » ("..title_name(msg.chat_id_)..")\n🚫┊ الايدي » " .. msg.chat_id_, 1, "html")
+send(v, 0, 1, "👨🏾‍🌾┊ تم مغادره المجموعه\n👷🏾┊ الاسم » ("..title_name(msg.chat_id_)..")\n🎫┊ الايدي » " .. msg.chat_id_, 1, "html")
 redis:srem(KEEPER.."bot:groups", msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
 redis:del(KEEPER.."bot:charge:" .. msg.chat_id_)
@@ -2107,7 +2107,7 @@ function wlc(extra,result,success)
 if redis:get(KEEPER..'welcome:'..msg.chat_id_) then
 text = redis:get(KEEPER..'welcome:'..msg.chat_id_)
 else
-text = 'اهلا عزيزي {firstname}\nنورت المجموعه 🌸'
+text = 'اهلا عزيزي {firstname}\nنورت واشرقت في المجموعه 🌸'
 end
 local text = text:gsub('{firstname}',(result.first_name_ or ''))
 local text = text:gsub('{lastname}',(result.last_name_ or ''))
@@ -2123,7 +2123,7 @@ if not is_banned(msg.chat_id_,msg.content_.members_[0].id_) then
 if redis:get(KEEPER..'welcome:'..msg.chat_id_) then
 text = redis:get(KEEPER..'welcome:'..msg.chat_id_)
 else
-text = 'اهلا عزيزي {firstname}\nنورت المجموعه 🌸'
+text = 'اهلا عزيزي {firstname}\nنورت واشرقت في المجموعه 🌸'
 end
 local text = text:gsub('{firstname}',(msg.content_.members_[0].first_name_ or ''))
 local text = text:gsub('{lastname}',(msg.content_.members_[0].last_name_ or ''))
@@ -2171,7 +2171,7 @@ if msg.content_.ID == "MessageSticker" then
 redis:incr(KEEPER.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")
 if not redis:get(KEEPER.."lock_STCK"..msg.chat_id_) then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
-local KEEPER = {"منور انت ، 😙","اه باع وجهك شكد نضيف 😅","هذا منو ، 😏","تسمحلي ابوسك ☹️😹","مليان ضحك مليان 😹❤️","تف على هذا  ويهك 💦😹","اذا حاته ممكن الرقم 😆😹","تدري صار "..(redis:get(KEEPER.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")).." ملصق داز  شهالتبذير 🤔😹","كافي ملصقات مشايف 😫"}
+local KEEPER = {"منور انت ، 😙","اه باع وجهك شكد نضيف 😅","هذا منو ، 😏","تسمحلي ابوسك ☹️😹","مليان ضحك مليان 😹❤️","تف على هذا  ويهك 💦😹","اذا حاته ممكن الرقم 😆😹","تدري صار "..(redis:get(KEEPER.."sticker:"..msg.sender_user_id_..":"..msg.chat_id_.."")).." ملصق داز  ماتستحي 🤔😹","كافي ملصقات مشايف 😫"}
 send(msg.chat_id_, msg.id_, 1,""..KEEPER[math.random(#KEEPER)].."", 1, 'md')
 end
 end
@@ -2263,7 +2263,7 @@ if msg.content_.text_ then
 redis:set(KEEPER..'text_repgp'..content_text..''..msg.chat_id_..'', msg.content_.text_)
 end
 redis:sadd('rep_owner'..msg.chat_id_..'',content_text)
-send(msg.chat_id_, msg.id_, 1, "📌┊ تم حفظ الرد بنجاح\n", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم حفظ الرد بنجاح\n", 1, 'md')
 redis:del(KEEPER..'addreplaygp:'..msg.sender_user_id_..''..msg.chat_id_..'')
 return false end end
 if msg.content_.text_ and not redis:get(KEEPER..'lock_reeeep'..msg.chat_id_) then
@@ -2306,7 +2306,7 @@ if msg.content_.text_ then
 redis:set(KEEPER.."text_repall"..content_text, msg.content_.text_)
 end
 redis:sadd('rep_sudo',content_text)
-send(msg.chat_id_, msg.id_, 1, "📌┊ تم حفظ الرد بنجاح\n", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم حفظ الرد بنجاح\n", 1, 'md')
 redis:del(KEEPER.."addreply2:"..msg.sender_user_id_)
 return false end end
 if msg.content_.text_ and not redis:get(KEEPER..'lock_reeeep'..msg.chat_id_) then
@@ -2739,7 +2739,7 @@ if not msg.forward_info_ then
 send(msg.chat_id_, msg.id_, 1, "✯↓ حدث خطا حاول مره اخرى", 1, "md")
 redis:del(KEEPER.."bot:viewget" .. msg.sender_user_id_)
 else
-send(msg.chat_id_, msg.id_, 1, "📛↓ عـــدد المشاهـــدات \n: " .. msg.views_ .. "", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "📛↓ عدد المشاهدات \n: " .. msg.views_ .. "", 1, "md")
 redis:del(KEEPER.."bot:viewget" .. msg.sender_user_id_)
 end end
 if redis:get(KEEPER.."bot:viewmsg") == "On" then
@@ -2758,7 +2758,7 @@ photo_id = msg.content_.photo_.sizes_[3].photo_.persistent_id_
 else
 photo_id = msg.content_.photo_.sizes_[0].photo_.persistent_id_
 end
-send(msg.chat_id_, msg.id_, 1, '🌀┊ تم وضع صوره للمجموعه', 1, 'md')
+send(msg.chat_id_, msg.id_, 1, '🌃┊ اهلا عزيزي تم وضع صوره للمجموعه', 1, 'md')
 redis:del(KEEPER..'bot:setphoto'..msg.chat_id_..':'..msg.sender_user_id_)
 setphoto(msg.chat_id_, photo_id)
 end
@@ -2773,7 +2773,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "◯↲  تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "◯↲  تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈",  1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -2965,7 +2965,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "◯↲ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "◯↲ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -3134,7 +3134,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "◯↲ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "◯↲ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -3280,7 +3280,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -3501,7 +3501,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ",   1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ",   1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -3569,14 +3569,14 @@ end
 if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(KEEPER.."bot:botskick" .. msg.chat_id_) then
 chat_kick(msg.chat_id_, list[i].id_)
 chat_kick(msg.chat_id_, msg.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, "👨💼┊ العضو » (*"..msg.sender_user_id_.."*)\n🗯┊ قام بأضافه بوت في المجموعه\n📌┊ تم طرد البوت مع العضو \n✓", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨💼┊ العضو » (*"..msg.sender_user_id_.."*)\n🗯┊ قام بأضافه بوت في المجموعه\n🙋🏻‍♂️┊ تم طرد البوت مع العضو \n✓", 1, "md")
 end
 if list[i].type_.ID == "UserTypeBot" and not is_momod(list[i].id_, msg.chat_id_) and redis:get(KEEPER.."keed_bots"..msg.chat_id_) then
 chat_kick(msg.chat_id_, list[i].id_)
 redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
 HTTPS.request("https://api.telegram.org/bot" .. KEEPER_TOKEN .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. msg.sender_user_id_ .. "&can_send_messages=false&can_send_media_messages=false&can_send_other_messages=false&can_add_web_page_previews=false")
 redis:sadd(KEEPER..'bot:keed:'..msg.chat_id_, msg.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1, "👨💼┊ العضو » (*"..msg.sender_user_id_.."*)\n🗯┊ قام بأضافه بوت في المجموعه\n📌┊ تم طرد البوت وتقييد العضو \n✓", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨💼┊ العضو » (*"..msg.sender_user_id_.."*)\n🗯┊ قام بأضافه بوت في المجموعه\n🙋🏻‍♂️┊ تم طرد البوت وتقييد العضو \n✓", 1, "md")
 end
 end
 end
@@ -3598,7 +3598,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -3635,7 +3635,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -3653,7 +3653,7 @@ local msgs = {
 [0] = id
 }
 local chat = msg.chat_id_
-delete_msg(chat, msgs)
+delete_msg(chat, msgs
 print_del_msg("Deleted Because [Duplicate] [Post]")
 else
 redis:sadd(KEEPER.."Gp:Post" .. msg.chat_id_, post)
@@ -3821,7 +3821,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -4006,7 +4006,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -4191,7 +4191,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -4376,7 +4376,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -4562,7 +4562,7 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -4748,17 +4748,17 @@ local chat = redis:get(KEEPER.."Filtering:" .. msg.sender_user_id_)
 local name = string.sub(msg.content_.text_, 1, 50)
 local hash = "bot:filters:" .. chat
 if msg.content_.text_:match("^الغاء$") then
-send(msg.chat_id_, msg.id_, 1, "🔰- تم الغاء الامر بنجاح 🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️- تم الغاء الامر بنجاح ✋🏿 ", 1, "md")
 redis:del(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
 elseif msg.content_.text_:match("^/[Cc]ancel$") then
 send(msg.chat_id_, msg.id_, 1, "تم الغاء الامر 🏌️", 1, "md")
 redis:del(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
 elseif filter_ok(name) then
 redis:hset(KEEPER..hash, name, "newword")
-send(msg.chat_id_, msg.id_, 1, "● ◄  الكلمه ( [ " .. name .. " ] ) تم منعها \n- للخروج من الامر ارسل\n  الغاء  🎈",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "● ◄  الكلمه ( [ " .. name .. " ] ) تم منعها \n- للخروج من الامر ارسل\n  الغاء  🙋🏻‍♂️",  1, "md")
 redis:setex(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
 else
-send(msg.chat_id_, msg.id_, 1, "● ◄  الكلمه  [ " .. name .. " ] لا استطيع منعها🎋", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "● ◄  الكلمه  [ " .. name .. " ] لا استطيع منعها🙋🏻‍♂️", 1, "md")
 redis:setex(KEEPER.."Filtering:" .. msg.sender_user_id_, 10, chat)
 return
 end
@@ -4768,7 +4768,7 @@ if redis:get(KEEPER..'botts:namess'..msg.sender_user_id_) then
 redis:del(KEEPER..'botts:namess'..msg.sender_user_id_)
 local NAME_BOT = msg.content_.text_:match("(.*)")
 redis:set(KEEPER..'keepernams',NAME_BOT)
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم وضع اسم البوت 🍃",1, 'html')
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اهلا سيدي تم تغيير اسم البوت بنجاح 🍃",1, 'html')
 return false
 end
 ------------------------save cam link-----------------------------------
@@ -4776,14 +4776,14 @@ if redis:get(KEEPER.."bot:group:link" .. msg.chat_id_ .. ":" .. msg.sender_user_
 local glink = msg.content_.text_:match("(https://telegram.me/joinchat/%S+)") or msg.content_.text_:match("(https://t.me/joinchat/%S+)")
 local hash = "bot:group:link" .. msg.chat_id_
 redis:set(KEEPER..hash, glink)
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تـــم  حفــــظ الرابط 🎈", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ اهلا عزيزي تم  حفظ  الرابط بنجاح 🚶🏾", 1, "md")
 redis:del(KEEPER.."bot:group:link" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 --------------------------------------------------------------------------
 if redis:get(KEEPER.."gettextsec" .. msg.sender_user_id_) then
 local clerktext = msg.content_.text_
 redis:set(KEEPER.."textsec", clerktext)
-send(msg.chat_id_, msg.id_, 1, "🌀┊  تم حفظ الكليشه 🎈", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊  اهلا حبيبي تم  حفظ الكليشه بنجاح ✋🏿", 1, "md")
 redis:del(KEEPER.."gettextsec" .. msg.sender_user_id_)
 end
 ---------------------save com rules-----------------------------------------------------------------------------
@@ -4791,7 +4791,7 @@ if redis:get(KEEPER.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
 local rules = msg.content_.text_
 redis:set(KEEPER.."bot:rules" .. msg.chat_id_, rules)
 
-send(msg.chat_id_, msg.id_, 1, "🌀┊  تـــم حفــــظ القوانين 🎋",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "👮🏾‍♀️┊  اهلا حبيبي تم حفظ القوانين بنجاح ✋🏿",  1, "md")
 redis:del(KEEPER.."rules" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 -----------ch join------------------------------------------------------
@@ -4799,12 +4799,12 @@ if text then
 if redis:get(KEEPER..'Kpch'..msg.sender_user_id_) then
 redis:del(KEEPER..'Kpch'..msg.sender_user_id_)
 redis:set(KEEPER..'Kpch1',text)
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم وضــــع معرف القناة ❗️\n🔰┊ ارفع البوت ادمن في قناتك\n",1, 'html')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم وضع معرف القناة ❗️\n📡┊ ارفع البوت ادمن في قناتك\n",1, 'html')
 end end
 ---------------------rem cam broadcast--------------------------------------------------------------------
 if redis:get(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
 if text:match("^الغاء$") then
-send(msg.chat_id_, msg.id_, 1, "🔰- تم الغاء الامر بنجاح🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾- تم الغاء الامر بنجاح✋🏿 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 else
 local gps = redis:scard(KEEPER.."bot:groups") or 0
@@ -4816,14 +4816,14 @@ local msgs = {
 for i = 1, #gpss do
 Forward(gpss[i], msg.chat_id_, msgs)
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعــه🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم توجيه رسالتك الى\n` " .. gps .. "` مجموعه🎈 ", 1, "md")
 redis:del(KEEPER.."broadcast" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 end
 --------------------rem  cam broadcast2--------------------------------------------------------------------------
 if redis:get(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then
 if text:match("^الغاء$") then
-send(msg.chat_id_, msg.id_, 1, "🔰- تم الغاء الامر بنجاح🎈 ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾- تم الغاء الامر بنجاح✋🏿 ", 1, "md")
 redis:del(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 else
 local gps = redis:scard(KEEPER.."bot:groups") or 0
@@ -4834,7 +4834,7 @@ local msgs = {
 for i = 1, #gpss do
 send(gpss[i], 0, 1, text, 1, "md")
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم نشر رسالتك  في\n` " .. gps .. "` مجموعــه🎈  ", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تم نشر رسالتك  في\n` " .. gps .. "` مجموعه🎈  ", 1, "md")
 redis:del(KEEPER.."broadcast2" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end
 end
@@ -4846,7 +4846,7 @@ if redis:get(KEEPER.."bot:keeper_dev" .. msg.chat_id_ .. ":" .. msg.sender_user_
 redis:del(KEEPER.."bot:keeper_dev" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 local keeper_dev = msg.content_.text_:match("(.*)")
 redis:set(KEEPER.."keeper_dev", keeper_dev)
-send(msg.chat_id_, msg.id_, 1, "🌀┊ تم وضــع كليشه المطور 🎗", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ حسننا عزيزي تم وضع كليشه المطور ✋🏿", 1, "md")
 end
 --------------------check_filter_words---------------------------------------------------------
 if not is_vipmem(msg.sender_user_id_, msg.chat_id_) then
@@ -5050,50 +5050,50 @@ return false
 end
 -------------------------------leave groups----------------------------------------------------------------------
 if is_sudo(msg) and idf:match("-100(%d+)") and (text:match('^'..(redis:get(KEEPER..'keepernams') or 'شلش')..' غادر$')) then
-send(msg.chat_id_, msg.id_, 1, "✺↓ تم مغادره المجموعــه ♩†",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "✺↓ تم مغادره المجموعه ♩†",  1, "md")
 redis:srem(KEEPER.."bot:groups", msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
 end
 --------------------------------------------
 if text == 'تفعيل رفع الادمن' and is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل خاصية رفع الادمن\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل خاصية رفع الادمن\n ✓ ", 1, 'md')
 redis:del(KEEPER.."lock_addd"..msg.chat_id_)
 end
 if text == 'تعطيل رفع الادمن' and is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل خاصية رفع الادمن\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل خاصية رفع الادمن\n ✓ ", 1, 'md')
 redis:set(KEEPER.."lock_addd"..msg.chat_id_, true)
 end
 -------------------------------------------------
 if text == 'تفعيل رفع المميز' and is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل خاصية رفع المميز\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل خاصية رفع المميز\n ✓ ", 1, 'md')
 redis:del(KEEPER.."lock_adddvip"..msg.chat_id_)
 end
 if text == 'تعطيل رفع المميز' and is_owner(msg.sender_user_id_, msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تعطيل خاصية رفع المميز\n ✓ ", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل خاصية رفع المميز\n ✓ ", 1, 'md')
 redis:set(KEEPER.."lock_adddvip"..msg.chat_id_, true)
 end
 --------------------------------------------------------------------
 if is_owner(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^رفع ادمن بالتفاعل (%d+)$")  then
 local uuuu = { string.match(text, "^(رفع ادمن بالتفاعل) (%d+)$")}
-send(msg.chat_id_, msg.id_, 1, "⚜️┊ تم حفظ العدد *"..uuuu[2].."*\n💬┊ سيتم رفع العضو ادمن\n🚫┊اذا اثبت تفاعله\n✓",1, 'md')
+send(msg.chat_id_, msg.id_, 1, "⚜️┊ تم حفظ العدد *"..uuuu[2].."*\n👷🏾┊ سيتم رفع العضو ادمن\n🚫┊اذا اثبت تفاعله\n✓",1, 'md')
 redis:set(KEEPER.."KEEPER_O" .. msg.chat_id_, uuuu[2])
 end
 local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
 local get_keeper = tonumber(redis:get(KEEPER.."KEEPER_O" .. msg.chat_id_)) 
 if msgs == get_keeper and not redis:get(KEEPER.."lock_addd"..msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "💬┊ هذا العضو اثبت تفاعله\n🎟┊تم رفعه ادمن في المجموعه\n✓",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ هذا العضو اثبت تفاعله\n🎟┊تم رفعه ادمن في المجموعه\n✓",  1, "md")
 redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, msg.sender_user_id_)
 end
 --------------------------------------------------------------------
 if is_owner(msg.sender_user_id_, msg.chat_id_) and idf:match("-100(%d+)") and text:match("^رفع مميز بالتفاعل (%d+)$")  then
 local uuuu = { string.match(text, "^(رفع مميز بالتفاعل) (%d+)$")}
-send(msg.chat_id_, msg.id_, 1, "⚜️┊ تم حفظ العدد *"..uuuu[2].."*\n💬┊ سيتم رفع العضو مميز\n🚫┊اذا اثبت تفاعله\n✓",1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ تم حفظ العدد *"..uuuu[2].."*\n👷🏾┊ سيتم رفع العضو مميز\n🚫┊اذا اثبت تفاعله\n✓",1, 'md')
 redis:set(KEEPER.."KEEPER_OO" .. msg.chat_id_, uuuu[2])
 end
 local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
 local get_keeper = tonumber(redis:get(KEEPER.."KEEPER_OO" .. msg.chat_id_)) 
 if msgs == get_keeper and not redis:get(KEEPER.."lock_adddvip"..msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "📌┊ هذا العضو اثبت تفاعله\n🌀┊تم رفعه عضو مميز في المجموعه\n✓",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ هذا العضو اثبت تفاعله\n👷🏾┊تم رفعه عضو مميز في المجموعه\n✓",  1, "md")
 redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, msg.sender_user_id_)
 end
 ------------------------------ADD vipmems BY Reply------------------------------------------------------------------
@@ -5101,10 +5101,10 @@ if text:match("^رفع مميز عام$") and is_KP(msg) and msg.reply_to_messag
 function promote_by_reply(extra, result, success)
 local hash = 'bot:vipmems:'
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n👷🏾┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n👷🏾┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
@@ -5171,9 +5171,9 @@ if text:match("^رفع ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id
 function promote_by_reply(extra, result, success)
 local hash = 'bot:momod:'..msg.chat_id_
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو ("..result.sender_user_id_..")\n🌀┊ تم رفعه ادمن ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... ("..result.sender_user_id_..")\n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو ("..result.sender_user_id_..")\n🌀┊ تم رفعه ادمن ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا سيدي... ("..result.sender_user_id_..")\n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 redis:sadd(KEEPER..hash, result.sender_user_id_)
 end
 end
@@ -5184,10 +5184,10 @@ if text:match("^رفع ادمن @(.*)$") and is_owner(msg.sender_user_id_, msg.c
 local ap = {string.match(text, "^(رفع ادمن) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
-texts = "🔍┊ العضو ("..result.id_..")\n🌀┊ تم رفعه ادمن ✔️\n‏"
+texts = "🙋🏻‍♂️┊ اهلا سيدي... ("..result.id_..")\n👷🏾┊ تم رفعه ادمن \n‏✓"
 redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, result.id_)
 else
-texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
+texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
 send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
 end
@@ -5196,7 +5196,7 @@ end
 ------------------------------promote_by_ID-----------------------------------------------------------------
 if text:match("^رفع ادمن (%d+)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع ادمن) (%d+)$")}
-send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو ("..ap[2]..")\n🌀┊ تم رفعه ادمن ✔️\n‏", 1, 'md')
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ العضو ("..ap[2]..")\n👷🏾┊ تم رفعه ادمن \n‏✓", 1, 'md')
 redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, ap[2])
 end
 -------------------------------demote_by_reply----------------------------------------------------------------------
