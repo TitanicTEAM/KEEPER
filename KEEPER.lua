@@ -6073,6 +6073,8 @@ if text then
 local kkkkk = redis:get(KEEPER..'kk111'..msg.chat_id_..'')
 if kkkkk == 'kkkk' then
 if text == 'مطي' then
+if text == 'طمي' then         
+send(msg.chat_id_, msg.id_, 1, '• اجابتك غير صحيحه يا اثول 😹',1, 'md')              
 send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
 redis:del(KEEPER..'kk111'..msg.chat_id_..'')
 sleep(1.5)
