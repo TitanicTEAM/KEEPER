@@ -6045,6 +6045,189 @@ delete_msg(msg.chat_id_, {
 delete_msg(msg.chat_id_, msgs)
 end end
 --------------------------------------------------------------------------------------
+if text == 'اللعبه' and is_owner(msg.sender_user_id_, msg.chat_id_) then
+if redis:get(KEEPER.."lock_GEM"..msg.chat_id_) then
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ اللعبه معطله\n ‏ ", 1, "md")
+return false end
+local user_info_ = redis:get(KEEPER.."user:Name" .. msg.sender_user_id_)
+local UserKeeper = user_info_
+if user_info_ then
+redis:set(KEEPER..'kk1'..msg.sender_user_id_..''..msg.chat_id_..'','kk')
+send(msg.chat_id_, 0, 1, '👨‍✈️» اهلا ['..UserKeeper..'] \n™️» في لعبه السرعه\n⚠️» ارسل ( بدء اللعبه ) للعب\n✓',1, 'md')
+return false end end
+if text == 'بدء اللعبه'  and is_owner(msg.sender_user_id_, msg.chat_id_) and redis:get(KEEPER..'kk1'..msg.sender_user_id_..''..msg.chat_id_..'') then
+redis:set(KEEPER..'kk11'..msg.chat_id_..'','kkk')
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n(ق , ر , ب , ا , ي , ن , ط)',1, 'md')
+return false end
+if text then
+local kkkk = redis:get(KEEPER..'kk11'..msg.chat_id_..'')
+if kkkk == 'kkk' then
+if text == 'قرنابيط' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'kk11'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ط ، ي ، م )',1, 'md')
+redis:set(KEEPER..'kk111'..msg.chat_id_..'','kkkk')
+return false end end end
+if text then
+local kkkkk = redis:get(KEEPER..'kk111'..msg.chat_id_..'')
+if kkkkk == 'kkkk' then
+if text == 'مطي' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'kk111'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ن ، س ، ف )',1, 'md')
+redis:set(KEEPER..'kk1111'..msg.chat_id_..'','kkkkk')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'kk1111'..msg.chat_id_..'')
+if kkkkkk == 'kkkkk' then
+if text == 'سفن' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'kk1111'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ط ، ش، ر ،ي )',1, 'md')
+redis:set(KEEPER..'w1'..msg.chat_id_..'','q1')
+return false end end end
+if text then
+local kkkkk = redis:get(KEEPER..'w1'..msg.chat_id_..'')
+if kkkkk == 'q1' then
+if text == 'طرشي' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w1'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ا ، د ، ج ، ج )',1, 'md')
+redis:set(KEEPER..'w2'..msg.chat_id_..'','q2')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'w2'..msg.chat_id_..'')
+if kkkkkk == 'q2' then
+if text == 'دجاج' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w2'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ل ، ح ، م )',1, 'md')
+redis:set(KEEPER..'w3'..msg.chat_id_..'','q3')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'w3'..msg.chat_id_..'')
+if kkkkkk == 'q3' then
+if text == 'لحم' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w3'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ق ، ر ، و ، ي )',1, 'md')
+redis:set(KEEPER..'w4'..msg.chat_id_..'','q4')
+return false end end end
+if text then
+local kkkkk = redis:get(KEEPER..'w4'..msg.chat_id_..'')
+if kkkkk == 'q4' then
+if text == 'قوري' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w4'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n ( ا ،ت ، ح، ف، ه )',1, 'md')
+redis:set(KEEPER..'w5'..msg.chat_id_..'','q5')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'w5'..msg.chat_id_..'')
+if kkkkkk == 'q5' then
+if text == 'تفاحه' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w5'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n(ك , ش , ب , ا)',1, 'md')
+redis:set(KEEPER..'w6'..msg.chat_id_..'','q6')
+return false end end end
+if text then
+local kkkkk = redis:get(KEEPER..'w6'..msg.chat_id_..'')
+if kkkkk == 'q6' then
+if text == 'شباك' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w6'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n( ك ، ي ، ر ، س )',1, 'md')
+redis:set(KEEPER..'w7'..msg.chat_id_..'','q7')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'w7'..msg.chat_id_..'')
+if kkkkkk == 'q7' then
+if text == 'كرسي' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w7'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n( ا ،س ، ة، ي، ر )',1, 'md')
+redis:set(KEEPER..'w8'..msg.chat_id_..'','q8')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'w8'..msg.chat_id_..'')
+if kkkkkk == 'q8' then
+if text == 'سياره' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w8'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n( ن ،ص، و، ك، د)',1, 'md')
+redis:set(KEEPER..'w9'..msg.chat_id_..'','q9')
+return false end end end
+if text then
+local kkkkk = redis:get(KEEPER..'w9'..msg.chat_id_..'')
+if kkkkk == 'q9' then
+if text == 'صندوك' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w9'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n( ك ، ر ، ي )',1, 'md')
+redis:set(KEEPER..'w00'..msg.chat_id_..'','q00')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'w00'..msg.chat_id_..'')
+if kkkkkk == 'q00' then
+if text == 'ركي' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'w00'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n( ل ، ف ، ي )',1, 'md')
+redis:set(KEEPER..'a1'..msg.chat_id_..'','s1')
+return false end end end
+if text then
+local kkkkk = redis:get(KEEPER..'a1'..msg.chat_id_..'')
+if kkkkk == 's1' then
+if text == 'فيل' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'a1'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n( ظ ، ن ، ه، ا، ر)',1, 'md')
+redis:set(KEEPER..'a2'..msg.chat_id_..'','s2')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'a2'..msg.chat_id_..'')
+if kkkkkk == 's2' then
+if text == 'نظاره' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'a2'..msg.chat_id_..'')
+sleep(1.5)
+send(msg.chat_id_, 0, 1, '• رتب الكلمه  التاليه \n( ت ، ا ، ك، ب )',1, 'md')
+redis:set(KEEPER..'a3'..msg.chat_id_..'','s3')
+return false end end end
+if text then
+local kkkkkk = redis:get(KEEPER..'a3'..msg.chat_id_..'')
+if kkkkkk == 's3' then
+if text == 'كتاب' then
+send(msg.chat_id_, msg.id_, 1, '• اجابتك صحيحه 👏🏻',1, 'md')
+redis:del(KEEPER..'a3'..msg.chat_id_..'')
+sleep(2)
+send(msg.chat_id_, msg.id_, 1, '👨🏾‍🌾┊ انتهت اللعبه شكرا لتفاعلكم',1, 'md')
+return false end end end
+-------------------------------------------------------------------------------------
+if text == 'تفعيل اللعبه' and is_owner(msg.sender_user_id_, msg.chat_id_) then
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل اللعبه\n ✓ ", 1, 'md')
+redis:del(KEEPER.."lock_GEM"..msg.chat_id_)
+end
+if text == 'تعطيل اللعبه' and is_owner(msg.sender_user_id_, msg.chat_id_) then
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل استخدام اللعبه\n ✓ ", 1, 'md')
+redis:set(KEEPER.."lock_GEM"..msg.chat_id_, true)
+end  
+------------------------------------------------------------------------------      
 if text == 'تفعيل الملصقات' and is_owner(msg.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, "💬┊ بواسطه » "..tmkeeper(msg).."\n🎟┊ تم تفعيل ردود الملصقات\n ✓ ", 1, 'md')
 redis:del(KEEPER.."lock_STCK"..msg.chat_id_)
