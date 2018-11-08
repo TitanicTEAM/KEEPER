@@ -5169,14 +5169,12 @@ end
 -----------------------------promote_by_reply-------------------------------------------------------
 if text:match("^رفع ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0  then
 function promote_by_reply(extra, result, success)
-local hash = 'bot:momod:'..msg.chat_id_
-if redis:sismember(KEEPER..hash, result.sender_user_id_) then
 local user_info_ = redis:get(KEEPER.."user:Name" .. msg.sender_user_id_)
 local UserKeeper = user_info_
-if user_info_ then            
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..result.sender_user_id_..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
+if user_info_ then    
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..User.sender_Keeper..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 else
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..result.sender_user_id_..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..User.sender_Keeper..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 redis:sadd(KEEPER..hash, result.sender_user_id_)
 end
 end
