@@ -5169,10 +5169,9 @@ end
 -----------------------------promote_by_reply-------------------------------------------------------
 if text:match("^رفع ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0  then
 function promote_by_reply(extra, result, success)
-local user_info_ = redis:get(KEEPER.."user:Name" .. msg.sender_user_id_)
-local UserKeeper = user_info_
-if user_info_ then    
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..User.sender_Keeper..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
+local hash = 'user:Name'..msg.chat_id_
+if redis:sismember(KEEPER..hash, result.sender_user_id_) then
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..UserKeeper..")\n👨‍✈️» معرفه ('..result.sender_user_id_..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 else
 send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ اهلا حبيبي... ("..User.sender_Keeper..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, "md")
 redis:sadd(KEEPER..hash, result.sender_user_id_)
@@ -5186,7 +5185,7 @@ local ap = {string.match(text, "^(رفع ادمن) @(.*)$")}
 function promote_by_username(extra, result, success)
 if result.id_ then
 texts = "🙋🏻‍♂️┊ اهلا حبيبي... ("..result.id_..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓"
-redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, result.id_)
+redis:sadd(KEEPER..'user:Name'..msg.chat_id_, result.id_)
 else
 texts = '🙋🏻‍♂️┊ لا يوجد عضو بهذا المعرف 🍃'
 end
@@ -5198,7 +5197,7 @@ end
 if text:match("^رفع ادمن (%d+)$") and is_owner(msg.sender_user_id_, msg.chat_id_) then
 local ap = {string.match(text, "^(رفع ادمن) (%d+)$")}
 send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ العضو ("..ap[2]..")\n👨‍✈️» معرفه ('..UserKeeper..') \n👷🏾┊ تم رفعه ادمن \n‏✓", 1, 'md')
-redis:sadd(KEEPER..'bot:momod:'..msg.chat_id_, ap[2])
+redis:sadd(KEEPER..'user:Name'..msg.chat_id_, ap[2])
 end
 -------------------------------demote_by_reply----------------------------------------------------------------------
 if text:match("^تنزيل ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0 then
