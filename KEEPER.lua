@@ -6935,23 +6935,23 @@ end
 if idf:match("-100(%d+)") and text:match("^رتبتي$") and msg.reply_to_message_id_ == 0   then
 local get_me = function(extra, result)
 if is_KpiD(result.id_) then
-tar = "مطور اساسي 🍃"
+tar = "مطور اساسي 👨🏾‍🌾"
 elseif is_sudoid(result.id_) then
-tar = "مطور 🐯"
+tar = "مطور 👨🏾‍🌾"
 elseif is_vipmems(result.id_) then
 tar = "مميز عام 🍃"
 elseif is_admin(result.id_) then
-tar = "ادمن في البوت 🍃"
+tar = "ادمن في البوت 👷🏾"
 elseif is_monshi(result.id_, msg.chat_id_) then
-tar = "منشىء 🍃"
+tar = "منشىء 👮🏻"
 elseif is_owner(result.id_, msg.chat_id_) then
-tar = "المدير 🍃"
+tar = "المدير 👮🏻"
 elseif is_momod(result.id_, msg.chat_id_) then
-tar = "ادمن المجموعه 🍃"
+tar = "ادمن المجموعه 👷🏾"
 elseif is_vipmem(result.id_, msg.chat_id_) then
 tar = "عضو مميز 🍃"
 else
-tar = "عـضـو 🍃"
+tar = "عضو 👨🏿‍🎓"
 end
 if result.first_name_ then
 if #result.first_name_ < 35 then
@@ -6960,7 +6960,7 @@ for kkkkk in string.gmatch(result.first_name_, "[^%s]+") do
 result.first_name_ = kkkkk
 break
 end end end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ اســمك » " .. result.first_name_ .. "\n💲┊ رتبتـك » " ..tar.. "\n✓" , 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🎟┊ اسمك » " .. result.first_name_ .. "\n🎫┊ رتبتك » " ..tar.. "\n✓" , 1, "md")
 end
 getUser(msg.sender_user_id_, get_me)
 end
@@ -7533,7 +7533,7 @@ else
 keeper3 = "عضو"
 end
 end
-send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ الرتبه » (*"..keeper3.."*) 🍃\n‏" , 1, "md")
+send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ الرتبه » (*"..keeper3.."*) ✋🏿\n‏" , 1, "md")
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,id_by_reply)
 end
@@ -9537,7 +9537,7 @@ else
 getUser(txt[2], get_data)
 end end end
 ----------INFO KEEPER_SUDO BY REPLY----------------------------------------------------------------------------------------------------
-if text:match("^معلوماتي$")  and msg.reply_to_message_id_ == 0 then
+if text:match("^13132132$")  and msg.reply_to_message_id_ == 0 then
 if not is_KP(msg) then
 send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اكل خره هذه امر المطور الاساسي فقط😹\n🚶🏾", 'md')
 else
@@ -10164,7 +10164,7 @@ redis:del(KEEPER.."Kpch1")
 send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ اهلا عزيزي ... "..tmkeeper(msg).."\n📡┊ تم مسح قناة الاشتراك\n ✓ ", 1, 'md')
 end end
 ---------------------cod msgs-------------------------
-if text:match("^رسایلی$") or text:match("^رسايلي$") then
+if text:match("^معلوماتي$") or text:match("^رسايلي$") then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local get_me = function(extra, result)
 local msgs = (tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_)) or "0" )
@@ -10185,7 +10185,7 @@ break
 end end end
 local kpmsgsss = [[
 
-🙋🏻‍♂️┊ اهلا ⌯ *]]..result.first_name_..[[*
+🙋🏻‍♂️┊ اهلا اسمك.. ⌯ *]]..result.first_name_..[[*
 👨🏾‍🌾┊ لقد قمت بآرسال
 •- * ⁽ ]]..kptext..[[ ₎*  📝 نص
 •- * ⁽ ]]..pkPhoto..[[ ₎*  📷 صور
