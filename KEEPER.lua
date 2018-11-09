@@ -6974,7 +6974,7 @@ getMessage(msg.chat_id_, msg.reply_to_message_id_, inv_reply)
 end
 -------------------YOUR ID----------------------------------------------------------------
 if idf:match("-100(%d+)") then
-text = text:gsub("ايدي","ايدي")
+text = text:gsub("id","ايدي")
 if text:match("^ايدي$") and msg.reply_to_message_id_ == 0  then
 if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
 local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
