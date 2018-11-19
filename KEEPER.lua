@@ -7458,23 +7458,36 @@ end
 end
 getUser(msg.sender_user_id_, getnameEN)
 local getprofa = function(extra, result)
-local kepper_info = "🎟┊ ايديك  » " .. msg.sender_user_id_ .. "\n©️┊ معرفك »  " .. username .. "\n👤┊ جهاتك  »   "..Kpcontact.."\n🌄┊ صورك  »   "..result.total_count_.."\n🔆┊ نقاطك  »   "..num_keep.."\n🌐┊ تفاعلك »  " .. KP_TM_NM(msgs) .. "\n✉️┊ رسائلك » " .. msgs .. "\n📌┊ موقعك » " .. tar .. "\n‏┄┄┄┄┄┄┄┄┄┄┄┄"
-local kepper_info2 = "🎟┊ ايديك  » `" .. msg.sender_user_id_ .. "`\n©️┊ معرفك »  [" .. username .. "]\n👤┊ جهاتك  »   "..Kpcontact.."\n🌄┊ صورك  »   "..result.total_count_.."\n🔆┊ نقاطك  »   "..num_keep.."\n🌐┊ تفاعلك »  " .. KP_TM_NM(msgs) .. "\n✉️┊ رسائلك » " .. msgs .. "\n📌┊ موقعك » " .. tar .. "\n‏┄┄┄┄┄┄┄┄┄┄┄┄"
-
+local OwnerKP_ = redis:get(KEEPER.."Bot:KpOwnerBot")
+local user_info_ = redis:get(KEEPER.."user:Name" .. OwnerKP_)
+local UserKeeper = user_info_
+if user_info_ then
 if redis:get(KEEPER.."getidstatus" .. msg.chat_id_) == "Photo" then
 if result.photos_[0] then
-sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_, kepper_info)
+if redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_, "‏\n🌄╏ •⊱ صورك⊰•  "..result.total_count_.."\n🗯╏ •⊱ جهاتك⊰• "..Kpcontact.."\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• " .. username .. "\n🎟╏ •⊱ ايديك⊰• " .. msg.sender_user_id_ .. "\n📩╏ •⊱ رسائلك⊰• " .. msgs .. " رساله\n‏🎫╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n")
 else
-send(msg.chat_id_, msg.id_, 1, "انت لا تمتلك صوره لحسابك🎈‏\n"..kepper_info2.."", 1, "md")
+sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, result.photos_[0].sizes_[1].photo_.persistent_id_, "‏\n🌄╏ •⊱ صورك⊰•  "..result.total_count_.."\n🗯╏ •⊱ جهاتك⊰• "..Kpcontact.."\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• " .. username .. "\n🎟╏ •⊱ ايديك⊰• " .. msg.sender_user_id_ .. "\n📩╏ •⊱ رسائلك⊰• " .. msgs .. " رساله\n‏🎫╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n")
+end
+elseif redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
+send(msg.chat_id_, msg.id_, 1, "انت لا تمتلك صوره لحسابك🎈‏\n🌄╏ •⊱ صورك⊰• *"..result.total_count_.."*\n🗯╏ •⊱ جهاتك⊰• *"..Kpcontact.."*\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• [" .. username .. "]\n🎟╏ •⊱ ايديك⊰• `" .. msg.sender_user_id_ .. "`\n📩╏ •⊱ رسائلك⊰• *" .. msgs .. "* رساله\n🎫‏╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n👤╏ *⌍ المطور⌌* » ["..UserKeeper.."]\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n",1, "md")
+else
+send(msg.chat_id_, msg.id_, 1, "انت لا تمتلك صوره لحسابك🎈‏\n🌄╏ •⊱ صورك⊰• *"..result.total_count_.."*\n🗯╏ •⊱ جهاتك⊰• *"..Kpcontact.."*\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• [" .. username .. "]\n🎟╏ •⊱ ايديك⊰• `" .. msg.sender_user_id_ .. "`\n📩╏ •⊱ رسائلك⊰• *" .. msgs .. "* رساله\n🎫‏╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n👤╏ *⌍ المطور⌌* » ["..UserKeeper.."]\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n",1, "md")
 end
 end
 if redis:get(KEEPER.."getidstatus" .. msg.chat_id_) == "Simple" then
-send(msg.chat_id_, msg.id_, 1, kepper_info2, 1, "md")
+if redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
+send(msg.chat_id_, msg.id_, 1, "‏🌄╏ •⊱ صورك⊰• *"..result.total_count_.."*\n🗯╏ •⊱ جهاتك⊰• *"..Kpcontact.."*\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• [" .. username .. "]\n🎟╏ •⊱ ايديك⊰• `" .. msg.sender_user_id_ .. "`\n📩╏ •⊱ رسائلك⊰• *" .. msgs .. "* رساله\n🎫‏╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n👤╏ *⌍ المطور⌌* » ["..UserKeeper.."]\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n", 1, "md")
+else
+send(msg.chat_id_, msg.id_, 1, "‏🌄╏ •⊱ صورك⊰• *"..result.total_count_.."*\n🗯╏ •⊱ جهاتك⊰• *"..Kpcontact.."*\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• [" .. username .. "]\n🎟╏ •⊱ ايديك⊰• `" .. msg.sender_user_id_ .. "`\n📩╏ •⊱ رسائلك⊰• *" .. msgs .. "* رساله\n🎫‏╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n👤╏ *⌍ المطور⌌* » ["..UserKeeper.."]\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n", 1, "md")
+end
 end
 if not redis:get(KEEPER.."getidstatus" .. msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, kepper_info2, 1, "md")
- end 
- end
+if redis:get(KEEPER.."lang:gp:" .. msg.chat_id_) then
+send(msg.chat_id_, msg.id_, 1, "🌄‏╏ •⊱ صورك⊰• *"..result.total_count_.."*\n🗯╏ •⊱ جهاتك⊰• *"..Kpcontact.."*\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• [" .. username .. "]\n🎟╏ •⊱ ايديك⊰• `" .. msg.sender_user_id_ .. "`\n📩╏ •⊱ رسائلك⊰• *" .. msgs .. "* رساله\n‏🎫╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n👤╏ *⌍ المطور⌌* » ["..UserKeeper.."]\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n", 1, "md")
+else
+send(msg.chat_id_, msg.id_, 1, "🌄‏╏ •⊱ صورك⊰• *"..result.total_count_.."*\n🗯╏ •⊱ جهاتك⊰• *"..Kpcontact.."*\n⚙️╏ •⊱ تفاعلك⊰• " .. KP_TM_NM(msgs) .. " \n🙋🏻‍♂️╏ •⊱ معرفك⊰• [" .. username .. "]\n🎟╏ •⊱ ايديك⊰• `" .. msg.sender_user_id_ .. "`\n📩╏ •⊱ رسائلك⊰• *" .. msgs .. "* رساله\n‏🎫╏ •⊱ موقعك⊰• " .. tar .. "\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n👤╏ *⌍ المطور⌌* » ["..UserKeeper.."]\n╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍ ╍\n", 1, "md")
+end end end end
 tdcli_function({
 ID = "GetUserProfilePhotos",
 user_id_ = msg.sender_user_id_,
@@ -7482,13 +7495,6 @@ offset_ = 0,
 limit_ = 1
 }, getprofa, nil)
 end end 
--------------------KP_TM_NM----------------------------------------
-if text:match("^تفاعلي$") or text:match("^شنو تفاعلي$")  then
-local msgs = tonumber(redis:get(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_))
-if not redis:get(KEEPER..'lock:add'..msg.chat_id_) then
-send(msg.chat_id_, msg.id_, 1, "👷🏾┊ تفاعلك : ( *"..KP_TM_NM(msgs).."* ) 🍁", 1, 'md')
-end
-end
 --------------------Kp concat add----------------------------------------
 if text == 'جهاتي' then
 send(msg.chat_id_, msg.id_, 1, '👷🏾┊ عدد جهاتك ≈ * '..(tonumber(redis:get(KEEPER..'kpaddcon'..msg.chat_id_..':'..msg.sender_user_id_) or 0))..' *',1,'md')
