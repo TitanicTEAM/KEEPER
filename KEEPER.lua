@@ -1839,6 +1839,34 @@ local d = data.disable_notification_
 local chat = chats[msg.chat_id_]
 redis:sadd(KEEPER.."groups:users" .. msg.chat_id_, msg.sender_user_id_)--save users gp
 redis:incr(KEEPER.."msgs:"..msg.sender_user_id_..":"..msg.chat_id_.."")--save msgs gp
+if msg.content_.ID == "MessageChatDeleteMember" then
+if tonumber(msg.content_.user_.id_) == tonumber(_redis.Bot_ID) then
+local user_info_ = redis:get(KEEPER.."user:Name" .. msg.sender_user_id_)
+local UserKeeper = user_info_
+if user_info_ then 
+local sudoed = tonumber(Kp_Owner)
+local iD_keeper = [[
+• تم طردِ البوت ، من المجموعه »
+
+- معلومات عن الشخص »
+
+⛲️┊ايديـه ~ (]]..msg.sender_user_id_..[[)
+🚤┊معرفه ~ []]..UserKeeper..[[]
+
+- معلومات المجموعه »
+
+💠┊ اسم المجموعه :
+ﮧ ]]..title_name(msg.chat_id_)..[[
+
+🚫┊ ايدي المجموعه :
+ﮧ ]]..msg.chat_id_..[[
+
+✓‏
+‌‏]]
+send(sudoed, 0, 1,iD_keeper, 1, "md")
+redis:del(KEEPER.."bot:enable:" .. msg.chat_id_)
+redis:srem(KEEPER.."bot:groups", msg.chat_id_)
+end end end
 if msg.content_.ID == "MessageChatAddMembers" then
 redis:incr(KEEPER..'kpaddcon'..msg.chat_id_..':'..msg.sender_user_id_)
 if msg.date_ < os.time() - 40 then
@@ -5050,7 +5078,7 @@ return false
 end
 -------------------------------leave groups----------------------------------------------------------------------
 if is_sudo(msg) and idf:match("-100(%d+)") and (text:match('^'..(redis:get(KEEPER..'keepernams') or 'شلش')..' غادر$')) then
-send(msg.chat_id_, msg.id_, 1, "✺↓ تم مغادره المجموعه ♩†",  1, "md")
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾↓ تم مغادره المجموعه بامر من المطور 🚶🏾👷🏾بي باي گایز ♩†",  1, "md")
 redis:srem(KEEPER.."bot:groups", msg.chat_id_)
 chat_leave(msg.chat_id_, bot_id)
 end
@@ -5097,74 +5125,91 @@ send(msg.chat_id_, msg.id_, 1, "🙋🏻‍♂️┊ هذا العضو اثبت 
 redis:sadd(KEEPER..'bot:vipmem:'..msg.chat_id_, msg.sender_user_id_)
 end
 ------------------------------ADD vipmems BY Reply------------------------------------------------------------------
-if text:match("^رفع مميز عام$") and is_KP(msg) and msg.reply_to_message_id_ ~= 0  then
+if text:match('^رفع مميز عام$') and is_KP(msg) and msg.reply_to_message_id_ ~= 0  then
 function promote_by_reply(extra, result, success)
+local user_info_ = redis:get(KEEPER..'user:Name' .. result.sender_user_id_)
+local UserKeeper = user_info_
+if user_info_ then
 local hash = 'bot:vipmems:'
 if redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n👷🏾┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
 else
 redis:sadd(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو *("..result.sender_user_id_..")*\n👷🏾┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,"🙋🏻‍♂️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ تم رفعه عضو مميز عام ✔️\n‏", 1, "md")
 end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,promote_by_reply)
 end
 ---------------------------ADD vipmems BY USER--------------------------------------------------------------------
-if text:match("^رفع مميز عام @(.*)$") and is_KP(msg) then
-local ap = {string.match(text, "^(رفع مميز عام) @(.*)$")}
+if text:match('^رفع مميز عام @(%S+)$') and is_KP(msg) then
+local ap = {string.match(text, '^(رفع مميز عام) @(%S+)$')}
 function promote_by_username(extra, result, success)
 local hash = 'bot:vipmems:'
 if result.id_ then
-texts = "🔍┊ العضو *("..result.id_..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏"
-redis:sadd(KEEPER..hash, result.id_)
+if redis:sismember(KEEPER..hash, result.id_) then
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » ([@'..ap[2]..'])\n👷🏾┊ مرفوع مميز عام سابقا\n✓‏', 1, 'md')
 else
-texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃'
-end
-send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
-end
+redis:sadd(KEEPER..hash, result.id_)
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » ([@'..ap[2]..'])\n👷🏾┊ تم رفعه مميز عام\n✓‏', 1, 'md')
+end end end
 resolve_username(ap[2],promote_by_username)
 end
 ---------------------------ADD vipmems BY ID--------------------------------------------------------------------
-if text:match("^رفع مميز عام (%d+)$") and is_KP(msg) then
-local ap = {string.match(text, "^(رفع مميز عام) (%d+)$")}
+ if text:match('^رفع مميز عام (%d+)$') and is_KP(msg) then
+local ap = {string.match(text, '^(رفع مميز عام) (%d+)$')}
+local user_info_ = redis:get(KEEPER..'user:Name' .. ap[2])
+local UserKeeper = user_info_
+if user_info_ then
 local hash = 'bot:vipmems:'
-send(msg.chat_id_, msg.id_, 1, "🔍┊ العضو *("..ap[2]..")*\n🌀┊ تم رفعه عضو مميز عام ✔️\n‏", 1, 'md')
+if redis:sismember(KEEPER..hash, ap[2]) then
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ مرفوع مميز عام سابقا\n✓‏', 1, 'md')
+else
 redis:sadd(KEEPER..hash, ap[2])
-end
-----------------------DEL vipmems BY REPLY-------------------------------------------------------------------------
-if text:match("^تنزيل مميز عام$") and is_KP(msg) and msg.reply_to_message_id_ ~= 0 then
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ تم رفعه مميز عام\n✓‏', 1, 'md')
+end end end   
+-----------------DEL vipmems BY REPLY-------------------------------------------------------------------------
+if text:match('^تنزيل مميز عام$') and is_KP(msg) and msg.reply_to_message_id_ ~= 0 then
 function demote_by_reply(extra, result, success)
+local user_info_ = redis:get(KEEPER..'user:Name' .. result.sender_user_id_)
+local UserKeeper = user_info_
+if user_info_ then
 local hash = 'bot:vipmems:'
 if not redis:sismember(KEEPER..hash, result.sender_user_id_) then
-send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏", 1, "md")
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ تم تنزيله مميز عتم سابقا\n‏', 1, 'md')
 else
 redis:srem(KEEPER..hash, result.sender_user_id_)
-send(msg.chat_id_, msg.id_, 1,"🔍┊ العضو *("..result.sender_user_id_..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏", 1, "md")
-end
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ تم حذفه من مميزين العام \n✓‏', 1, 'md')
+end end
 end
 getMessage(msg.chat_id_, msg.reply_to_message_id_,demote_by_reply)
 end
 ------------------------DEL vipmems BY USER-----------------------------------------------------------------------
-if text:match("^تنزيل مميز عام @(.*)$") and is_KP(msg) then
-local ap = {string.match(text, "^(تنزيل مميز عام) @(.*)$")}
+if text:match('^تنزيل مميز عام @(%S+)$') and is_KP(msg) then
+local ap = {string.match(text, '^(تنزيل مميز عام) @(%S+)$')}
 function demote_by_username(extra, result, success)
 local hash = 'bot:vipmems:'
 if result.id_ then
-texts = "🔍┊ العضو *("..result.id_..")*\n🌀┊ تم حذفه من مميزين العام ✔️\n‏"
-redis:srem(KEEPER..hash, result.id_)
+if not redis:sismember(KEEPER..hash, result.id_) then
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » ([@'..ap[2]..'])\n👷🏾┊ تم تنزيله مميز عام سابقا\n‏', 1, 'md')
 else
-texts = '🌀┊ لا يوجد عضو بهذا المعرف 🍃 '
-end
-send(msg.chat_id_, msg.id_, 1, texts, 1, 'md')
-end
+redis:srem(KEEPER..hash, result.id_)
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » ([@'..ap[2]..'])\n👷🏾┊ تم تنزيله من مميزين العام \n✓‏', 1, 'md')
+end end end
 resolve_username(ap[2],demote_by_username)
 end
---------------------------DEL vipmems BY ID---------------------------------------------------------------------
-if text:match("^تنزيل مميز عام (%d+)$") and is_KP(msg) then
-local ap = {string.match(text, "^(تنزيل مميز عام) (%d+)$")}
+------------------------DEL vipmems BY USER-----------------------------------------------------------------------
+if text:match('^تنزيل مميز عام (%d+)$') and is_KP(msg) then
+local ap = {string.match(text, '^(تنزيل مميز عام) (%d+)$')}
+local user_info_ = redis:get(KEEPER..'user:Name' .. ap[2])
+local UserKeeper = user_info_
+if user_info_ then
 local hash = 'bot:vipmems:'
-send(msg.chat_id_, msg.id_, 1, "👷🏾┊ العضو *("..ap[2]..")*\n👷🏾┊ تم حذفه من مميزين العام ✔️\n‏", 1, 'md')
+if not redis:sismember(KEEPER..hash, ap[2]) then
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ تم تنزيله مميز عتم سابقا\n‏', 1, 'md')
+else
 redis:srem(KEEPER..hash, ap[2])
+send(msg.chat_id_, msg.id_, 1,'👨‍✈️┊ العضو » (['..UserKeeper..'])\n👷🏾┊ تم حذفه من مميزين العام \n✓‏', 1, 'md')
+end end
 end
 -----------------------------promote_by_reply-------------------------------------------------------
 if text:match("^رفع ادمن$") and is_owner(msg.sender_user_id_, msg.chat_id_) and msg.reply_to_message_id_ ~= 0  then
