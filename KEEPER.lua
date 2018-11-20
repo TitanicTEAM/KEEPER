@@ -7376,10 +7376,17 @@ local name = fname .. " " .. lname
 local _nl, ctrl_chars = string.gsub(text, "%c", "")
 if string.len(name) > 88899 or ctrl_chars > 7767667 then
 end
-send(msg.chat_id_, msg.id_, 1, "🌀┊ اســمك »\n `" .. name .. "`" , 1, "md")
+send(msg.chat_id_, msg.id_, 1, "✋🏿┊ اسمك »\n `" .. name .. "`" , 1, "md")
 end
 getUser(msg.sender_user_id_, get_me)
 end
+-------------------------------------------------
+if  text:match("^ايديي$") or  text:match("^[Ii]d$") then
+local user_info_ = redis:get(KEEPER.."user:Name" .. msg.sender_user_id_)
+local UserKeeper = user_info_
+if user_info_ then
+send(msg.chat_id_, msg.id_, 1, "•اهلا ~ ["..UserKeeper.."]\n🎧» ايديك  (`"..msg.sender_user_id_.."`)\n✓", 1, "md")
+return false end end      
 -------------------RETBA-------------------------
 if idf:match("-100(%d+)") and text:match("^رتبتي$") and msg.reply_to_message_id_ == 0   then
 local get_me = function(extra, result)
