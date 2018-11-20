@@ -6782,8 +6782,20 @@ send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اهلا سيدي » "..tmkee
 redis:del(KEEPER.."bot:free")
 end end
 -------------------------------------------------  
-if text == 'تفعيل التواصل' and is_devtaha(msg) then local  taha = '•*📡¦*تم تفعيل بوت التواصل  ✔' storm_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") tahadevstorm:del(DEVSTOR..'lock:botl'..bot_id) end       
-if text == 'تعطيل التواصل' and is_devtaha(msg) then taha = '•*📡¦*تم تعطيل التواصل  ❌' storm_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") tahadevstorm:set(DEVSTOR..'lock:botl'..bot_id,true) end      
+if text == 'تفعيل التواصل' then
+if not is_KP(msg) then
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  مطور الاساسي  فقط😹\n🚶🏾", 'md')
+else
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تفعيل التواصل بنجاح\n ✓ ", 1, 'md')
+redis:set(KEEPER.."lock:botl", true)
+end end
+if text == 'تعطيل التواصل' then
+if not is_KP(msg) then
+send(msg.chat_id_, msg.id_, 1, "👷🏾┊ خاب ولي هذه امر  مطور الاساسي  فقط😹\n🚶🏾", 'md')
+else
+send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل التواصل بنجاح\n ✓ ", 1, 'md')
+redis:del(KEEPER.."lock:botl")
+end end      
 ----------start--------------------------------------------------------------
 if text == '/start' then
 local OwnerKP_ = redis:get(KEEPER.."Bot:KpOwnerBot")
