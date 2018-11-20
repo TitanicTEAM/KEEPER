@@ -6781,6 +6781,9 @@ else
 send(msg.chat_id_, msg.id_, 1, "👨🏾‍🌾┊ اهلا سيدي » "..tmkeeper(msg).."\n👷🏾┊ تم تعطيل البوت خدمي\n ✓ ", 1, 'md')
 redis:del(KEEPER.."bot:free")
 end end
+-------------------------------------------------  
+if text == 'تفعيل التواصل' and is_devtaha(msg) then local  taha = '•*📡¦*تم تفعيل بوت التواصل  ✔' storm_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") tahadevstorm:del(DEVSTOR..'lock:botl'..bot_id) end       
+if text == 'تعطيل التواصل' and is_devtaha(msg) then taha = '•*📡¦*تم تعطيل التواصل  ❌' storm_sendMsg( msg.chat_id_, msg.id_, 1, taha, 1, "md") tahadevstorm:set(DEVSTOR..'lock:botl'..bot_id,true) end      
 ----------start--------------------------------------------------------------
 if text == '/start' then
 local OwnerKP_ = redis:get(KEEPER.."Bot:KpOwnerBot")
@@ -7385,7 +7388,7 @@ if  text:match("^ايديي$") or  text:match("^[Ii]d$") then
 local user_info_ = redis:get(KEEPER.."user:Name" .. msg.sender_user_id_)
 local UserKeeper = user_info_
 if user_info_ then
-send(msg.chat_id_, msg.id_, 1, "•اهلا ~ ["..UserKeeper.."]\n🎧» ايديك  (`"..msg.sender_user_id_.."`)\n✓", 1, "md")
+send(msg.chat_id_, msg.id_, 1, "• اهلا عزيزي ~ ["..UserKeeper.."]\n🎧» ايديك  (`"..msg.sender_user_id_.."`)\n✓", 1, "md")
 return false end end      
 -------------------RETBA-------------------------
 if idf:match("-100(%d+)") and text:match("^رتبتي$") and msg.reply_to_message_id_ == 0   then
