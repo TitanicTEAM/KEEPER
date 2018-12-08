@@ -6133,7 +6133,7 @@ function kick_reply(extra, result, success)
 if is_momod(result.sender_user_id_, result.chat_id_) then
 send(msg.chat_id_, msg.id_, 1, '🌀┊ عذراً لا استطيع (حظر،طرد،كتم)المدراء والادمنيه ❗️', 1, 'md')
 else
-send(msg.chat_id_, msg.id_, 1, '👨‍✈️┊ العضو » ('..result.sender_user_id_..')\n⚠️┊ تم طره من المجموعه \n✓‏', 1, 'html')
+send(msg.chat_id_, msg.id_, 1, '👨‍✈️┊ العضو » ('..result.sender_user_id_..')\n⚠️┊ تم طرده من المجموعه \n✓‏', 1, 'html')
 chat_kick(result.chat_id_, result.sender_user_id_)
 end
 end
